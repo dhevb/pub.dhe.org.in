@@ -6,7 +6,7 @@
 2. Set environment variables:
 
 ```
-NEXT_PUBLIC_SITE_URL=https://pub.rase.co.in
+NEXT_PUBLIC_SITE_URL=https://pub.dhe.org.in
 NEXT_PUBLIC_API_URL=https://vie-rase-backend.onrender.com
 ```
 

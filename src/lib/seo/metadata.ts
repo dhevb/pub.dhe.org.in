@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { JournalConfig } from "@/lib/journals/config";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://pub.rase.co.in";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://pub.dhe.org.in";
 
 export const siteConfig = {
   name: "Viksit Bharat Education Journal",

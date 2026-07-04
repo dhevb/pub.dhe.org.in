@@ -3,7 +3,7 @@ import { JournalShell } from "@/components/journal/JournalShell";
 import type { JournalId } from "@/lib/journals/config";
 import { getJournal } from "@/lib/journals/config";
 import { loadPaper } from "@/lib/journals/papers";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { scholarlyArticleSchema } from "@/lib/seo/schemas";
 import type { Metadata } from "next";
@@ -39,7 +39,7 @@ export async function PaperPage({ journalId, paperNum }: PaperPageProps) {
         abstract: data.Abstract || "",
         authors: data.ArticleDetails.Authors?.map((a) => a.Name) || [],
         datePublished: data.ArticleInfo?.Published || "",
-        url: `https://pub.rase.co.in${journal.routePrefix}/Paper${paperNum}`,
+        url: `${siteConfig.url}${journal.routePrefix}/Paper${paperNum}`,
         keywords: data.Keywords,
       })
     : null;
