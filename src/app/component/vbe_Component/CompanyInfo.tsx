@@ -90,22 +90,17 @@ const Navbar = () => {
                     }`}
                   >
                     <li>
-                      <Link href="https://pub.rase.co.in" className="hover:underline hover:text-orange-400 transition duration-300">
+                      <Link href="/" className="hover:underline hover:text-orange-400 transition duration-300">
                         Home
                       </Link>
                     </li>
                     <li>
-                      <Link href="https://pub.rase.co.in/about-us" className="hover:underline hover:text-orange-400 transition duration-300">
+                      <Link href="/AboutUs" className="hover:underline hover:text-orange-400 transition duration-300">
                         About Us
                       </Link>
                     </li>
                     <li>
-                      <Link href="https://pub.rase.co.in/help" className="hover:underline hover:text-orange-400 transition duration-300">
-                        Help
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="https://pub.rase.co.in/contact-support" className="hover:underline hover:text-orange-400 transition duration-300">
+                      <Link href="/ContactUs" className="hover:underline hover:text-orange-400 transition duration-300">
                         Contact and Support
                       </Link>
                     </li>

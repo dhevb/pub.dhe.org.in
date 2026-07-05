@@ -7,7 +7,7 @@ const JournalCard: React.FC = () => (
   <div className="min-h-screen bg-orange-100 flex items-center justify-center">
     <Row gutter={[16, 16]} className="w-full max-w-screen-lg p-4">
       <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='https://vie.rase.co.in/'>
+      <Link href='/vie'>
         <Card title="Viksit India English" bordered={false}>
           <div className="flex justify-center">
             <Image alt="Viksit India" src="/vie.jpeg" height={150} width={300} className="object-contain" />
@@ -16,7 +16,7 @@ const JournalCard: React.FC = () => (
         </Link>
       </Col>
       <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='https://vih.rase.co.in/'>
+      <Link href='/vih'>
         <Card title="Viksit India Hindi" bordered={false}>
           <div className="flex justify-center">
             <Image alt="Viksit India" src="/vih.jpeg" height={150} width={300} className="object-contain" />
@@ -25,7 +25,7 @@ const JournalCard: React.FC = () => (
         </Link>
       </Col>
       <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='https://vbe.rase.co.in/'>
+      <Link href='/vbe'>
         <Card title="Viksit Bharat English" bordered={false}>
           <div className="flex justify-center">
             <Image alt="Viksit Bharat" src="/vbh.png" height={150} width={300} className="object-contain" />
@@ -34,7 +34,7 @@ const JournalCard: React.FC = () => (
         </Link>
       </Col>
       <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='https://vbh.rase.co.in/'>
+      <Link href='/vbh'>
         <Card title="Viksit Bharat Hindi" bordered={false}>
           <div className="flex justify-center">
             <Image alt="Viksit Bharat" src="/vbe.png" height={150} width={300} className="object-contain" />

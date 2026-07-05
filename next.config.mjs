@@ -9,6 +9,13 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/about-us", destination: "/AboutUs", permanent: true },
+      { source: "/contact-support", destination: "/ContactUs", permanent: true },
+      { source: "/help", destination: "/ContactUs", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

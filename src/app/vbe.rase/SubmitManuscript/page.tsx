@@ -9,6 +9,7 @@ import ProgressBar from "../../component/vbe_Component/ProgressBar";
 import Footer from "../../component/vbe_Component/Footer";
 import Header from "../../component/vbe_Component/Header";
 import CompanyInfo from "../../component/vbe_Component/CompanyInfo";
+import { JOURNAL_SUBMIT_URLS } from "@/lib/site-url";
 
 const ManuscriptSubmissionPage: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -16,12 +17,11 @@ const ManuscriptSubmissionPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedWebsite, setSelectedWebsite] = useState<string>("website1");
 
-  // Define a mapping of websites to their respective external routes
   const websiteRoutes: { [key: string]: string } = {
-    website1: "https://vbe.rase.co.in/SubmitManuscript",
-    website2: "https://vbh.rase.co.in/SubmitManuscript",
-    website3: "https://vie.rase.co.in/SubmitManuscript",
-    website4: "https://vih.rase.co.in/SubmitManuscript",
+    website1: JOURNAL_SUBMIT_URLS.vbe,
+    website2: JOURNAL_SUBMIT_URLS.vbh,
+    website3: JOURNAL_SUBMIT_URLS.vie,
+    website4: JOURNAL_SUBMIT_URLS.vih,
   };
 
   useEffect(() => {

@@ -91,22 +91,22 @@ const Navbar = () => {
                 <div className="flex items-center space-x-4">
                   <ul className={`md:flex md:space-x-4 items-center ${isMenuOpen ? 'flex flex-col bg-orange-600 text-white p-4 space-y-4 absolute top-16 left-0 w-full z-10' : 'hidden'}`}>
                   <li>
-                      <Link href="https://pub.rase.co.in" className="text-black hover:underline hover:text-orange-600 transition duration-300 cursor-pointer">
+                      <Link href="/" className="text-black hover:underline hover:text-orange-600 transition duration-300 cursor-pointer">
                         Home
                       </Link>
                     </li>
                     <li>
-                      <Link href="https://pub.rase.co.in/about-us" className="text-black hover:underline hover:text-orange-600 transition duration-300 cursor-pointer">
+                      <Link href="/AboutUs" className="text-black hover:underline hover:text-orange-600 transition duration-300 cursor-pointer">
                         About Us
                       </Link>
                     </li>
                     <li>
-                      <Link href="https://pub.rase.co.in/help" className="text-black hover:underline hover:text-orange-600 transition duration-300 cursor-pointer">
+                      <Link href="/ContactUs" className="text-black hover:underline hover:text-orange-600 transition duration-300 cursor-pointer">
                         Help
                       </Link>
                     </li>
                     <li>
-                      <Link href="https://pub.rase.co.in/contact-support" className="text-black hover:underline hover:text-orange-600 transition duration-300 cursor-pointer">
+                      <Link href="/ContactUs" className="text-black hover:underline hover:text-orange-600 transition duration-300 cursor-pointer">
                         Contact and Support
                       </Link>
                     </li>

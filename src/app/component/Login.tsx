@@ -35,7 +35,7 @@ const Login = () => {
         toast.success("Login successful!");
         
         // Navigate to the new URL
-        router.push("https://vbe.rase.co.in/SubmitManuscript");
+        router.push("/vbe.rase/SubmitManuscript");
       } else {
         toast.error("Login failed. Please check your credentials.");
         console.error("Login failed:", response.data);

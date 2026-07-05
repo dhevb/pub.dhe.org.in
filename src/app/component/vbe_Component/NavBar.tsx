@@ -14,7 +14,7 @@ const NavBar: React.FC = () => {
       path: "/",
       title: "Journal Overview",
       subMenu: [
-        { path: "/vbe.rase.co.in", title: "About this Journal" },
+        { path: "/vbe", title: "About this Journal" },
         { path: "/vbe.rase/EditorialBoard", title: "Editorial Board" },
         { path: "/", title: "Peer Review Process" },
         { path: "", title: "Publication Ethics" },

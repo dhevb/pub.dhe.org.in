@@ -16,7 +16,7 @@ const BooksCard: React.FC = () => (
         </Link>
       </Col>
       <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='https://vih.rase.co.in/'>
+      <Link href='/vih'>
         <Card title="Role of Academic Driven Startups in Developing Economy of Jammu & Kashmir " bordered={false}>
           <div className="flex justify-center">
             <Image alt="Viksit India" src="/Role1.jpeg" height={150} width={300} className="object-contain" />
