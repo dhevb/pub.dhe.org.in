@@ -20,6 +20,54 @@
       "has": [{ "type": "host", "value": "www.pub.rase.co.in" }],
       "destination": "https://pub.dhe.org.in/:path*",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "vbe.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/vbe.rase/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "vbe.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/vbe",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "vie.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/vie.rase/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "vie.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/vie",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "vbh.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/vbh.rase/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "vbh.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/vbh",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "vih.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/vih.rase/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "vih.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/vih",
+      "permanent": true
     }
   ]
 }

@@ -1,7 +1,7 @@
 # Production Checklist
 
 ## Build & Deploy
-- [x] `npm run build` passes (107 routes)
+- [x] `npm run build` passes (111 routes)
 - [x] TypeScript strict mode enabled
 - [x] ESLint passes (warnings only in legacy components)
 - [x] GitHub Actions CI configured
@@ -11,6 +11,7 @@
 ## Content Preservation
 - [x] All 20 static papers accessible
 - [x] All 98+ legacy routes working
+- [x] Legacy domain redirect configs (pub, vbe, vie, vbh, vih)
 - [x] Backward-compatible journal entry routes (/vbe, /vbh, /vie, /vih)
 
 ## SEO

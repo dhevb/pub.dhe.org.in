@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "public": true,
+  "redirects": [
+    { "source": "/", "destination": "https://pub.dhe.org.in/vbh", "permanent": true },
+    { "source": "/:path*", "destination": "https://pub.dhe.org.in/vbh.rase/:path*", "permanent": true }
+  ]
+}

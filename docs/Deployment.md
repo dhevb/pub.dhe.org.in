@@ -15,7 +15,7 @@ NEXT_PUBLIC_API_URL=https://vie-rase-backend.onrender.com
 
 ## Aligning GitHub & Vercel names (optional)
 
-The live site uses **pub.dhe.org.in**. GitHub repo name (`pub.rase.co.in`) and Vercel project name are labels only — they do not change the public URL if the custom domain is set correctly.
+The live site uses **pub.dhe.org.in**. GitHub repo: [shiksha-mahakumbh/pub.dhe.org.in](https://github.com/shiksha-mahakumbh/pub.dhe.org.in)
 
 To rename for consistency:
 
@@ -32,7 +32,25 @@ git remote set-url origin https://github.com/shiksha-mahakumbh/pub.dhe.org.in.gi
 
 ## Legacy domain redirects
 
-If **pub.rase.co.in** or old subdomains (vbe.rase.co.in, etc.) still receive traffic, add them in Vercel → Domains and redirect to `https://pub.dhe.org.in`.
+Standalone redirect projects in `scripts/legacy-redirects/` handle old domains:
+
+| Old domain | Redirect target |
+|------------|-----------------|
+| pub.rase.co.in | https://pub.dhe.org.in |
+| vbe.rase.co.in | https://pub.dhe.org.in/vbe (+ `/vbe.rase/*` paths) |
+| vie.rase.co.in | https://pub.dhe.org.in/vie (+ `/vie.rase/*` paths) |
+| vbh.rase.co.in | https://pub.dhe.org.in/vbh (+ `/vbh.rase/*` paths) |
+| vih.rase.co.in | https://pub.dhe.org.in/vih (+ `/vih.rase/*` paths) |
+
+Deploy a redirect project:
+
+```bash
+cd scripts/legacy-redirects/vbe-rase-co-in
+vercel link --yes --project vbe.rase.co.in --scope dhe-projects
+vercel --prod --yes --scope dhe-projects
+```
+
+The main `vercel.json` also includes host-based redirects when old domains are added to the primary project.
 
 ## Build Verification
 
