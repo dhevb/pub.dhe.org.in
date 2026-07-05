@@ -30,6 +30,7 @@ function JournalHeader({ journal }: { journal: JournalConfig }) {
     { label: "Submit", href: `${journal.routePrefix}/SubmitManuscript` },
     { label: "Editorial Board", href: `${journal.routePrefix}/EditorialBoard` },
     { label: "Indexing", href: `${journal.routePrefix}/Indexing` },
+    { label: "Dashboard", href: "/dashboard" },
     { label: "Contact", href: `${journal.routePrefix}/ContactUs` },
   ];
 

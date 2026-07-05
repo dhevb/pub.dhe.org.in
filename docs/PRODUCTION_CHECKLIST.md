@@ -5,7 +5,8 @@
 - [x] TypeScript strict mode enabled
 - [x] ESLint passes (warnings only in legacy components)
 - [x] GitHub Actions CI configured
-- [ ] Vercel deployment with env vars
+- [x] Vercel deployment with env vars
+- [x] Google Scholar citation meta tags on paper pages
 
 ## Content Preservation
 - [x] All 20 static papers accessible
@@ -22,7 +23,7 @@
 - [x] Open Graph + Twitter Cards
 - [x] Canonical URLs
 - [ ] Google Search Console verification
-- [ ] Google Scholar meta tags per article
+- [x] Google Scholar meta tags per article
 
 ## Accessibility
 - [x] Skip links
@@ -35,7 +36,7 @@
 - [x] Security headers (X-Frame-Options, nosniff)
 - [x] Middleware for protected routes
 - [ ] JWT httpOnly cookies (currently localStorage)
-- [ ] Rate limiting on API routes
+- [x] Rate limiting on requests (middleware)
 - [ ] CSRF protection
 
 ## Future Roadmap

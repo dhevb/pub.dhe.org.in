@@ -7,5 +7,19 @@
     "enabled": true,
     "silent": true,
     "autoJobCancelation": true
-  }
+  },
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "pub.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.pub.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/:path*",
+      "permanent": true
+    }
+  ]
 }

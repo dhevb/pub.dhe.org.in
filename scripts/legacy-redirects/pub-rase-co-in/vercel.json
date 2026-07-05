@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "public": true,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://pub.dhe.org.in",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://pub.dhe.org.in/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import type { JournalId } from "@/lib/journals/config";
 import { getJournal } from "@/lib/journals/config";
 import { loadPaper } from "@/lib/journals/papers";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
+import { googleScholarMetadata } from "@/lib/seo/google-scholar";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { scholarlyArticleSchema } from "@/lib/seo/schemas";
 import type { Metadata } from "next";
@@ -21,12 +22,15 @@ export async function generatePaperMetadata({
   const data = await loadPaper(journalId, paperNum);
   const title = data.ArticleDetails?.Title || `Paper ${paperNum}`;
 
-  return buildMetadata({
-    title,
-    description: data.Abstract?.slice(0, 160),
-    path: `${journal.routePrefix}/Paper${paperNum}`,
-    type: "article",
-  });
+  return {
+    ...buildMetadata({
+      title,
+      description: data.Abstract?.slice(0, 160),
+      path: `${journal.routePrefix}/Paper${paperNum}`,
+      type: "article",
+    }),
+    other: googleScholarMetadata(data),
+  };
 }
 
 export async function PaperPage({ journalId, paperNum }: PaperPageProps) {
