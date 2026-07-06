@@ -10,6 +10,12 @@
   },
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "pub.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "pub.rase.co.in" }],
       "destination": "https://pub.dhe.org.in/:path*",
@@ -70,9 +76,15 @@
       "permanent": true
     },
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "vi.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "vi.rase.co.in" }],
-      "destination": "https://pub.dhe.org.in",
+      "destination": "https://pub.dhe.org.in/:path*",
       "permanent": true
     }
   ]
