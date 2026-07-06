@@ -81,22 +81,11 @@
 | **rase** | rase-co-in Vercel |
 | **dhe.org.in** | ⚠️ May be stale vs dheWeb/dhe-orgin. |
 
-### shiksha-mahakumbh — DELETE (pending `delete_repo` scope)
+### shiksha-mahakumbh — DELETED ✅ (July 6, 2026)
 
-Requires: `gh auth refresh -h github.com -s delete_repo`
+`vbe.rase.co.in`, `vie.rase.co.in`, `vbh.rase.co.in`, `vih.rase.co.in`, `sm24.rase.co.in`, `ac.shikshamahakumbh.com`, `rase.backend`
 
-| Repo | Notes |
-|------|-------|
-| vbe.rase.co.in | Legacy journal — Vercel deleted |
-| vie.rase.co.in | Legacy journal — Vercel deleted |
-| vbh.rase.co.in | Legacy journal — Vercel deleted |
-| vih.rase.co.in | Legacy journal — Vercel deleted |
-| sm24.rase.co.in | Conference — Vercel deleted |
-| ac.shikshamahakumbh.com | AC microsite — Vercel deleted |
-| **rase.backend** | Delete without migration — never in use |
-| **Vie_rase_backend** | Delete without migration — never in use |
-
-### dhevb — DELETE (pending `delete_repo` scope)
+### dhevb — DELETE (needs **dheWeb** org admin)
 
 | Repo | Notes |
 |------|-------|
@@ -118,24 +107,11 @@ Requires: `gh auth refresh -h github.com -s delete_repo`
 
 ## Remaining manual steps
 
-1. **GitHub repo deletion** — one-time browser auth, then run the script:
+1. **dhevb repos (6)** — `shiksha-mahakumbh` has no org admin. Sign in as **dheWeb**:
 
 ```powershell
-gh auth refresh -h github.com -s delete_repo
-# Complete device login in browser, then:
-.\scripts\delete-legacy-github-repos.ps1
-```
-
-Or delete individually:
-
-```bash
-gh repo delete shiksha-mahakumbh/vbe.rase.co.in --yes
-gh repo delete shiksha-mahakumbh/vie.rase.co.in --yes
-gh repo delete shiksha-mahakumbh/vbh.rase.co.in --yes
-gh repo delete shiksha-mahakumbh/vih.rase.co.in --yes
-gh repo delete shiksha-mahakumbh/sm24.rase.co.in --yes
-gh repo delete shiksha-mahakumbh/ac.shikshamahakumbh.com --yes
-gh repo delete shiksha-mahakumbh/rase.backend --yes
+gh auth login -h github.com -s delete_repo
+# Sign in as dheWeb, then:
 gh repo delete dhevb/nitsri-dhe-org-in --yes
 gh repo delete dhevb/nitkkr-dhe-org-in --yes
 gh repo delete dhevb/nitj-dhe-org-in --yes
@@ -154,5 +130,6 @@ gh repo delete dhevb/sm25.rase.co.in --yes
 |--------|--------|--------|
 | **Keep (canonical)** | 4 | 4–5 |
 | **Deleted (Vercel)** | 21 | — |
-| **Pending delete (GitHub)** | — | 13 |
+| **Deleted (GitHub shiksha-mahakumbh)** | — | 7 |
+| **Pending delete (GitHub dhevb)** | — | 6 |
 | **Do not touch** | 7 | 3+ |
