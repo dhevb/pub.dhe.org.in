@@ -2,7 +2,7 @@
 
 **Date:** July 6, 2026  
 **Last updated:** July 6, 2026 (cleanup completed)  
-**Scope:** Full inventory of `dhe-projects` Vercel + GitHub (`shiksha-mahakumbh`, `dhevb`, `dheWeb`)
+**Scope:** Full inventory of `dhe-projects` Vercel + GitHub (`dhevb` org — consolidated July 6, 2026)
 
 ## Target architecture (canonical)
 
@@ -25,10 +25,10 @@
 
 | Vercel project | Production URL | GitHub source |
 |----------------|----------------|---------------|
-| **dhe-orgin-ctai** | www.dhe.org.in | `dheWeb/dhe-orgin.` |
-| **tejas** | tejas.dhe.org.in | `dheWeb/tejas` |
-| **pub.dhe.org.in** | pub.dhe.org.in | `shiksha-mahakumbh/pub.dhe.org.in` |
-| **rase-co-in** | www.rase.co.in | `shiksha-mahakumbh/rase` |
+| **dhe-orgin-ctai** | www.dhe.org.in | `dhevb/dhe-orgin.` |
+| **tejas** | tejas.dhe.org.in | `dhevb/tejas` |
+| **pub.dhe.org.in** | pub.dhe.org.in | `dhevb/pub.dhe.org.in` |
+| **rase-co-in** | www.rase.co.in | `dhevb/rase` |
 
 ### TIER 4 — DO NOT TOUCH (unrelated products)
 
@@ -71,20 +71,25 @@
 
 ---
 
-## GitHub audit
+## GitHub audit — all canonical repos on `dhevb` org
 
-### shiksha-mahakumbh — KEEP
+### dhevb — CANONICAL (July 6, 2026)
 
 | Repo | Maps to |
 |------|---------|
+| **dhe-orgin.** | dhe-orgin-ctai → www.dhe.org.in |
+| **tejas** | tejas → tejas.dhe.org.in |
 | **pub.dhe.org.in** | pub.dhe.org.in Vercel |
-| **rase** | rase-co-in Vercel |
+| **rase** | rase-co-in → www.rase.co.in |
+| swadeshi-bazaar-backend | 🔒 UNTOUCH |
+| event_mangement | 🔒 UNTOUCH |
 
-**Deleted:** `dhe.org.in` — stale duplicate of [`dheWeb/dhe-orgin.`](https://github.com/dheWeb/dhe-orgin.) (July 6, 2026)
+**Migrated from `dheWeb`:** `dhe-orgin.`, `tejas`, `swadeshi-bazaar-backend`, `event_mangement` (transferred)  
+**Migrated from `shiksha-mahakumbh`:** `pub.dhe.org.in`, `rase` (forked to org, originals deleted)
 
-### shiksha-mahakumbh — DELETED ✅ (July 6, 2026)
+### shiksha-mahakumbh / dheWeb user accounts
 
-`vbe.rase.co.in`, `vie.rase.co.in`, `vbh.rase.co.in`, `vih.rase.co.in`, `sm24.rase.co.in`, `ac.shikshamahakumbh.com`, `rase.backend`
+All production repos moved to **`dhevb`**. User accounts retained for auth/deploy only.
 
 ### dhevb — DELETED ✅ (July 6, 2026)
 
@@ -92,16 +97,9 @@
 
 **Also deleted (private repos, visible to org admin):** `sk23/sk24/sk25-rase-co-in`, `vi-rase-co-in`, `vi-rase`, `ac-rase-co-in`, `rase-co-in`
 
-### dhevb — KEEP (Swadeshi Bazaar only)
+### dhevb — other (untouched commercial projects)
 
-### dheWeb — KEEP (canonical only)
-
-| Repo | Maps to |
-|------|---------|
-| **dhe-orgin.** | dhe-orgin-ctai (canonical DHE) |
-| **tejas** | tejas Vercel |
-| swadeshi-bazaar-backend | 🔒 UNTOUCH |
-| event_mangement | 🔒 UNTOUCH |
+`sarvatr`, `tudu-co-in`, `Tredul`, `HolisticHarbor`, `sb_frontend`, `sb_frontendnew`, etc.
 
 ### dheWeb — DELETED ✅ (July 6, 2026)
 
@@ -111,7 +109,8 @@
 
 ## Remaining manual steps
 
-1. **DNS cleanup** (optional) — remove stale A/CNAME for deleted conference subdomains (sk23/sk24/sk25/sm24/ac).
+1. **Vercel Git reconnect** — point each Vercel project to `dhevb/*` repo (Settings → Git) if deploy webhooks break.
+2. **DNS cleanup** (optional) — remove stale A/CNAME for deleted conference subdomains (sk23/sk24/sk25/sm24/ac).
 
 ---
 
