@@ -68,6 +68,12 @@
       "has": [{ "type": "host", "value": "vih.rase.co.in" }],
       "destination": "https://pub.dhe.org.in/vih",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "vi.rase.co.in" }],
+      "destination": "https://pub.dhe.org.in",
+      "permanent": true
     }
   ]
 }
