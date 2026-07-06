@@ -79,7 +79,8 @@
 |------|---------|
 | **pub.dhe.org.in** | pub.dhe.org.in Vercel |
 | **rase** | rase-co-in Vercel |
-| **dhe.org.in** | ⚠️ May be stale vs dheWeb/dhe-orgin. |
+
+**Deleted:** `dhe.org.in` — stale duplicate of [`dheWeb/dhe-orgin.`](https://github.com/dheWeb/dhe-orgin.) (July 6, 2026)
 
 ### shiksha-mahakumbh — DELETED ✅ (July 6, 2026)
 
