@@ -44,4 +44,4 @@ See [docs/Deployment.md](docs/Deployment.md) and [docs/PRODUCTION_CHECKLIST.md](
 
 ## Repository
 
-[github.com/shiksha-mahakumbh/pub.dhe.org.in](https://github.com/shiksha-mahakumbh/pub.dhe.org.in)
+[github.com/dhevb/pub.dhe.org.in](https://github.com/dhevb/pub.dhe.org.in)

@@ -15,7 +15,7 @@ NEXT_PUBLIC_API_URL=https://vie-rase-backend.onrender.com
 
 ## Aligning GitHub & Vercel names (optional)
 
-The live site uses **pub.dhe.org.in**. GitHub repo: [shiksha-mahakumbh/pub.dhe.org.in](https://github.com/shiksha-mahakumbh/pub.dhe.org.in)
+The live site uses **pub.dhe.org.in**. GitHub repo: [dhevb/pub.dhe.org.in](https://github.com/dhevb/pub.dhe.org.in)
 
 To rename for consistency:
 
@@ -27,7 +27,7 @@ To rename for consistency:
 After rename, update the Git remote URL locally:
 
 ```bash
-git remote set-url origin https://github.com/shiksha-mahakumbh/pub.dhe.org.in.git
+git remote set-url origin https://github.com/dhevb/pub.dhe.org.in.git
 ```
 
 ## Legacy domain redirects

@@ -2,7 +2,7 @@
 
 **Date:** July 6, 2026  
 **Status:** Vercel cleanup **COMPLETE** — GitHub deletion pending `delete_repo` scope  
-**Replacement platform:** [pub.dhe.org.in](https://pub.dhe.org.in) (`shiksha-mahakumbh/pub.dhe.org.in`)
+**Replacement platform:** [pub.dhe.org.in](https://pub.dhe.org.in) (`dhevb/pub.dhe.org.in`)
 
 ---
 
