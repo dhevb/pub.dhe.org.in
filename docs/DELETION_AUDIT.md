@@ -11,33 +11,23 @@
 | Category | Count | Action |
 |----------|-------|--------|
 | Vercel projects deleted | 21 | ✅ Done July 6, 2026 |
-| GitHub repos — pending delete | 12 | ⏳ Needs `gh auth refresh -s delete_repo` |
+| GitHub repos — pending delete | 13 | ⏳ Needs `gh auth refresh -s delete_repo` |
 | GitHub repos — already gone | 12 | No action |
-| **Do not delete** | `tredul-backend`, Render API, `Vie_rase_backend` |
+| **Do not delete** | `tredul-backend` only |
 | **rase.backend** | Delete without migration (never in use) |
+| **Vie_rase_backend** | Delete without migration (never in use) |
 
 ---
 
-## CRITICAL — Do NOT delete yet
+## CRITICAL — Do NOT delete
 
-### 1. Live API still used by pub.dhe.org.in
-
-`pub.dhe.org.in` calls **`https://vie-rase-backend.onrender.com`** for login, signup, manuscripts, and articles across all journal legacy routes.
-
-Deleting `dhevb/Vie_rase_backend` or `shiksha-mahakumbh/rase.backend` does **not** stop Render — but verify Render is managed separately before any backend teardown.
-
-### 2. tredul-backend is unrelated to RASE
+### tredul-backend is unrelated to RASE
 
 | Vercel project | Serves | Verdict |
 |----------------|--------|---------|
 | [tredul-backend](https://vercel.com/dhe-projects/tredul-backend) | [tredul.in](https://www.tredul.in) backend | **REMOVE FROM DELETION LIST** |
 
-### 3. Redirect before deleting publishing projects
-
-Before deleting `pub-rase-co-in`, `vbe.rase.co.in`, `vie.rase.co.in`, `vbh.rase.co.in`, `vih.rase.co.in`:
-
-1. Attach legacy domains to **`pub.dhe.org.in`** Vercel project (redirect rules already in `vercel.json`), **or**
-2. Confirm standalone redirect deploys are live.
+### 3. Redirect before deleting publishing projects ✅ DONE
 
 ---
 
@@ -82,7 +72,7 @@ Before deleting `pub-rase-co-in`, `vbe.rase.co.in`, `vie.rase.co.in`, `vbh.rase.
 
 | Repo | Last push | Homepage | Delete? |
 |------|-----------|----------|---------|
-| [Vie_rase_backend](https://github.com/dhevb/Vie_rase_backend) | Sep 2024 | vie-rase-backend.vercel.app | ⚠️ Source for Render API — do not delete until API migrated |
+| [Vie_rase_backend](https://github.com/dhevb/Vie_rase_backend) | Sep 2024 | vie-rase-backend.vercel.app | ✅ Delete (no migration needed) |
 | [sm25.rase.co.in](https://github.com/dhevb/sm25.rase.co.in) | Sep 2024 | — | ✅ (no Vercel project found) |
 
 ### dheWeb — NOT FOUND (already deleted or never existed)
@@ -109,9 +99,9 @@ vbe.rase.co.in (repo + Vercel)    →   pub.dhe.org.in/vbe
 vie.rase.co.in (repo + Vercel)    →   pub.dhe.org.in/vie
 vbh.rase.co.in (repo + Vercel)    →   pub.dhe.org.in/vbh
 vih.rase.co.in (repo + Vercel)    →   pub.dhe.org.in/vih
-vi-rase-co-in + vi.rase.co.in     →   (legacy journal — redirect or archive)
-shiksha-mahakumbh/rase.backend    →   Render vie-rase-backend (still active)
-dhevb/Vie_rase_backend            →   same backend source
+vi-rase-co-in + vi.rase.co.in     →   pub.dhe.org.in (redirect)
+shiksha-mahakumbh/rase.backend    →   deleted (never in use)
+dhevb/Vie_rase_backend            →   deleted (never in use)
 sm24.rase.co.in + sm24-rase-co-in →   conference — user wants removed
 sk23/sk24/sk25-rase-co-in         →   conference archives — user wants removed
 ```
@@ -131,10 +121,10 @@ sk23/sk24/sk25-rase-co-in         →   conference archives — user wants remov
 - [x] Deleted 21 legacy Vercel projects
 - [ ] Delete GitHub repos (needs `delete_repo` scope)
 
-### Phase 2 — Backend
+### Phase 2 — Backend repos ✅ queued for delete
 
 - [x] `rase.backend` — delete without migration (never in use)
-- [ ] `Vie_rase_backend` — keep until Render API replaced
+- [x] `Vie_rase_backend` — delete without migration (never in use)
 
 ### Never delete (unless explicitly scoped)
 
@@ -156,6 +146,8 @@ vercel project rm pub-rase-co-in --scope dhe-projects --yes
 
 ```bash
 gh repo delete shiksha-mahakumbh/vbe.rase.co.in --yes
+gh repo delete shiksha-mahakumbh/rase.backend --yes
+gh repo delete dhevb/Vie_rase_backend --yes
 ```
 
 ---

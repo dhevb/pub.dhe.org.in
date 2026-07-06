@@ -93,7 +93,8 @@ Requires: `gh auth refresh -h github.com -s delete_repo`
 | vih.rase.co.in | Legacy journal — Vercel deleted |
 | sm24.rase.co.in | Conference — Vercel deleted |
 | ac.shikshamahakumbh.com | AC microsite — Vercel deleted |
-| **rase.backend** | **Delete without migration** — was never in use; Render API is separate |
+| **rase.backend** | Delete without migration — never in use |
+| **Vie_rase_backend** | Delete without migration — never in use |
 
 ### dhevb — DELETE (pending `delete_repo` scope)
 
@@ -103,7 +104,7 @@ Requires: `gh auth refresh -h github.com -s delete_repo`
 | nitkkr-dhe-org-in | Migrated to dhe.org.in/nitkkr |
 | nitj-dhe-org-in | Migrated to dhe.org.in/nitj |
 | iitr-dhe-org-in | Migrated to dhe.org.in/iitrpr |
-| Vie_rase_backend | Render API source — keep until API migration |
+| **Vie_rase_backend** | Delete without migration — never in use |
 | sm25.rase.co.in | Unused conference |
 
 ### dheWeb — KEEP
@@ -131,12 +132,11 @@ gh repo delete dhevb/nitsri-dhe-org-in --yes
 gh repo delete dhevb/nitkkr-dhe-org-in --yes
 gh repo delete dhevb/nitj-dhe-org-in --yes
 gh repo delete dhevb/iitr-dhe-org-in --yes
+gh repo delete dhevb/Vie_rase_backend --yes
 gh repo delete dhevb/sm25.rase.co.in --yes
 ```
 
-2. **Render API** (`vie-rase-backend.onrender.com`) — still used by pub.dhe.org.in for login/manuscripts; `Vie_rase_backend` repo kept until API migration.
-
-3. **DNS cleanup** (optional) — remove stale A/CNAME for deleted conference subdomains (sk23/sk24/sk25/sm24/ac).
+2. **DNS cleanup** (optional) — remove stale A/CNAME for deleted conference subdomains (sk23/sk24/sk25/sm24/ac).
 
 ---
 
@@ -146,5 +146,5 @@ gh repo delete dhevb/sm25.rase.co.in --yes
 |--------|--------|--------|
 | **Keep (canonical)** | 4 | 4–5 |
 | **Deleted (Vercel)** | 21 | — |
-| **Pending delete (GitHub)** | — | 12 |
+| **Pending delete (GitHub)** | — | 13 |
 | **Do not touch** | 7 | 3+ |
