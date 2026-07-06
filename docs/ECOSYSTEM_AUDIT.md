@@ -109,7 +109,7 @@ All production repos moved to **`dhevb`**. User accounts retained for auth/deplo
 
 ## Remaining manual steps
 
-1. **Vercel Git reconnect** — point each Vercel project to `dhevb/*` repo (Settings → Git) if deploy webhooks break.
+1. ~~**Vercel Git reconnect**~~ ✅ Done July 6, 2026 — all 4 projects connected to `dhevb/*`
 2. **DNS cleanup** (optional) — remove stale A/CNAME for deleted conference subdomains (sk23/sk24/sk25/sm24/ac).
 
 ---
