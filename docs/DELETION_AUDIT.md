@@ -11,7 +11,7 @@
 | Category | Count | Action |
 |----------|-------|--------|
 | Vercel projects deleted | 21 | ✅ Done July 6, 2026 |
-| GitHub repos — pending delete | 13 | ⏳ Needs `gh auth refresh -s delete_repo` |
+| GitHub repos — deleted | 13 | ✅ Done July 6, 2026 |
 | GitHub repos — already gone | 12 | No action |
 | **Do not delete** | `tredul-backend` only |
 | **rase.backend** | Delete without migration (never in use) |
@@ -119,7 +119,7 @@ sk23/sk24/sk25-rase-co-in         →   conference archives — user wants remov
 ### Phase 1 — Publishing duplicates ✅ Vercel DONE
 
 - [x] Deleted 21 legacy Vercel projects
-- [ ] Delete GitHub repos (needs `delete_repo` scope)
+- [x] Delete GitHub repos (7 shiksha-mahakumbh + 6 dhevb)
 
 ### Phase 2 — Backend repos ✅ queued for delete
 

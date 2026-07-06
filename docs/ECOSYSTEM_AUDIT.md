@@ -85,16 +85,9 @@
 
 `vbe.rase.co.in`, `vie.rase.co.in`, `vbh.rase.co.in`, `vih.rase.co.in`, `sm24.rase.co.in`, `ac.shikshamahakumbh.com`, `rase.backend`
 
-### dhevb — DELETE (needs **dheWeb** org admin)
+### dhevb — DELETED ✅ (July 6, 2026)
 
-| Repo | Notes |
-|------|-------|
-| nitsri-dhe-org-in | Migrated to dhe.org.in/nitsri |
-| nitkkr-dhe-org-in | Migrated to dhe.org.in/nitkkr |
-| nitj-dhe-org-in | Migrated to dhe.org.in/nitj |
-| iitr-dhe-org-in | Migrated to dhe.org.in/iitrpr |
-| **Vie_rase_backend** | Delete without migration — never in use |
-| sm25.rase.co.in | Unused conference |
+`nitsri-dhe-org-in`, `nitkkr-dhe-org-in`, `nitj-dhe-org-in`, `iitr-dhe-org-in`, `Vie_rase_backend`, `sm25.rase.co.in`
 
 ### dheWeb — KEEP
 
@@ -107,20 +100,7 @@
 
 ## Remaining manual steps
 
-1. **dhevb repos (6)** — `shiksha-mahakumbh` has no org admin. Sign in as **dheWeb**:
-
-```powershell
-gh auth login -h github.com -s delete_repo
-# Sign in as dheWeb, then:
-gh repo delete dhevb/nitsri-dhe-org-in --yes
-gh repo delete dhevb/nitkkr-dhe-org-in --yes
-gh repo delete dhevb/nitj-dhe-org-in --yes
-gh repo delete dhevb/iitr-dhe-org-in --yes
-gh repo delete dhevb/Vie_rase_backend --yes
-gh repo delete dhevb/sm25.rase.co.in --yes
-```
-
-2. **DNS cleanup** (optional) — remove stale A/CNAME for deleted conference subdomains (sk23/sk24/sk25/sm24/ac).
+1. **DNS cleanup** (optional) — remove stale A/CNAME for deleted conference subdomains (sk23/sk24/sk25/sm24/ac).
 
 ---
 
@@ -130,6 +110,5 @@ gh repo delete dhevb/sm25.rase.co.in --yes
 |--------|--------|--------|
 | **Keep (canonical)** | 4 | 4–5 |
 | **Deleted (Vercel)** | 21 | — |
-| **Deleted (GitHub shiksha-mahakumbh)** | — | 7 |
-| **Pending delete (GitHub dhevb)** | — | 6 |
+| **Deleted (GitHub)** | — | 13 |
 | **Do not touch** | 7 | 3+ |
