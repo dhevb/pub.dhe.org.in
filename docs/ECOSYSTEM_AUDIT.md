@@ -118,7 +118,15 @@ Requires: `gh auth refresh -h github.com -s delete_repo`
 
 ## Remaining manual steps
 
-1. **GitHub repo deletion** — run after `gh auth refresh -h github.com -s delete_repo`:
+1. **GitHub repo deletion** — one-time browser auth, then run the script:
+
+```powershell
+gh auth refresh -h github.com -s delete_repo
+# Complete device login in browser, then:
+.\scripts\delete-legacy-github-repos.ps1
+```
+
+Or delete individually:
 
 ```bash
 gh repo delete shiksha-mahakumbh/vbe.rase.co.in --yes
