@@ -87,7 +87,11 @@
 
 ### dhevb — DELETED ✅ (July 6, 2026)
 
-`nitsri-dhe-org-in`, `nitkkr-dhe-org-in`, `nitj-dhe-org-in`, `iitr-dhe-org-in`, `Vie_rase_backend`, `sm25.rase.co.in`
+`nitsri-dhe-org-in`, `nitkkr-dhe-org-in`, `nitj-dhe-org-in`, `iitr-dhe-org-in`, `Vie_rase_backend`, `sm25.rase.co.in`, `dhe-org-in`, `new-shiksha-mahakumbh`, `shikshamahakumbh`
+
+**Also deleted (private repos, visible to org admin):** `sk23/sk24/sk25-rase-co-in`, `vi-rase-co-in`, `vi-rase`, `ac-rase-co-in`, `rase-co-in`
+
+### dhevb — KEEP (Swadeshi Bazaar only)
 
 ### dheWeb — KEEP
 
