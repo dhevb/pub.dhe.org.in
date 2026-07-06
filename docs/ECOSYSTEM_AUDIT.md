@@ -93,12 +93,18 @@
 
 ### dhevb — KEEP (Swadeshi Bazaar only)
 
-### dheWeb — KEEP
+### dheWeb — KEEP (canonical only)
 
 | Repo | Maps to |
 |------|---------|
 | **dhe-orgin.** | dhe-orgin-ctai (canonical DHE) |
 | **tejas** | tejas Vercel |
+| swadeshi-bazaar-backend | 🔒 UNTOUCH |
+| event_mangement | 🔒 UNTOUCH |
+
+### dheWeb — DELETED ✅ (July 6, 2026)
+
+`dhe.org.in`, `pub-rase-co-in`, `sm24-rase-co-in`, `vih/vbh/vbe/vie-rase-co-in`, `sk25-rase-co-in`, `sm25-rase-co-in` — all superseded by canonical repos or removed as legacy
 
 ---
 
