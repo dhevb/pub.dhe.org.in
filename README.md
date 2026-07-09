@@ -34,10 +34,13 @@ Open [http://localhost:3000](http://localhost:3000).
 ## QA & Launch
 
 ```bash
-npm run qa:papers    # Verify 20 paper JSON files
+npm run test          # Unit + regression tests (Vitest)
+npm run test:coverage # Coverage on critical lib modules
+npm run qa:papers     # Verify 20 paper JSON files
 npm run build
 npm run lint
-npm run qa:smoke     # HTTP smoke test (requires running server)
+npm run qa:smoke      # HTTP smoke test (requires running server)
+npm run qa:all        # Full pre-release pipeline
 ```
 
 See [docs/LAUNCH_READINESS.md](docs/LAUNCH_READINESS.md) for the full Phase 6 checklist.
@@ -46,6 +49,8 @@ See [docs/LAUNCH_READINESS.md](docs/LAUNCH_READINESS.md) for the full Phase 6 ch
 
 | Guide | Description |
 |-------|-------------|
+| [docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md) | **Master engineering constitution** — include in new Cursor chats |
+| [docs/ARCHITECTURE_DECISIONS.md](docs/ARCHITECTURE_DECISIONS.md) | Architecture Decision Records (ADR) |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Folder structure, BFF pattern, middleware, auth flow |
 | [docs/API_REFERENCE.md](docs/API_REFERENCE.md) | All `/api/*` routes and backend proxies |
 | [docs/DATABASE.md](docs/DATABASE.md) | CMS JSON, paper files, backend data model |
@@ -59,7 +64,7 @@ See [docs/LAUNCH_READINESS.md](docs/LAUNCH_READINESS.md) for the full Phase 6 ch
 | [docs/CHANGELOG.md](docs/CHANGELOG.md) | Version history (Phases 1–9) |
 | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Common build, auth, API, and deploy issues |
 
-**Phase reports:** [PERFORMANCE_AUDIT](docs/PERFORMANCE_AUDIT.md) · [PERFORMANCE_FINAL_REPORT](docs/PERFORMANCE_FINAL_REPORT.md) · [PHASE8_FINAL_REPORT](docs/PHASE8_FINAL_REPORT.md) · [PRODUCTION_CHECKLIST](docs/PRODUCTION_CHECKLIST.md)
+**Phase reports:** [DEPENDENCY_AUDIT](docs/DEPENDENCY_AUDIT.md) · [PERFORMANCE_AUDIT](docs/PERFORMANCE_AUDIT.md) · [PERFORMANCE_FINAL_REPORT](docs/PERFORMANCE_FINAL_REPORT.md) · [PHASE8_FINAL_REPORT](docs/PHASE8_FINAL_REPORT.md) · [PRODUCTION_CHECKLIST](docs/PRODUCTION_CHECKLIST.md)
 
 ## Environment Variables
 
