@@ -14,6 +14,7 @@ export function organizationSchema() {
     email: siteConfig.email,
     description: siteConfig.description,
     sameAs: [],
+    issn: "2278-1757",
   };
 }
 
@@ -51,6 +52,7 @@ export function journalSchema(journal: JournalConfig) {
     },
     description: siteConfig.description,
     isAccessibleForFree: true,
+    issn: journal.issn,
   };
 }
 

@@ -30,6 +30,7 @@ export const JOURNALS: Record<JournalId, JournalConfig> = {
     apiPrefix: "vbe",
     paperCount: 5,
     publisher: "Department of Holistic Education",
+    issn: "2278-1757",
   },
   vbh: {
     id: "vbh",
@@ -44,6 +45,7 @@ export const JOURNALS: Record<JournalId, JournalConfig> = {
     apiPrefix: "vbh",
     paperCount: 5,
     publisher: "Department of Holistic Education",
+    issn: "2278-1757",
   },
   vie: {
     id: "vie",
@@ -58,6 +60,7 @@ export const JOURNALS: Record<JournalId, JournalConfig> = {
     apiPrefix: "vie",
     paperCount: 5,
     publisher: "Department of Holistic Education",
+    issn: "2278-1757",
   },
   vih: {
     id: "vih",
@@ -72,6 +75,7 @@ export const JOURNALS: Record<JournalId, JournalConfig> = {
     apiPrefix: "vih",
     paperCount: 5,
     publisher: "Department of Holistic Education",
+    issn: "2278-1757",
   },
 };
 
