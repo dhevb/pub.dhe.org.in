@@ -1,13 +1,6 @@
-import Image from "next/image";
-import AboutUs from "../component/AboutUs";
-import CompanyInfo from "../component/CompanyInfo";
-export default function Home() {
-  return (
-   <>
-   
-    <AboutUs />
+import { redirect } from "next/navigation";
 
-
-   </>
-  );
+/** Legacy route — permanent redirect to /about */
+export default function AboutUsLegacyPage() {
+  redirect("/about");
 }

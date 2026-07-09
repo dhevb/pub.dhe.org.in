@@ -1,7 +1,9 @@
 import { Providers } from "@/components/Providers";
+import { JsonLd } from "@/components/seo/JsonLd";
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Noto_Sans_Devanagari } from "next/font/google";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { organizationSchema, websiteSchema } from "@/lib/seo/schemas";
 import "./globals.css";
 
 const inter = Inter({
@@ -26,8 +28,8 @@ export const metadata: Metadata = buildMetadata({});
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#FF6B00" },
-    { media: "(prefers-color-scheme: dark)", color: "#1A237E" },
+    { media: "(prefers-color-scheme: light)", color: "#FF9933" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A1628" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -42,6 +44,9 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} ${notoDevanagari.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
+      </head>
       <body className="min-h-screen bg-background font-body antialiased">
         <Providers>
           <a href="#main-content" className="skip-link">

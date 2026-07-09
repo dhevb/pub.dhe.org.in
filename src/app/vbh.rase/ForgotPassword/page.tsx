@@ -1,14 +1,10 @@
-"use client";
-import ForgotPassword from "../../component/vbh_Component/ForgotPassword"
-const page = () => {
-  
-    
-  return (
-      <div>
-        <ForgotPassword/>
-      </div>
-    )
+﻿import { ForgotPasswordPageView } from "@/components/journal/views";
+import { journalPageMetadata } from "@/components/journal/JournalPage";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = journalPageMetadata("vbh", "Forgot Password", "/ForgotPassword", undefined, true);
+
+export default function Page() {
+  return <ForgotPasswordPageView journalId="vbh" />;
 }
 
-export default page

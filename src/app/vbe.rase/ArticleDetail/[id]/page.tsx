@@ -1,17 +1,20 @@
-import { DynamicArticleDetail } from "@/components/journal/DynamicArticleDetail";
-import { JournalShell } from "@/components/journal/JournalShell";
-import { getJournal } from "@/lib/journals/config";
+import {
+  ArticleDetailPage,
+  generateArticleDetailMetadata,
+} from "@/components/journal/ArticleDetailPage";
+import type { JournalId } from "@/lib/journals/config";
+import type { Metadata } from "next";
 
-const journal = getJournal("vbe");
+const journalId = "vbe" as const satisfies JournalId;
 
 interface Props {
   params: { id: string };
 }
 
-export default function ArticleDetailPage({ params }: Props) {
-  return (
-    <JournalShell journal={journal}>
-      <DynamicArticleDetail id={params.id} journalId="vbe" />
-    </JournalShell>
-  );
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return generateArticleDetailMetadata({ journalId, id: params.id });
+}
+
+export default function Page({ params }: Props) {
+  return <ArticleDetailPage journalId={journalId} id={params.id} />;
 }

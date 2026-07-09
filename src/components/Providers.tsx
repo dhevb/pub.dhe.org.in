@@ -7,7 +7,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
       <NextTopLoader
-        color="#FF6B00"
+        color="#FF9933"
         initialPosition={0.08}
         crawlSpeed={200}
         height={3}

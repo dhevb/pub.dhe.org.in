@@ -1,4 +1,8 @@
 import { ArticleRenderer } from "@/components/journal/ArticleRenderer";
+import {
+  buildPaperBreadcrumbs,
+  buildPaperJsonLd,
+} from "@/components/journal/ArticleDetailPage";
 import { JournalShell } from "@/components/journal/JournalShell";
 import type { JournalId } from "@/lib/journals/config";
 import { getJournal } from "@/lib/journals/config";
@@ -6,7 +10,6 @@ import { loadPaper } from "@/lib/journals/papers";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { googleScholarMetadata } from "@/lib/seo/google-scholar";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { scholarlyArticleSchema } from "@/lib/seo/schemas";
 import type { Metadata } from "next";
 
 interface PaperPageProps {
@@ -21,36 +24,35 @@ export async function generatePaperMetadata({
   const journal = getJournal(journalId);
   const data = await loadPaper(journalId, paperNum);
   const title = data.ArticleDetails?.Title || `Paper ${paperNum}`;
+  const path = `${journal.routePrefix}/Paper${paperNum}`;
 
   return {
     ...buildMetadata({
       title,
       description: data.Abstract?.slice(0, 160),
-      path: `${journal.routePrefix}/Paper${paperNum}`,
+      path,
       type: "article",
+      journal,
+      keywords: data.Keywords?.split(",").map((k) => k.trim()),
     }),
-    other: googleScholarMetadata(data),
+    other: {
+      ...(googleScholarMetadata(data, journal) as Record<string, string | string[]>),
+      citation_pdf_url: `${siteConfig.url}${path}`,
+    },
   };
 }
 
 export async function PaperPage({ journalId, paperNum }: PaperPageProps) {
   const journal = getJournal(journalId);
   const data = await loadPaper(journalId, paperNum);
+  const title = data.ArticleDetails?.Title || `Paper ${paperNum}`;
 
-  const schema = data.ArticleDetails
-    ? scholarlyArticleSchema({
-        title: data.ArticleDetails.Title,
-        abstract: data.Abstract || "",
-        authors: data.ArticleDetails.Authors?.map((a) => a.Name) || [],
-        datePublished: data.ArticleInfo?.Published || "",
-        url: `${siteConfig.url}${journal.routePrefix}/Paper${paperNum}`,
-        keywords: data.Keywords,
-      })
-    : null;
+  const schema = buildPaperJsonLd(journalId, paperNum, data);
+  const breadcrumbs = buildPaperBreadcrumbs(journalId, paperNum, title);
 
   return (
     <JournalShell journal={journal}>
-      {schema && <JsonLd data={schema} />}
+      <JsonLd data={[breadcrumbs, ...(schema ? [schema] : [])]} />
       <ArticleRenderer data={data} />
     </JournalShell>
   );

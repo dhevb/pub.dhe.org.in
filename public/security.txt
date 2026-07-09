@@ -1,0 +1,7 @@
+Contact: mailto:pub.dhe4@gmail.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, hi
+Canonical: https://pub.dhe.org.in/.well-known/security.txt
+
+# Viksit Bharat Journal — Security Contact
+# Report vulnerabilities responsibly to pub.dhe4@gmail.com

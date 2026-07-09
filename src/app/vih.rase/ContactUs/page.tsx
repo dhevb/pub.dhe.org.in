@@ -1,30 +1,9 @@
-'use client';
-import React from 'react'
-import Footer from '../../component/vih_Component/Footer';
-import Header from '../../component/vih_Component/Header';
-import CompanyInfo from '../../component/vih_Component/CompanyInfo';
-import ContactUs from '../../component/vih_Component/ContactUs';
+﻿import { ContactPageView } from "@/components/journal/views";
+import { journalPageMetadata } from "@/components/journal/JournalPage";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = journalPageMetadata("vih", "Contact", "/ContactUs");
 
-const page = () => {
-  
-    
-    return (
-        <div className="bg-white">
-        <CompanyInfo/>
-        <Header/>
-        <div className= "flex flex-row">
-        <div className="md:w-1/6"></div>
-        <div className="md:w-4/6">
-        <ContactUs/>
-       
-        </div>
-        <div className="md:w-1/6"></div>
-        </div>
-        <Footer/>
-       </div>
-      )
-  
+export default function Page() {
+  return <ContactPageView journalId="vih" />;
 }
-
-export default page

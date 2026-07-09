@@ -1,25 +1,14 @@
-"use client"; // Add this at the top of page.tsx if it's using client-side features
+﻿import { journalPageMetadata } from "@/components/journal/JournalPage";
+import type { Metadata } from "next";
+import LegacyContent from "./legacy-content";
 
-import Footer from '../../component/vie_Component/Footer';
-import Header from '../../component/vie_Component/Header';
-import CompanyInfo from '../../component/vie_Component/CompanyInfo';
-import Filter from '../../component/vie_Component/Filter';
+export const metadata: Metadata = journalPageMetadata(
+  "vie",
+  "Article Index",
+  "/table",
+  "Searchable index of all published articles."
+);
 
-const Page = () => {
-  return (
-    <div className="bg-white">
-      <CompanyInfo />
-      <Header />
-      <div className="flex flex-row">
-        <div className="md:w-1/6"></div>
-        <div className="md:w-4/6">
-          <Filter />
-        </div>
-        <div className="md:w-1/6"></div>
-      </div>
-      <Footer />
-    </div>
-  );
-};
-
-export default Page;
+export default function Page() {
+  return <LegacyContent />;
+}

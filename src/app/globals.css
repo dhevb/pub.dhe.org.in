@@ -1,23 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --color-primary: 255 107 0;
-    --color-primary-dark: 230 81 0;
-    --color-secondary: 26 35 126;
-    --color-accent: 0 137 123;
-    --color-background: 250 248 245;
+    /* Brand — Deep Saffron */
+    --color-saffron: 255 153 51;
+    --color-saffron-deep: 232 133 31;
+    /* Bharat Navy */
+    --color-navy: 10 22 40;
+    --color-navy-light: 30 58 95;
+    /* Academic accents */
+    --color-green: 19 136 8;
+    --color-gold: 201 162 39;
+    /* Semantic aliases (backward compatible) */
+    --color-primary: var(--color-saffron);
+    --color-primary-dark: var(--color-saffron-deep);
+    --color-secondary: var(--color-navy);
+    --color-accent: var(--color-green);
+    /* Surfaces */
+    --color-background: 248 249 250;
     --color-surface: 255 255 255;
     --color-border: 229 231 235;
-    --color-text: 26 26 26;
+    --color-text: 17 24 39;
     --color-text-muted: 107 114 128;
-    --color-success: 46 125 50;
-    --color-warning: 249 168 37;
-    --color-error: 136 14 79;
+    --color-success: 19 136 8;
+    --color-warning: 201 162 39;
+    --color-error: 185 28 28;
+    /* Radius & shadows */
     --radius-sm: 0.375rem;
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
@@ -25,16 +35,13 @@
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.06);
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'Inter', system-ui, sans-serif;
-    --font-devanagari: 'Noto Sans Devanagari', 'Inter', sans-serif;
   }
 
   .dark {
-    --color-background: 15 15 20;
-    --color-surface: 24 24 32;
-    --color-border: 55 55 70;
-    --color-text: 245 245 250;
+    --color-background: 10 22 40;
+    --color-surface: 30 58 95;
+    --color-border: 55 65 81;
+    --color-text: 249 250 251;
     --color-text-muted: 156 163 175;
   }
 
@@ -42,17 +49,37 @@
     scroll-behavior: smooth;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   body {
     @apply bg-background text-text antialiased;
-    font-family: var(--font-body);
+    font-family: var(--font-body), system-ui, sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display), Georgia, serif;
   }
 
-  [lang="hi"], .font-devanagari {
-    font-family: var(--font-devanagari);
+  [lang="hi"],
+  .font-devanagari {
+    font-family: var(--font-devanagari), var(--font-body), sans-serif;
   }
 
   :focus-visible {
@@ -62,7 +89,7 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-6 py-3 text-sm font-semibold text-white shadow-md transition-all hover:shadow-lg hover:brightness-105 active:scale-[0.98] disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-6 py-3 text-sm font-semibold text-white shadow-md transition-all hover:shadow-lg hover:brightness-105 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
   }
 
   .btn-secondary {
@@ -106,7 +133,7 @@
   }
 
   .text-gradient-saffron {
-    @apply bg-gradient-to-r from-primary to-warning bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-gold bg-clip-text text-transparent;
   }
 
   .skip-link {
@@ -120,6 +147,10 @@
 
 @layer utilities {
   .font-display {
-    font-family: var(--font-display);
+    font-family: var(--font-display), Georgia, serif;
+  }
+
+  .font-body {
+    font-family: var(--font-body), system-ui, sans-serif;
   }
 }

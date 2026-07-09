@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "question": "What is Viksit Bharat Journal?",
+      "answer": "Viksit Bharat Journal is a Bharatiya multidisciplinary knowledge platform — an open-access journal publishing research across education, innovation, policy, Indian Knowledge Systems, and social development.",
+      "category": "general"
+    },
+    {
+      "question": "What is the publication fee?",
+      "answer": "We charge a nominal Article Processing Charge (APC) designed to be affordable for researchers from all backgrounds.",
+      "category": "authors"
+    },
+    {
+      "question": "Who can submit research?",
+      "answer": "School students, teachers, professors, researchers, policy makers, NGOs, startups, and independent scholars connected with knowledge creation.",
+      "category": "authors"
+    },
+    {
+      "question": "What is Bal Shodh Patrika?",
+      "answer": "Bal Shodh Patrika is our dedicated track for school students to publish projects, innovations, and teacher-guided research.",
+      "category": "bal-shodh"
+    },
+    {
+      "question": "How do I track my submission?",
+      "answer": "After signing in, visit the Author Dashboard at /dashboard/author to view manuscript status and submission history.",
+      "category": "authors"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "announcements": [
+    {
+      "id": "cfp-nep-2026",
+      "title": "Call for Papers — NEP 2026 Implementation",
+      "body": "Submit research on National Education Policy implementation, multidisciplinary education, and institutional reforms.",
+      "publishedAt": "2026-01-15",
+      "expiresAt": "2026-12-31",
+      "href": "/vbe.rase/SubmitManuscript"
+    },
+    {
+      "id": "bal-shodh-2026",
+      "title": "Bal Shodh Patrika — School Research Open",
+      "body": "School students (Classes 6–12) can now submit teacher-guided research projects.",
+      "publishedAt": "2026-02-01",
+      "expiresAt": "2026-12-31",
+      "href": "/bal-shodh-patrika"
+    }
+  ]
+}

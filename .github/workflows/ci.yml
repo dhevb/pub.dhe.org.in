@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, platform-upgrade]
   pull_request:
-    branches: [main, master]
+    branches: [main, master, platform-upgrade]
 
 jobs:
   build:
@@ -17,6 +17,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+      - run: npm run qa:papers
       - run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://pub.dhe.org.in

@@ -1,25 +1,14 @@
-import React from 'react'
-import Header from '../../component/vie_Component/Header';
-import CompanyInfo from '../../component/vie_Component/CompanyInfo';
-import Navigation from '../../component/vie_Component/Navigation';
-import Issue from '../../component/vie_Component/Issue';
-import Footer from '../../component/vie_Component/Footer';
+﻿import { journalPageMetadata } from "@/components/journal/JournalPage";
+import type { Metadata } from "next";
+import LegacyContent from "./legacy-content";
 
-const page = () => {
-    return (
-        <div className="bg-white">
-        <CompanyInfo/>
-        <Header/>
-        <div className= "flex flex-row">
-        <div className="md:w-1/6"></div>
-        <div className="md:w-4/6">
-        <Issue/>
-        </div>
-        <div className="md:w-1/6"></div>
-        </div>
-        <Footer/>
-       </div>
-      )
+export const metadata: Metadata = journalPageMetadata(
+  "vie",
+  "Current Issue",
+  "/issue",
+  "Read articles from the current journal issue."
+);
+
+export default function Page() {
+  return <LegacyContent />;
 }
-
-export default page

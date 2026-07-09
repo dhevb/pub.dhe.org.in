@@ -1,0 +1,66 @@
+import { JOURNAL_LIST, paperRoute, type JournalConfig } from "@/lib/journals/config";
+import { loadPaper } from "@/lib/journals/papers";
+
+export interface SearchIndexItem {
+  id: string;
+  title: string;
+  journal: JournalConfig;
+  paperNum: number;
+  href: string;
+  type: "article";
+  keywords?: string;
+  abstract?: string;
+}
+
+export async function buildPaperSearchIndex(): Promise<SearchIndexItem[]> {
+  const items: SearchIndexItem[] = [];
+
+  for (const journal of JOURNAL_LIST) {
+    for (let num = 1; num <= journal.paperCount; num++) {
+      try {
+        const paper = await loadPaper(journal.id, num);
+        const title =
+          paper.ArticleDetails?.Title ?? `${journal.name} — Paper ${num}`;
+
+        items.push({
+          id: `${journal.id}-paper-${num}`,
+          title,
+          journal,
+          paperNum: num,
+          href: paperRoute(journal, num),
+          type: "article",
+          keywords: paper.Keywords,
+          abstract: paper.Abstract,
+        });
+      } catch {
+        items.push({
+          id: `${journal.id}-paper-${num}`,
+          title: `${journal.name} — Paper ${num}`,
+          journal,
+          paperNum: num,
+          href: paperRoute(journal, num),
+          type: "article",
+        });
+      }
+    }
+  }
+
+  return items;
+}
+
+export function filterSearchIndex(
+  items: SearchIndexItem[],
+  query: string
+): SearchIndexItem[] {
+  const q = query.trim().toLowerCase();
+  if (!q) return [];
+
+  return items.filter(
+    (item) =>
+      item.title.toLowerCase().includes(q) ||
+      item.journal.name.toLowerCase().includes(q) ||
+      item.journal.id.includes(q) ||
+      item.keywords?.toLowerCase().includes(q) ||
+      item.abstract?.toLowerCase().includes(q)
+  );
+}

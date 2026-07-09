@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": "platform-launch",
+      "title": "Viksit Bharat Journal Platform Upgrade",
+      "summary": "The journal platform has been modernized with open-access publishing, improved SEO, and author dashboards.",
+      "publishedAt": "2026-07-01",
+      "href": "/about"
+    },
+    {
+      "id": "conference-archive",
+      "title": "Shiksha Mahakumbh Proceedings Available",
+      "summary": "Conference research papers from Shiksha Mahakumbh events are now accessible in the permanent archive.",
+      "publishedAt": "2026-06-15",
+      "href": "/conferences/past"
+    }
+  ]
+}

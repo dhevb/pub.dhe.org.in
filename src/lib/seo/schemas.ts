@@ -1,4 +1,6 @@
 import { siteConfig } from "./metadata";
+import type { JournalConfig } from "@/lib/journals/config";
+import { PAST_CONFERENCES } from "@/lib/content/homepage";
 
 export function organizationSchema() {
   return {
@@ -6,11 +8,49 @@ export function organizationSchema() {
     "@type": "Organization",
     name: siteConfig.name,
     alternateName: siteConfig.nameHindi,
+    slogan: siteConfig.tagline,
     url: siteConfig.url,
     logo: `${siteConfig.url}/logo.png`,
     email: siteConfig.email,
     description: siteConfig.description,
     sameAs: [],
+  };
+}
+
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    alternateName: siteConfig.nameHindi,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.publisher,
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${siteConfig.url}/search?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
+export function journalSchema(journal: JournalConfig) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Periodical",
+    name: journal.name,
+    alternateName: journal.nameHindi,
+    url: `${siteConfig.url}${journal.entryRoute}`,
+    inLanguage: journal.language === "hi" ? "hi-IN" : "en-IN",
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.publisher,
+    },
+    description: siteConfig.description,
+    isAccessibleForFree: true,
   };
 }
 
@@ -22,6 +62,7 @@ export function scholarlyArticleSchema(article: {
   url: string;
   keywords?: string;
   doi?: string;
+  journalName?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -36,12 +77,67 @@ export function scholarlyArticleSchema(article: {
     url: article.url,
     keywords: article.keywords,
     identifier: article.doi,
+    isPartOf: {
+      "@type": "Periodical",
+      name: article.journalName ?? siteConfig.name,
+    },
     publisher: {
       "@type": "Organization",
       name: siteConfig.publisher,
     },
     isAccessibleForFree: true,
+    license: "https://creativecommons.org/licenses/by/4.0/",
   };
+}
+
+export function personSchema(person: {
+  name: string;
+  jobTitle?: string;
+  affiliation?: string;
+  url?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: person.name,
+    jobTitle: person.jobTitle,
+    affiliation: person.affiliation
+      ? { "@type": "Organization", name: person.affiliation }
+      : undefined,
+    url: person.url,
+  };
+}
+
+export function eventSchema(event: {
+  name: string;
+  description: string;
+  startDate?: string;
+  url: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: event.name,
+    description: event.description,
+    startDate: event.startDate,
+    url: event.url,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    organizer: {
+      "@type": "Organization",
+      name: siteConfig.publisher,
+    },
+  };
+}
+
+export function conferenceEventsSchema() {
+  return PAST_CONFERENCES.map((conf) =>
+    eventSchema({
+      name: conf.name,
+      description: `${conf.theme} — ${conf.papers} papers published`,
+      startDate: `${conf.year}-01-01`,
+      url: `${siteConfig.url}/conferences/past`,
+    })
+  );
 }
 
 export function breadcrumbSchema(items: { name: string; url: string }[]) {

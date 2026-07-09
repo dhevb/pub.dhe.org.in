@@ -1,8 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
-import { JournalShell } from "@/components/journal/JournalShell";
-import { getJournal } from "@/lib/journals/config";
-import { buildMetadata } from "@/lib/seo/metadata";
 import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { DashboardShell } from "@/components/dashboard/DashboardShell";
+import { buildMetadata } from "@/lib/seo/metadata";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = buildMetadata({
@@ -10,8 +9,6 @@ export const metadata: Metadata = buildMetadata({
   path: "/dashboard",
   noIndex: true,
 });
-
-const journal = getJournal("vbe");
 
 const DASHBOARDS = [
   {
@@ -32,26 +29,28 @@ const DASHBOARDS = [
   {
     title: "Admin Dashboard",
     href: "/dashboard/admin",
-    desc: "Platform analytics, users, and settings",
+    desc: "CMS, platform settings, and content",
   },
 ];
 
 export default function DashboardHubPage() {
   return (
-    <JournalShell journal={journal}>
-      <h1 className="heading-section mb-8">Research Dashboard</h1>
+    <DashboardShell
+      title="Research Dashboard"
+      description="Manage your research workflow across author, reviewer, editor, and admin roles."
+    >
       <div className="grid gap-6 md:grid-cols-2">
         {DASHBOARDS.map((d) => (
           <Link key={d.href} href={d.href}>
-            <Card className="h-full hover:shadow-lg">
+            <Card className="h-full transition-shadow hover:shadow-lg">
               <CardHeader>
                 <CardTitle>{d.title}</CardTitle>
               </CardHeader>
-              <CardContent>{d.desc}</CardContent>
+              <CardContent className="text-muted-foreground">{d.desc}</CardContent>
             </Card>
           </Link>
         ))}
       </div>
-    </JournalShell>
+    </DashboardShell>
   );
 }

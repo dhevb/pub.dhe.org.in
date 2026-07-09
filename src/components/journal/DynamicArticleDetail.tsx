@@ -5,7 +5,6 @@ import { ArticleSkeleton } from "@/components/ui/Skeleton";
 import type { JournalId } from "@/lib/journals/config";
 import { journalArticlePath, apiUrl } from "@/lib/api/client";
 import type { PaperData } from "@/types/article";
-import axios from "axios";
 import { useEffect, useState } from "react";
 
 interface DynamicArticleDetailProps {
@@ -19,19 +18,27 @@ export function DynamicArticleDetail({ id, journalId }: DynamicArticleDetailProp
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchArticle = async () => {
+    let cancelled = false;
+
+    async function fetchArticle() {
       try {
-        const response = await axios.get(
-          apiUrl(journalArticlePath(journalId, id))
-        );
-        setArticle(response.data);
+        const res = await fetch(apiUrl(journalArticlePath(journalId, id)), {
+          cache: "no-store",
+        });
+        if (!res.ok) throw new Error("Not found");
+        const data = (await res.json()) as PaperData;
+        if (!cancelled) setArticle(data);
       } catch {
-        setError("An error occurred while fetching the article.");
+        if (!cancelled) setError("An error occurred while fetching the article.");
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
-    };
+    }
+
     fetchArticle();
+    return () => {
+      cancelled = true;
+    };
   }, [id, journalId]);
 
   if (loading) return <ArticleSkeleton />;

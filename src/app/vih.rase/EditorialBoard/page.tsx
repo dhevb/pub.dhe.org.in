@@ -1,25 +1,9 @@
-'use client';
+﻿import { EditorialBoardPageView } from "@/components/journal/views";
+import { journalPageMetadata } from "@/components/journal/JournalPage";
+import type { Metadata } from "next";
 
-import Footer from '../../component/vih_Component/Footer';
-import Header from '../../component/vih_Component/Header';
-import CompanyInfo from '../../component/vih_Component/CompanyInfo';
-import Navigation from '../../component/vih_Component/Navigation';
-import Editorial from '../../component/vih_Component/Editorial';
+export const metadata: Metadata = journalPageMetadata("vih", "Editorial Board", "/EditorialBoard");
 
-function Issues() {
-  return (
-    <div className="bg-white">
-    <CompanyInfo/>
-    <Header/>
-    <div className= "flex flex-row">
-    <div className="md:w-1/6"></div>
-    <div className="md:w-4/6">
-    <Editorial/>
-    </div>
-    <div className="md:w-1/6"></div>
-    </div>
-    <Footer/>
-   </div>
-  )
+export default function Page() {
+  return <EditorialBoardPageView journalId="vih" />;
 }
-export default Issues;

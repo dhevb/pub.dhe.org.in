@@ -1,14 +1,10 @@
-"use client";
-import Signup from "../../component/vbe_Component/Signup"
-const page = () => {
-  
-    
-  return (
-      <div>
-        <Signup/>
-      </div>
-    )
+﻿import { SignupPageView } from "@/components/journal/views";
+import { journalPageMetadata } from "@/components/journal/JournalPage";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = journalPageMetadata("vbe", "Sign Up", "/signup", undefined, true);
+
+export default function Page() {
+  return <SignupPageView journalId="vbe" />;
 }
 
-export default page
