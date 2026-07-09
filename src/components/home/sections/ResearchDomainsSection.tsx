@@ -21,7 +21,11 @@ export function ResearchDomainsSection() {
         </div>
         <div className="flex flex-wrap justify-center gap-2">
           {JOURNAL_SCOPE.map((scope) => (
-            <Badge key={scope} variant="primary" className="text-xs">
+            <Badge
+              key={scope}
+              variant="primary"
+              className="border border-primary/30 bg-primary/15 text-navy text-xs"
+            >
               {scope}
             </Badge>
           ))}

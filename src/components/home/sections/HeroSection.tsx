@@ -1,30 +1,25 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, BookOpen } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/seo/metadata";
+import { ArrowRight, BookOpen } from "lucide-react";
 
+/** Hero without framer-motion — avoids LCP delay from opacity:0 initial state. */
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-navy text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light/80 to-navy opacity-90" />
-      <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-saffron/10 blur-3xl" />
-      <div className="absolute -bottom-32 -left-24 h-80 w-80 rounded-full bg-green/10 blur-3xl" />
+    <section
+      className="relative overflow-hidden bg-navy text-white"
+      aria-labelledby="hero-heading"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light/80 to-navy opacity-90" aria-hidden />
+      <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-saffron/10 blur-3xl" aria-hidden />
+      <div className="absolute -bottom-32 -left-24 h-80 w-80 rounded-full bg-green/10 blur-3xl" aria-hidden />
 
       <div className="container-wide section-padding relative">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-4xl text-center"
-        >
+        <div className="mx-auto max-w-4xl text-center animate-fade-in">
           <Badge className="mb-6 border border-saffron/30 bg-saffron/10 text-saffron">
             A Bharatiya Knowledge Journal
           </Badge>
-          <h1 className="heading-display mb-4 text-white">
+          <h1 id="hero-heading" className="heading-display mb-4 text-white">
             {siteConfig.name}
           </h1>
           <p className="font-devanagari mb-4 text-xl text-white/80 sm:text-2xl">
@@ -34,26 +29,24 @@ export function HeroSection() {
             {siteConfig.description}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/vbe.rase/SubmitManuscript">
-              <Button size="lg">
-                Submit Your Research
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              </Button>
+            <Link
+              href="/vbe.rase/SubmitManuscript"
+              className="btn-primary inline-flex min-h-11 items-center gap-2 px-8 py-4 text-base"
+            >
+              Submit Your Research
+              <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
-            <Link href="/search">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white/30 text-white hover:bg-white hover:text-navy"
-              >
-                <BookOpen className="h-4 w-4" aria-hidden />
-                Explore Papers
-              </Button>
+            <Link
+              href="/search"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/30 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white hover:text-navy"
+            >
+              <BookOpen className="h-4 w-4" aria-hidden />
+              Explore Papers
             </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
-      <div className="h-1 bg-gradient-to-r from-saffron via-gold to-green" />
+      <div className="h-1 bg-gradient-to-r from-saffron via-gold to-green" aria-hidden />
     </section>
   );
 }

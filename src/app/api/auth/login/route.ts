@@ -9,10 +9,17 @@ import {
   AUTH_COOKIE_NAMES,
   AUTH_COOKIE_OPTIONS,
 } from "@/lib/auth/constants";
+import {
+  CSRF_COOKIE_NAME,
+  CSRF_MAX_AGE,
+  generateCsrfToken,
+  validateCsrfToken,
+} from "@/lib/security/csrf";
+import { sanitizeEmail, sanitizeString } from "@/lib/security/sanitize";
 
 const loginSchema = z.object({
   email: z.string().email("Valid email is required"),
-  password: z.string().min(1, "Password is required"),
+  password: z.string().min(1, "Password is required").max(256),
 });
 
 function setAuthCookies(token: string, userId: string) {
@@ -29,7 +36,25 @@ function setAuthCookies(token: string, userId: string) {
   store.set(AUTH_COOKIE_NAMES.userId, userId, options);
 }
 
+function rotateCsrf(): string {
+  const token = generateCsrfToken();
+  cookies().set(CSRF_COOKIE_NAME, token, {
+    httpOnly: false,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    path: "/",
+    maxAge: CSRF_MAX_AGE,
+  });
+  return token;
+}
+
 export async function POST(request: NextRequest) {
+  const cookieToken = request.cookies.get(CSRF_COOKIE_NAME)?.value;
+  const headerToken = request.headers.get("x-csrf-token");
+  if (!validateCsrfToken(cookieToken, headerToken)) {
+    return NextResponse.json({ error: "Invalid CSRF token" }, { status: 403 });
+  }
+
   try {
     const body = await request.json();
     const parsed = loginSchema.safeParse(body);
@@ -41,9 +66,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const payload = {
+      email: sanitizeEmail(parsed.data.email),
+      password: sanitizeString(parsed.data.password, 256),
+    };
+
     const data = await apiFetch<LoginResponse>(AUTH_ENDPOINTS.login, {
       method: "POST",
-      body: JSON.stringify(parsed.data),
+      body: JSON.stringify(payload),
       cache: "no-store",
     });
 
@@ -55,6 +85,7 @@ export async function POST(request: NextRequest) {
     }
 
     setAuthCookies(data.token, data.userId);
+    const newCsrf = rotateCsrf();
 
     return NextResponse.json({
       user: {
@@ -65,6 +96,7 @@ export async function POST(request: NextRequest) {
         areaOfStudy: data.areaOfStudy,
       },
       token: data.token,
+      csrfToken: newCsrf,
     });
   } catch (error) {
     const message =

@@ -1,26 +1,20 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import type { NextRequest as Req } from "next/server";
 import {
   AUTH_PATHS,
   PROTECTED_PREFIXES,
 } from "@/lib/auth/constants";
-
-const RATE_LIMIT = 120;
-const WINDOW_MS = 60_000;
-
-const hits = new Map<string, { count: number; reset: number }>();
-
-function allowRequest(ip: string): boolean {
-  const now = Date.now();
-  const entry = hits.get(ip);
-  if (!entry || now > entry.reset) {
-    hits.set(ip, { count: 1, reset: now + WINDOW_MS });
-    return true;
-  }
-  if (entry.count >= RATE_LIMIT) return false;
-  entry.count += 1;
-  return true;
-}
+import {
+  CSRF_COOKIE_NAME,
+  CSRF_HEADER_NAME,
+  requiresCsrfValidation,
+  validateCsrfToken,
+} from "@/lib/security/csrf";
+import {
+  checkRateLimit,
+  getRateLimitConfig,
+  rateLimitKey,
+} from "@/lib/security/rate-limit";
 
 const CSP_DIRECTIVES = [
   "default-src 'self'",
@@ -46,15 +40,46 @@ function secureHeaders(response: NextResponse) {
   return response;
 }
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-  const ip =
+function getClientIp(request: Req): string {
+  return (
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     request.ip ||
-    "unknown";
+    "unknown"
+  );
+}
 
-  if (!allowRequest(ip)) {
-    return new NextResponse("Too Many Requests", { status: 429 });
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  const ip = getClientIp(request);
+  const method = request.method;
+
+  const rateConfig = getRateLimitConfig(pathname);
+  const rl = checkRateLimit(rateLimitKey(ip, pathname), rateConfig);
+  if (!rl.allowed) {
+    return secureHeaders(
+      new NextResponse("Too Many Requests", {
+        status: 429,
+        headers: {
+          "Retry-After": String(
+            Math.ceil((rl.resetAt - Date.now()) / 1000)
+          ),
+          "X-RateLimit-Remaining": "0",
+        },
+      })
+    );
+  }
+
+  if (requiresCsrfValidation(pathname, method)) {
+    const cookieToken = request.cookies.get(CSRF_COOKIE_NAME)?.value;
+    const headerToken = request.headers.get(CSRF_HEADER_NAME);
+    if (!validateCsrfToken(cookieToken, headerToken)) {
+      return secureHeaders(
+        NextResponse.json(
+          { error: "Invalid or missing CSRF token" },
+          { status: 403 }
+        )
+      );
+    }
   }
 
   const token =
@@ -79,7 +104,9 @@ export function middleware(request: NextRequest) {
     return secureHeaders(NextResponse.redirect(loginUrl));
   }
 
-  return secureHeaders(NextResponse.next());
+  const response = NextResponse.next();
+  response.headers.set("X-RateLimit-Remaining", String(rl.remaining));
+  return secureHeaders(response);
 }
 
 export const config = {

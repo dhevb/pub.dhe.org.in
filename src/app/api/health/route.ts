@@ -34,6 +34,11 @@ export async function GET() {
       status: backendStatus,
     },
     maintenanceMode: site.maintenanceMode,
+    security: {
+      csrf: "double-submit-cookie",
+      rateLimit: "middleware",
+      authCookies: "httpOnly",
+    },
   };
 
   const status = body.status === "ok" ? 200 : 503;

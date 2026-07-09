@@ -3,7 +3,11 @@ export type AiModuleId =
   | "semantic-search"
   | "related-papers"
   | "citation-suggestions"
-  | "research-assistant";
+  | "research-assistant"
+  | "research-summaries"
+  | "reviewer-suggestion"
+  | "duplicate-detection"
+  | "plagiarism-adapter";
 
 export interface AiModule {
   id: AiModuleId;
@@ -43,6 +47,30 @@ export const AI_MODULES: AiModule[] = [
     id: "research-assistant",
     name: "AI Research Assistant",
     description: "Guided help for authors, reviewers, and editors.",
+    status: "placeholder",
+  },
+  {
+    id: "research-summaries",
+    name: "Research Summaries",
+    description: "Generate structured abstracts and lay summaries from manuscripts.",
+    status: "placeholder",
+  },
+  {
+    id: "reviewer-suggestion",
+    name: "Reviewer Suggestion",
+    description: "Match manuscripts to qualified reviewers by expertise graph.",
+    status: "placeholder",
+  },
+  {
+    id: "duplicate-detection",
+    name: "Duplicate Detection",
+    description: "Detect overlapping submissions across journals and repositories.",
+    status: "placeholder",
+  },
+  {
+    id: "plagiarism-adapter",
+    name: "Plagiarism Adapter",
+    description: "Modular adapter for Turnitin, iThenticate, or open-source checkers.",
     status: "placeholder",
   },
 ];

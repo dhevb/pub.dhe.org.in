@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { forgotPasswordViaAppRoute } from "@/lib/api/auth";
 
 const ForgotPasswordPage = () => {
   const router = useRouter();
@@ -23,7 +23,7 @@ const ForgotPasswordPage = () => {
       setLoading(true);
       setButtonDisabled(true);
 
-      const response = await axios.post("https://vie-rase-backend.onrender.com/api/reset-password", { email });
+      await forgotPasswordViaAppRoute(email);
 
       toast.success("Password reset link sent to your email!");
       router.push("/login");

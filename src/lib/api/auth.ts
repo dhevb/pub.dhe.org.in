@@ -36,16 +36,39 @@ export async function requestPasswordReset(email: string): Promise<unknown> {
   });
 }
 
+export async function signupViaAppRoute(
+  payload: SignupPayload & { confirmPassword?: string }
+): Promise<unknown> {
+  const { secureFetch } = await import("@/lib/security/client");
+  const res = await secureFetch("/api/auth/signup", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data?.error || "Signup failed");
+  return data;
+}
+
+export async function forgotPasswordViaAppRoute(email: string): Promise<unknown> {
+  const { secureFetch } = await import("@/lib/security/client");
+  const res = await secureFetch("/api/auth/forgot-password", {
+    method: "POST",
+    body: JSON.stringify({ email }),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data?.error || "Password reset failed");
+  return data;
+}
+
 /** Client-side login via Next.js API route (sets httpOnly cookies) */
 export async function loginViaAppRoute(
   email: string,
   password: string
 ): Promise<{ user: Omit<LoginResponse, "token">; token: string }> {
-  const res = await fetch("/api/auth/login", {
+  const { secureFetch, clearCsrfCache } = await import("@/lib/security/client");
+  const res = await secureFetch("/api/auth/login", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
-    credentials: "same-origin",
   });
 
   const data = await res.json();
@@ -54,11 +77,14 @@ export async function loginViaAppRoute(
     throw new Error(data?.error || "Login failed");
   }
 
+  clearCsrfCache();
   return data;
 }
 
 export async function logoutViaAppRoute(): Promise<void> {
-  await fetch("/api/auth/logout", { method: "POST", credentials: "same-origin" });
+  const { secureFetch, clearCsrfCache } = await import("@/lib/security/client");
+  await secureFetch("/api/auth/logout", { method: "POST" });
+  clearCsrfCache();
 }
 
 export async function getSessionViaAppRoute(): Promise<{

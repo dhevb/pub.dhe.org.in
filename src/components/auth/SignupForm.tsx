@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import toast from "react-hot-toast";
-import { signupUser } from "@/lib/api/auth";
+import { signupViaAppRoute } from "@/lib/api/auth";
 import type { SignupPayload } from "@/lib/api/types";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -46,7 +46,7 @@ export function SignupForm({ loginHref = "/login" }: SignupFormProps) {
 
   const onSubmit = async (data: SignupFormData) => {
     try {
-      await signupUser({
+      await signupViaAppRoute({
         name: data.email.split("@")[0],
         email: data.email,
         password: data.password,
@@ -98,7 +98,7 @@ export function SignupForm({ loginHref = "/login" }: SignupFormProps) {
               <option value="other">Other</option>
             </select>
           </div>
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
+          <Button type="submit" className="w-full" disabled={isSubmitting} aria-busy={isSubmitting}>
             {isSubmitting ? "Creating account…" : "Sign Up"}
           </Button>
         </form>

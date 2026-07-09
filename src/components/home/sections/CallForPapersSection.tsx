@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
 
 export function CallForPapersSection() {
   return (
@@ -16,18 +15,17 @@ export function CallForPapersSection() {
           knowledge journal. Open to every knowledge creator.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link href="/vbe.rase/SubmitManuscript">
-            <Button className="bg-white text-saffron-deep hover:bg-white/90">
-              Submit Manuscript
-            </Button>
+          <Link
+            href="/vbe.rase/SubmitManuscript"
+            className="inline-flex min-h-11 items-center justify-center rounded-lg bg-white px-8 py-3 text-sm font-semibold text-saffron-deep transition-all hover:bg-white/90"
+          >
+            Submit Manuscript
           </Link>
-          <Link href="/about">
-            <Button
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-saffron-deep"
-            >
-              Author Guidelines
-            </Button>
+          <Link
+            href="/about"
+            className="inline-flex min-h-11 items-center justify-center rounded-lg border border-white px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-white hover:text-saffron-deep"
+          >
+            Author Guidelines
           </Link>
         </div>
       </div>

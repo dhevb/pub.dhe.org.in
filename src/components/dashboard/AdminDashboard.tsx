@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { AnalyticsDashboard } from "./AnalyticsDashboard";
 import {
   getAnnouncements,
   getCmsFaqs,
@@ -138,6 +139,11 @@ export function AdminDashboardView() {
             )}
           </CardContent>
         </Card>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-lg font-semibold">Publication analytics</h2>
+        <AnalyticsDashboard />
       </section>
 
       <section>

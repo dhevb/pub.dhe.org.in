@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { EditorialWorkflowPanel } from "./EditorialWorkflowPanel";
 
 const QUEUE = [
   { label: "Pending submissions", value: "—", color: "text-primary" },
@@ -47,6 +48,8 @@ export function EditorExperiencePanel() {
           </ul>
         </CardContent>
       </Card>
+
+      <EditorialWorkflowPanel />
     </div>
   );
 }

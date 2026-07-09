@@ -21,7 +21,10 @@ export function PartnersSection() {
         </div>
         <p className="mt-8 text-sm text-text-muted">
           Interested in institutional membership?{" "}
-          <a href="mailto:pub.dhe4@gmail.com" className="text-primary hover:underline">
+          <a
+            href="mailto:pub.dhe4@gmail.com"
+            className="font-medium text-primary underline underline-offset-2"
+          >
             Contact us
           </a>
         </p>
