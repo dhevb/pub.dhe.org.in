@@ -10,6 +10,9 @@ export {
   getAnnouncements,
   getCmsFaqs,
   getCmsFaqsByCategory,
+  getEditorialBoard,
   getNewsItems,
+  getResearchCategories,
   getSiteSettings,
 } from "./loader";
+export type { EditorialBoardMember } from "./loader";

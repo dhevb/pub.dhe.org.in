@@ -1,0 +1,13 @@
+{
+  "categories": [
+    { "id": "education", "label": "Education & NEP", "labelHi": "शिक्षा और NEP" },
+    { "id": "innovation", "label": "Innovation & Entrepreneurship", "labelHi": "नवाचार" },
+    { "id": "policy", "label": "Policy & Governance", "labelHi": "नीति और शासन" },
+    { "id": "iks", "label": "Indian Knowledge Systems", "labelHi": "भारतीय ज्ञान परंपरा" },
+    { "id": "social", "label": "Social Development", "labelHi": "सामाजिक विकास" }
+  ],
+  "tracks": [
+    { "id": "bal-shodh", "label": "Bal Shodh Patrika", "href": "/bal-shodh-patrika" },
+    { "id": "conference", "label": "Conference Proceedings", "href": "/conferences" }
+  ]
+}

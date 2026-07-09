@@ -10,6 +10,10 @@ export interface SearchIndexItem {
   type: "article";
   keywords?: string;
   abstract?: string;
+  authors?: string[];
+  published?: string;
+  year?: number;
+  category?: string;
 }
 
 export async function buildPaperSearchIndex(): Promise<SearchIndexItem[]> {
@@ -22,6 +26,12 @@ export async function buildPaperSearchIndex(): Promise<SearchIndexItem[]> {
         const title =
           paper.ArticleDetails?.Title ?? `${journal.name} — Paper ${num}`;
 
+        const authors = [
+          ...(paper.ArticleDetails?.Authors ?? []),
+          ...(paper.ArticleDetails?.CoAuthors ?? []),
+        ].map((a) => a.Name);
+        const published = paper.ArticleInfo?.Published;
+
         items.push({
           id: `${journal.id}-paper-${num}`,
           title,
@@ -31,6 +41,11 @@ export async function buildPaperSearchIndex(): Promise<SearchIndexItem[]> {
           type: "article",
           keywords: paper.Keywords,
           abstract: paper.Abstract,
+          authors,
+          published,
+          year: published?.match(/\d{4}/)?.[0]
+            ? Number(published.match(/\d{4}/)![0])
+            : undefined,
         });
       } catch {
         items.push({

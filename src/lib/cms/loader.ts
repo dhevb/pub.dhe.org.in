@@ -43,3 +43,22 @@ export function getCmsFaqs(): CmsFaq[] {
 export function getCmsFaqsByCategory(category: string): CmsFaq[] {
   return getCmsFaqs().filter((f) => f.category === category);
 }
+
+export interface EditorialBoardMember {
+  name: string;
+  role: string;
+  affiliation: string;
+  email?: string;
+}
+
+export function getEditorialBoard(): EditorialBoardMember[] {
+  const data = readJson<{ members: EditorialBoardMember[] }>("editorial-board.json");
+  return data.members;
+}
+
+export function getResearchCategories(): {
+  categories: { id: string; label: string; labelHi: string }[];
+  tracks: { id: string; label: string; href: string }[];
+} {
+  return readJson("research-categories.json");
+}

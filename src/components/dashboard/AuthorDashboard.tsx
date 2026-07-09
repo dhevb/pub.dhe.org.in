@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { AuthorExperiencePanel } from "./AuthorExperiencePanel";
 import { AuthorQuickLinks, ManuscriptList } from "./ManuscriptList";
 
 export function AuthorDashboardView() {
@@ -13,6 +14,11 @@ export function AuthorDashboardView() {
       <section>
         <h2 className="mb-4 text-lg font-semibold">Submit to a journal</h2>
         <AuthorQuickLinks />
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-lg font-semibold">Author experience</h2>
+        <AuthorExperiencePanel />
       </section>
 
       <section className="grid gap-4 md:grid-cols-2">

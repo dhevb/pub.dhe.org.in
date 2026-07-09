@@ -153,6 +153,47 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
+export function bookSchema(book: {
+  name: string;
+  description?: string;
+  url: string;
+  isbn?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    name: book.name,
+    description: book.description,
+    url: book.url,
+    isbn: book.isbn,
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.publisher,
+    },
+  };
+}
+
+export function datasetSchema(dataset: {
+  name: string;
+  description: string;
+  url: string;
+  identifier?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: dataset.name,
+    description: dataset.description,
+    url: dataset.url,
+    identifier: dataset.identifier,
+    creator: {
+      "@type": "Organization",
+      name: siteConfig.publisher,
+    },
+    license: "https://creativecommons.org/licenses/by/4.0/",
+  };
+}
+
 export function faqSchema(faqs: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",

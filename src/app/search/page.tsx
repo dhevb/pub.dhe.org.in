@@ -1,18 +1,20 @@
 import { PortalShell } from "@/components/layout/PortalShell";
-import { SearchClient } from "@/components/search/SearchClient";
+import { AdvancedSearchClient } from "@/components/search/AdvancedSearchClient";
 import { buildPaperSearchIndex } from "@/lib/content/search-index";
+import { indexToSearchDocuments } from "@/lib/search/from-index";
 import { buildMetadata } from "@/lib/seo/metadata";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = buildMetadata({
   title: "Search",
   description:
-    "Search published research articles, journals, and conference proceedings across Viksit Bharat Journal.",
+    "Full-text search with filters across journals, languages, years, authors, and keywords on Viksit Bharat Journal.",
   path: "/search",
 });
 
 export default async function SearchPage() {
   const index = await buildPaperSearchIndex();
+  const documents = indexToSearchDocuments(index);
 
   return (
     <PortalShell>
@@ -20,11 +22,12 @@ export default async function SearchPage() {
         <header className="mb-10 text-center">
           <h1 className="heading-display mb-4">Global Search</h1>
           <p className="mx-auto max-w-2xl text-text-muted">
-            Search across all journal editions, published papers, and conference
-            proceedings on the Viksit Bharat Journal platform.
+            Full-text search across all journal editions, published papers, and
+            conference proceedings. Filter by journal, language, year, author,
+            and keywords.
           </p>
         </header>
-        <SearchClient index={index} />
+        <AdvancedSearchClient documents={documents} />
       </div>
     </PortalShell>
   );
