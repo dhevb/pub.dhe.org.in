@@ -1,48 +1,37 @@
-import React from 'react';
-import { Card, Col, Row } from 'antd';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+const JOURNALS = [
+  { href: "/vie", title: "Viksit India English", image: "/vie.jpeg" },
+  { href: "/vih", title: "Viksit India Hindi", image: "/vih.jpeg" },
+  { href: "/vbe", title: "Viksit Bharat English", image: "/vbh.png" },
+  { href: "/vbh", title: "Viksit Bharat Hindi", image: "/vbe.png" },
+] as const;
 
 const JournalCard: React.FC = () => (
-  <div className="min-h-screen bg-orange-100 flex items-center justify-center">
-    <Row gutter={[16, 16]} className="w-full max-w-screen-lg p-4">
-      <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='/vie'>
-        <Card title="Viksit India English" bordered={false}>
+  <div className="flex min-h-screen items-center justify-center bg-orange-100">
+    <div className="grid w-full max-w-screen-lg grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4">
+      {JOURNALS.map((journal) => (
+        <Link
+          key={journal.href}
+          href={journal.href}
+          className="block rounded-lg bg-white p-4 shadow-md transition-shadow hover:shadow-lg"
+        >
+          <h3 className="mb-3 text-sm font-semibold text-gray-800">{journal.title}</h3>
           <div className="flex justify-center">
-            <Image alt="Viksit India" src="/vie.jpeg" height={150} width={300} className="object-contain" />
+            <Image
+              alt={journal.title}
+              src={journal.image}
+              height={150}
+              width={300}
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 25vw"
+            />
           </div>
-        </Card>
         </Link>
-      </Col>
-      <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='/vih'>
-        <Card title="Viksit India Hindi" bordered={false}>
-          <div className="flex justify-center">
-            <Image alt="Viksit India" src="/vih.jpeg" height={150} width={300} className="object-contain" />
-          </div>
-        </Card>
-        </Link>
-      </Col>
-      <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='/vbe'>
-        <Card title="Viksit Bharat English" bordered={false}>
-          <div className="flex justify-center">
-            <Image alt="Viksit Bharat" src="/vbh.png" height={150} width={300} className="object-contain" />
-          </div>
-        </Card>
-        </Link>
-      </Col>
-      <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='/vbh'>
-        <Card title="Viksit Bharat Hindi" bordered={false}>
-          <div className="flex justify-center">
-            <Image alt="Viksit Bharat" src="/vbe.png" height={150} width={300} className="object-contain" />
-          </div>
-        </Card>
-        </Link>
-      </Col>
-    </Row>
+      ))}
+    </div>
   </div>
 );
 

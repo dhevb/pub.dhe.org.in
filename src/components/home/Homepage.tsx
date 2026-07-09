@@ -1,9 +1,10 @@
 import dynamic from "next/dynamic";
-import type { SearchIndexItem } from "@/lib/content/search-index";
+import { Suspense } from "react";
 import { HeroSection } from "./sections/HeroSection";
 import { MissionSection } from "./sections/MissionSection";
 import { WhyPublishSection } from "./sections/WhyPublishSection";
 import { StatsSection } from "./sections/StatsSection";
+import { LatestPapersSection } from "./sections/LatestPapersSection";
 
 const ResearchDomainsSection = dynamic(() =>
   import("./sections/ResearchDomainsSection").then((m) => m.ResearchDomainsSection)
@@ -19,9 +20,6 @@ const EditorialHighlightsSection = dynamic(() =>
 );
 const JournalCardsSection = dynamic(() =>
   import("./sections/JournalCardsSection").then((m) => m.JournalCardsSection)
-);
-const LatestPapersSection = dynamic(() =>
-  import("./sections/LatestPapersSection").then((m) => m.LatestPapersSection)
 );
 const SpecialIssuesSection = dynamic(() =>
   import("./sections/SpecialIssuesSection").then((m) => m.SpecialIssuesSection)
@@ -51,11 +49,7 @@ const NewsletterSection = dynamic(() =>
   import("./sections/NewsletterSection").then((m) => m.NewsletterSection)
 );
 
-interface HomepageProps {
-  papers: SearchIndexItem[];
-}
-
-export function Homepage({ papers }: HomepageProps) {
+export function Homepage() {
   return (
     <>
       <HeroSection />
@@ -67,7 +61,19 @@ export function Homepage({ papers }: HomepageProps) {
       <PublicationProcessSection />
       <EditorialHighlightsSection />
       <JournalCardsSection />
-      <LatestPapersSection papers={papers} />
+      <Suspense
+        fallback={
+          <section className="section-padding bg-background" aria-hidden>
+            <div className="container-wide grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <div key={i} className="skeleton h-32 rounded-xl" />
+              ))}
+            </div>
+          </section>
+        }
+      >
+        <LatestPapersSection />
+      </Suspense>
       <SpecialIssuesSection />
       <ConferencePreviewSection />
       <BalShodhPreviewSection />

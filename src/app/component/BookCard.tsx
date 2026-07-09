@@ -1,48 +1,33 @@
-import React from 'react';
-import { Card, Col, Row } from 'antd';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+const BOOKS = [
+  { href: "/Role of academic driven startups in economy.pdf", title: "Role of Academic Driven Startups in Economics", image: "/Role.jpeg" },
+  { href: "/vih", title: "Role of Academic Driven Startups in Developing Economy of Jammu & Kashmir", image: "/Role1.jpeg" },
+  { href: "/Shiksha_Mahakumbh.pdf", title: "Shiksha Mahakumbh", image: "/shiksha.jpeg" },
+  { href: "/SchoolEducation.pdf", title: "Recent Advances in School education", image: "/recent_advances.jpeg" },
+] as const;
 
 const BooksCard: React.FC = () => (
-  <div className="min-h-screen bg-orange-100 flex items-center justify-center">
-    <Row gutter={[16, 16]} className="w-full max-w-screen-lg p-4">
-      <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='/Role of academic driven startups in economy.pdf'>
-        <Card title="Role of Academic Driven Startups in Economics" bordered={false}>
+  <div className="flex min-h-screen items-center justify-center bg-orange-100">
+    <div className="grid w-full max-w-screen-lg grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4">
+      {BOOKS.map((book) => (
+        <Link key={book.href} href={book.href} className="block rounded-lg bg-white p-4 shadow-md transition-shadow hover:shadow-lg">
+          <h3 className="mb-3 text-sm font-semibold text-gray-800">{book.title}</h3>
           <div className="flex justify-center">
-            <Image alt="" src="/Role.jpeg" height={150} width={300} className="object-contain" />
+            <Image
+              alt=""
+              src={book.image}
+              height={150}
+              width={300}
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 25vw"
+            />
           </div>
-        </Card>
         </Link>
-      </Col>
-      <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='/vih'>
-        <Card title="Role of Academic Driven Startups in Developing Economy of Jammu & Kashmir " bordered={false}>
-          <div className="flex justify-center">
-            <Image alt="Viksit India" src="/Role1.jpeg" height={150} width={300} className="object-contain" />
-          </div>
-        </Card>
-        </Link>
-      </Col>
-      <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='/Shiksha_Mahakumbh.pdf'>
-        <Card title="Shiksha Mahakumbh" bordered={false}>
-          <div className="flex justify-center">
-            <Image alt="Viksit Bharat" src="/shiksha.jpeg" height={150} width={300} className="object-contain" />
-          </div>
-        </Card>
-        </Link>
-      </Col>
-      <Col xs={24} sm={12} md={6} lg={6}>
-      <Link href='/SchoolEducation.pdf'>
-        <Card title="Recent Advances in School education" bordered={false}>
-          <div className="flex justify-center">
-            <Image alt="Viksit Bharat" src="/recent_advances.jpeg" height={150} width={300} className="object-contain" />
-          </div>
-        </Card>
-        </Link>
-      </Col>
-    </Row>
+      ))}
+    </div>
   </div>
 );
 

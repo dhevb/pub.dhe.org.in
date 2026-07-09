@@ -166,12 +166,14 @@
   }
 
   .animate-fade-in {
-    animation: fade-in 0.5s ease-out both;
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 
-  @media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: no-preference) {
     .animate-fade-in {
-      animation: none;
+      animation: fade-in 0.5s ease-out both;
     }
   }
 }

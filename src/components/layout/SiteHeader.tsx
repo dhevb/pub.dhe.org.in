@@ -54,7 +54,7 @@ export function SiteHeader({ className }: { className?: string }) {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-text-muted transition-colors hover:bg-background hover:text-text"
+              className="inline-flex min-h-11 min-w-11 items-center rounded-lg px-3 py-2 text-sm font-medium text-text-muted transition-colors hover:bg-background hover:text-text"
             >
               {link.label}
             </Link>
@@ -65,7 +65,7 @@ export function SiteHeader({ className }: { className?: string }) {
         <div className="flex items-center gap-2">
           <Link
             href="/search"
-            className="rounded-lg p-2 text-text-muted transition-colors hover:bg-background hover:text-text"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 text-text-muted transition-colors hover:bg-background hover:text-text"
             aria-label="Search"
           >
             <Search className="h-5 w-5" aria-hidden />

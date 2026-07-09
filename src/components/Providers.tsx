@@ -1,9 +1,14 @@
 "use client";
 
-import { Toaster } from "react-hot-toast";
-import NextTopLoader from "nextjs-toploader";
+import dynamic from "next/dynamic";
 import { CsrfBootstrap } from "@/components/security/CsrfBootstrap";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
+import NextTopLoader from "nextjs-toploader";
+
+const Toaster = dynamic(
+  () => import("react-hot-toast").then((m) => m.Toaster),
+  { ssr: false }
+);
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (

@@ -16,16 +16,16 @@ export function HeroSection() {
 
       <div className="container-wide section-padding relative">
         <div className="mx-auto max-w-4xl text-center animate-fade-in">
-          <Badge className="mb-6 border border-saffron/30 bg-saffron/10 text-saffron">
+          <Badge className="mb-6 border border-saffron/40 bg-saffron/20 text-white">
             A Bharatiya Knowledge Journal
           </Badge>
           <h1 id="hero-heading" className="heading-display mb-4 text-white">
             {siteConfig.name}
           </h1>
-          <p className="font-devanagari mb-4 text-xl text-white/80 sm:text-2xl">
+          <p className="font-devanagari mb-4 text-xl text-white/90 sm:text-2xl">
             {siteConfig.nameHindi}
           </p>
-          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/70">
+          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/85">
             {siteConfig.description}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">

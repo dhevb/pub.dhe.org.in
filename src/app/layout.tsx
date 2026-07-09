@@ -8,20 +8,26 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-body",
   display: "swap",
+  preload: true,
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
+  weight: ["700"],
   variable: "--font-display",
   display: "swap",
+  preload: true,
 });
 
 const notoDevanagari = Noto_Sans_Devanagari({
   subsets: ["devanagari"],
+  weight: ["400"],
   variable: "--font-devanagari",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = buildMetadata({});
