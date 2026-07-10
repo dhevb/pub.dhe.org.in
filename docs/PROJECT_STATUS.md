@@ -10,7 +10,7 @@
 
 | Section | Current Value |
 |---------|---------------|
-| **Production Version** | **v1.0.4** — VIE archive hotfix deployed |
+| **Production Version** | **v1.0.5** — VIE Vol 4 pending PDF UX |
 | **Production Commit** | `ec7702e` |
 | **Production Health** | **Healthy** (`/api/health` → `status: ok`) |
 | **Smoke Test** | **67/67 PASS** (baseline v1.0.2; re-run after major changes) |
@@ -18,10 +18,10 @@
 | **Active Docs Release** | v1.0.3 (branch `docs/v1.0.3-operations`) — not merged |
 | **Pilot Week** | Week 1 started — [week-01.md](./pilot/week-01.md) |
 | **Current Phase** | **Operational Pilot** (Phase 1) |
-| **Engineering Status** | **Maintenance mode** (hotfix v1.0.4 complete) |
+| **Engineering Status** | **Maintenance mode** (VIE archive engineering complete) |
 | **Open P0 Issues** | 0 |
 | **Open P1 Issues** | 4 (see [OPEN_ITEMS.md](./OPEN_ITEMS.md)) |
-| **VIE Archive PDFs** | **59/64** — Vol 4 Issue 1 (61–65) pending upload |
+| **VIE Archive PDFs** | **59/59 live** + 5 deferred (Vol 4 I1: 61–65 pending upload) |
 | **Last Security Review** | 2026-07-09 ([SECURITY_AUDIT_V1_1.md](./SECURITY_AUDIT_V1_1.md)) |
 | **Last Dependency Review** | 2026-07-10 (8 npm vulns — safe fix only) |
 | **Last Lighthouse Audit** | 2026-07-09 (P92 A96 BP100 SEO100) |
@@ -37,7 +37,7 @@
 | `/api/health` | 2026-07-10 | ✅ `version: ec7702e`, backend ok |
 | `/vie.rase/issues` | 2026-07-10 | ✅ **308** → `/vie.rase/table` |
 | VIE archive catalog | 2026-07-10 | ✅ 4 vol · 12 issues · 64 papers |
-| PDF audit | 2026-07-10 | ✅ 54/64 (10 operational uploads pending) |
+| PDF audit | 2026-07-10 | ✅ **59/59 live** + 5 deferred (Vol 4 I1: 61–65) |
 
 ```
 v1.0.4 — VIE Legacy Archive Hotfix — Deployed

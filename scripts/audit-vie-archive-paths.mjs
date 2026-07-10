@@ -3,6 +3,15 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+/** Deferred uploads — user-provided later; excluded from failure count. */
+const PENDING_PDF_PATHS = new Set([
+  "/vie/Volume 4 Issue 1 Article 61",
+  "/vie/Volume 4 Issue 1 Article 62",
+  "/vie/Volume 4 Issue 1 Article 63",
+  "/vie/Volume 4 Issue 1 Article 64",
+  "/vie/Volume 4 Issue 1 Article 65",
+]);
 const filterPath = path.join(__dirname, "../src/app/component/vie_Component/Filter.tsx");
 const rawText = fs.readFileSync(filterPath, "utf8");
 /** Strip line comments so commented-out catalog rows are not counted */
@@ -142,9 +151,14 @@ console.log(`Base URL: ${base}\n`);
 
 const existing = [];
 const missing = [];
+const pending = [];
 const broken = [];
 
 for (const page of [...new Set(paperPages)]) {
+  if (PENDING_PDF_PATHS.has(page)) {
+    pending.push(page);
+    continue;
+  }
   const url = `${base}${page}.pdf`;
   try {
     const res = await fetch(url, { method: "HEAD", redirect: "follow" });
@@ -158,7 +172,10 @@ for (const page of [...new Set(paperPages)]) {
 console.log(`Existing PDFs: ${existing.length}`);
 existing.forEach((p) => console.log(`  ✓ ${p}`));
 
-console.log(`\nMissing PDFs (operational upload required): ${missing.length}`);
+console.log(`\nDeferred PDFs (pending upload): ${pending.length}`);
+pending.forEach((p) => console.log(`  ⏳ ${p}`));
+
+console.log(`\nMissing PDFs (unexpected): ${missing.length}`);
 missing.forEach(({ page, status }) => {
   const expectedName = `${page.replace(/^\/vie\//, "")}.pdf`;
   const localMatch = localPdfNames.find((f) => f === expectedName);
@@ -192,9 +209,12 @@ for (const page of contentPages) {
 console.log("\n## Summary\n");
 console.log(`Software catalog papers: ${paperEntries.length}`);
 console.log(`Production PDFs available: ${existing.length}`);
-console.log(`Operational uploads needed: ${missing.length}`);
+console.log(`Deferred (Vol 4 I1): ${pending.length}`);
+console.log(`Unexpected missing: ${missing.length}`);
 if (missing.length) {
-  console.log("\n→ Missing PDFs are content operations, not software defects.");
+  console.log("\n→ Unexpected missing PDFs need investigation.");
+} else if (pending.length) {
+  console.log("\n→ All catalog papers accounted for; deferred uploads are expected.");
 }
 
 process.exit(missing.length > 0 ? 0 : 0);

@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   isVieArchiveContentEntry,
   isVieArchivePaper,
+  isVieArchivePdfPending,
   vieArchivePdfUrl,
   type VieArchiveArticle,
 } from "@/lib/journals/vie-archive-utils";
@@ -48,6 +49,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
 
         const author = displayAuthor(article);
         const pdfUrl = vieArchivePdfUrl(article.page);
+        const pdfPending = isVieArchivePdfPending(article.page);
 
         return (
           <div
@@ -62,23 +64,31 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
               <span className="border-l-2 border-r-2 border-indigo-700 px-2 py-1 text-black md:w-1/3">
                 {article.publishDate}
               </span>
-              <a
-                className="border-r-2 border-green-700 px-2 py-1 text-center text-black hover:rounded hover:bg-green-700 hover:text-white md:w-1/3"
-                href={pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View PDF
-              </a>
-              <a
-                className="block border-r-2 border-indigo-700 px-2 py-1 text-center text-black hover:rounded hover:bg-indigo-700 hover:text-white md:w-1/3"
-                href={pdfUrl}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download PDF
-              </a>
+              {pdfPending ? (
+                <span className="border-r-2 border-gray-400 px-2 py-1 text-center text-gray-500 md:w-2/3">
+                  PDF pending upload
+                </span>
+              ) : (
+                <>
+                  <a
+                    className="border-r-2 border-green-700 px-2 py-1 text-center text-black hover:rounded hover:bg-green-700 hover:text-white md:w-1/3"
+                    href={pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View PDF
+                  </a>
+                  <a
+                    className="block border-r-2 border-indigo-700 px-2 py-1 text-center text-black hover:rounded hover:bg-indigo-700 hover:text-white md:w-1/3"
+                    href={pdfUrl}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Download PDF
+                  </a>
+                </>
+              )}
               {article.readArticle?.startsWith("/") && (
                 <Link
                   href={article.readArticle}
