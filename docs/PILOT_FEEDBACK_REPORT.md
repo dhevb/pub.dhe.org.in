@@ -24,6 +24,8 @@ All rows must be satisfied before ending the pilot and opening v1.1 planning. Tr
 
 **When all met:** Complete [PILOT_SUMMARY.md](./PILOT_SUMMARY.md) and obtain sign-off below.
 
+**Weekly archive:** Record each Friday in [docs/pilot/](./pilot/) (`week-01.md`, `week-02.md`, …).
+
 ---
 
 ## Executive Summary
