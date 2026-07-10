@@ -51,6 +51,14 @@ See [docs/LAUNCH_READINESS.md](docs/LAUNCH_READINESS.md) for the full Phase 6 ch
 |-------|-------------|
 | [docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md) | **Master engineering constitution** — include in new Cursor chats |
 | [docs/V2_ROADMAP.md](docs/V2_ROADMAP.md) | **V2 enterprise roadmap** — publishing ecosystem & integrations |
+| [docs/V2_EXECUTION_PROMPT.md](docs/V2_EXECUTION_PROMPT.md) | V2 Cursor prompt (use **after** operational pilot) |
+| [docs/FINAL_CERTIFICATION_AUDIT.md](docs/FINAL_CERTIFICATION_AUDIT.md) | **Independent certification audit** (LEVEL 3) |
+| [docs/PRODUCTION_READINESS_CERTIFICATE.md](docs/PRODUCTION_READINESS_CERTIFICATE.md) | LEVEL 3 production readiness certificate |
+| [docs/CERTIFICATION_SCORECARD.md](docs/CERTIFICATION_SCORECARD.md) | Domain scores and evidence |
+| [docs/OPEN_ITEMS.md](docs/OPEN_ITEMS.md) | Post-certification open items (P0–P3) |
+| [docs/RELEASE_NOTES_v1.0.2.md](docs/RELEASE_NOTES_v1.0.2.md) | **v1.0.2** certification release notes |
+| [docs/PHASE_STATUS.md](docs/PHASE_STATUS.md) | Live V2 phase tracker — **Phase 1 pilot active** |
+| [docs/PILOT_FEEDBACK_REPORT.md](docs/PILOT_FEEDBACK_REPORT.md) | Operational pilot feedback template |
 | [docs/ARCHITECTURE_DECISIONS.md](docs/ARCHITECTURE_DECISIONS.md) | Architecture Decision Records (ADR) |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Folder structure, BFF pattern, middleware, auth flow |
 | [docs/API_REFERENCE.md](docs/API_REFERENCE.md) | All `/api/*` routes and backend proxies |

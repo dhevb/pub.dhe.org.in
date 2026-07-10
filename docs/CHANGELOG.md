@@ -5,6 +5,27 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [1.0.2] — 2026-07-10 — Independent Certification
+
+### Added
+- `docs/FINAL_CERTIFICATION_AUDIT.md` — full independent certification audit
+- `docs/CERTIFICATION_SCORECARD.md` — domain scores (overall 76/100)
+- `docs/PRODUCTION_READINESS_CERTIFICATE.md` — LEVEL 3 certificate
+- `docs/OPEN_ITEMS.md` — P0–P3 tracked gaps
+- `docs/RECOMMENDED_NEXT_RELEASE.md` — release sequencing
+- `docs/RELEASE_NOTES_v1.0.2.md` — this release
+- ADR-018: Independent certification audit (LEVEL 3 — Production Ready)
+
+### Changed
+- Package version `1.0.1` → `1.0.2` (documentation release; no app logic changes)
+- README, ROADMAP, PHASE_STATUS — certification audit references
+
+### Certification
+- **LEVEL 3 — Production Ready** (76/100)
+- Not certified: international publishing ecosystem (Crossref, OAI-PMH, editorial engine)
+
+---
+
 ## [1.1.0] — 2026-07-09 — Engineering Excellence
 
 ### Added

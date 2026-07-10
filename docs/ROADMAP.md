@@ -4,6 +4,10 @@ Future development priorities for Viksit Bharat Journal.
 
 > **V2 Enterprise Plan:** See **[V2_ROADMAP.md](./V2_ROADMAP.md)** for the full academic publishing ecosystem roadmap (DOI, editorial workflow, storage, indexing, AI).
 
+> **Certification (Jul 2026):** **LEVEL 3 — Production Ready** (76/100) — [PRODUCTION_READINESS_CERTIFICATE.md](./PRODUCTION_READINESS_CERTIFICATE.md) · v1.0.2 release: [RELEASE_NOTES_v1.0.2.md](./RELEASE_NOTES_v1.0.2.md)
+
+> **Current focus:** **Phase 1 Operational Pilot** — run the platform with real editors and authors for 4–8 weeks before V2 implementation. Track progress in [PHASE_STATUS.md](./PHASE_STATUS.md). Use [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md) only after pilot sign-off.
+
 Architecture placeholders already exist in `src/lib/` — this document tracks near-term delivery.
 
 ---

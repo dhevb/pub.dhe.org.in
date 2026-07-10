@@ -300,6 +300,51 @@ Record new decisions at the bottom with the next ADR number.
 
 ---
 
+## ADR-017: Operational pilot gate before V2 implementation
+
+| Field | Value |
+|-------|-------|
+| **Status** | Accepted |
+| **Date** | 2026-07-10 |
+
+**Context:** Platform is production-stable (v1.0.1) with ~90–95% core engineering complete. The greatest remaining risk is implementing integrations and workflow features that real editors, authors, and reviewers do not need.
+
+**Decision:** V2 feature implementation is **blocked** until Phase 1 operational pilot completes:
+
+1. Run production with real users for 4–8 weeks
+2. Collect observations in [PILOT_FEEDBACK_REPORT.md](./PILOT_FEEDBACK_REPORT.md)
+3. Sign off with editorial and engineering leads
+4. Re-prioritize V2 phases 2–12 from pilot evidence
+
+During pilot: v1.0.x maintenance only (bug fixes, security patches). No new V2 features. Operational prerequisites (Crossref application, editorial policies, Search Console) proceed in parallel.
+
+**Consequences:**
+- (+) Reduces rework and unused features
+- (+) Aligns engineering with validated workflows
+- (+) Execution prompt and trackers documented in [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md)
+- (−) V2 timeline starts after pilot, not immediately
+
+---
+
+## ADR-018: Independent certification audit (LEVEL 3)
+
+| Field | Value |
+|-------|-------|
+| **Status** | Accepted |
+| **Date** | 2026-07-10 (v1.0.2) |
+
+**Context:** Platform reached production stability (v1.0.1). An independent multi-disciplinary audit was required to certify readiness without assuming prior PASS claims.
+
+**Decision:** Conduct full certification audit documented in [FINAL_CERTIFICATION_AUDIT.md](./FINAL_CERTIFICATION_AUDIT.md). Classify platform as **LEVEL 3 — Production Ready** (76/100). Not certified as LEVEL 4 (international publishing) until DOI, OAI-PMH, editorial engine, and pilot complete.
+
+**Consequences:**
+- (+) Formal certificate: [PRODUCTION_READINESS_CERTIFICATE.md](./PRODUCTION_READINESS_CERTIFICATE.md)
+- (+) Open items tracked in [OPEN_ITEMS.md](./OPEN_ITEMS.md)
+- (+) v1.0.2 documentation-only release; no feature code in certification branch
+- (−) LEVEL 4 requirements documented but not met
+
+---
+
 ## Template for new ADRs
 
 ```markdown
@@ -321,6 +366,7 @@ Record new decisions at the bottom with the next ADR number.
 
 ## Related
 
+- [FINAL_CERTIFICATION_AUDIT.md](./FINAL_CERTIFICATION_AUDIT.md)
 - [ARCHITECTURE.md](./ARCHITECTURE.md)
 - [PROJECT_CHARTER.md](./PROJECT_CHARTER.md)
 - [V2_ROADMAP.md](./V2_ROADMAP.md)
