@@ -123,6 +123,20 @@ if (invalidPaths.length) {
   console.log("\nInvalid paths: none");
 }
 
+console.log("\n## Local public/vie PDF Inventory\n");
+
+const publicVieDir = path.join(__dirname, "../public/vie");
+let localPdfNames = [];
+if (fs.existsSync(publicVieDir)) {
+  localPdfNames = fs
+    .readdirSync(publicVieDir)
+    .filter((f) => f.endsWith(".pdf"))
+    .sort();
+  console.log(`Files in public/vie: ${localPdfNames.length}`);
+} else {
+  console.log("public/vie not found");
+}
+
 console.log("\n## Production PDF Verification\n");
 console.log(`Base URL: ${base}\n`);
 
@@ -145,9 +159,18 @@ console.log(`Existing PDFs: ${existing.length}`);
 existing.forEach((p) => console.log(`  ✓ ${p}`));
 
 console.log(`\nMissing PDFs (operational upload required): ${missing.length}`);
-missing.forEach(({ page, status }) =>
-  console.log(`  ✗ ${page} (HTTP ${status})`)
-);
+missing.forEach(({ page, status }) => {
+  const expectedName = `${page.replace(/^\/vie\//, "")}.pdf`;
+  const localMatch = localPdfNames.find((f) => f === expectedName);
+  const fuzzy = localPdfNames.filter((f) => {
+    const num = page.match(/Article (\d+)/)?.[1];
+    return num && f.includes(`Article ${num}`);
+  });
+  console.log(`  ✗ ${page} (HTTP ${status})`);
+  if (localMatch) console.log(`    → local file exists (deploy may be stale): ${localMatch}`);
+  else if (fuzzy.length)
+    console.log(`    → possible local mismatch: ${fuzzy.join(", ")}`);
+});
 
 if (broken.length) {
   console.log(`\nBroken paths (network/error): ${broken.length}`);

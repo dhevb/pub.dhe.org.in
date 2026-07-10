@@ -15,7 +15,20 @@
 | `/api/health` | ok · `ec7702e` |
 | `/vie.rase/issues` redirect | ✅ 308 → `/vie.rase/table` |
 | Archive catalog verified | 4 vol · 12 issues · 64 papers |
-| PDF audit | 54/64 — **10 uploads pending** |
+| PDF audit | 59/64 after catalog path fix (Vol 4 I1: 61–65 still missing) |
+
+### Catalog path fix (2026-07-10)
+
+Deep audit of `public/vie/` found PDFs existed with **wrong issue numbers in catalog**, not missing files:
+
+| Catalog entry | Was (404) | Fixed to (200) |
+|---------------|-----------|----------------|
+| Vol 2 I2 Art 35, 36 | Issue 2 paths | Issue 3 paths |
+| Vol 2 I3 Art 38, 39 | Issue 3 paths | Issue 4 paths |
+| Vol 3 I2 Art 53 | Issue 2 path | Issue 4 path |
+| Content Vol 3 I2 2025 | single space | double space (matches asset) |
+
+`public/vie/` contains **86 PDFs** locally; Vol 4 Issue 1 papers not yet in repo.
 
 ---
 
@@ -51,10 +64,7 @@
 
 Upload missing VIE archive PDFs:
 
-- Vol 2 Issue 2: Articles 35, 36
-- Vol 2 Issue 3: Articles 38, 39
-- Vol 3 Issue 2: Article 53
-- Vol 4 Issue 1: Articles 61–65
+- Vol 4 Issue 1: Articles **61–65** (only remaining gap)
 
 Re-run: `node scripts/audit-vie-archive-paths.mjs` → target 64/64
 
