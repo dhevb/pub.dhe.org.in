@@ -313,7 +313,7 @@ const Filter: React.FC = () => {
     title: "A Comparative Analysis of Social Security Legislation for the Unorganized Labor Sector in India and the USA",
     author: "Bhavika",
     publishDate: "June 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 2 Article 35", // Please provide the actual page number
+    page: "/vie/Volume 2 Issue 3 Article 35",
     volume: "Volume 2",
     issue: "Issue 2",
     readArticle:""},
@@ -321,7 +321,7 @@ const Filter: React.FC = () => {
     title: "Investigating the Role of Law as an Instrument of Social Order",
     author: "Arunika Paul Nandi",
     publishDate: "June 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 2 Article 36", // Please provide the actual page number
+    page: "/vie/Volume 2 Issue 3 Article 36",
     volume: "Volume 2",
     issue: "Issue 2",
     readArticle:""},
@@ -346,7 +346,7 @@ const Filter: React.FC = () => {
     title: "Laws on Social Media Challenges in their implementation and way forward",
     author: "Alisha Arora",
     publishDate: "September 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 3 Article 38", // Please provide the actual page number
+    page: "/vie/Volume 2 Issue 4 Article 38",
     volume: "Volume 2",
     issue: "Issue 3",
     readArticle:""},
@@ -354,7 +354,7 @@ const Filter: React.FC = () => {
     title: "Secularism is the Essence of Constitution of India: An Analysis in the Light of Basic Structure Doctrine",
     author: "Ayesha Nezami",
     publishDate: "September 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 3 Article 39", // Please provide the actual page number
+    page: "/vie/Volume 2 Issue 4 Article 39",
     volume: "Volume 2",
     issue: "Issue 3",
     readArticle:""},
@@ -453,7 +453,7 @@ const Filter: React.FC = () => {
     title: "Content",
     author: "",
     publishDate: "June 30, 2025", // Please provide the actual publish date
-    page: "/vie/Content Volume 3 Issue 2 2025", // Please provide the actual page number
+    page: "/vie/Content  Volume 3 Issue 2 2025",
     volume: "Volume 3",
     issue: "Issue 2",
     readArticle:""},
@@ -510,7 +510,7 @@ const Filter: React.FC = () => {
     title: "Mathematics Education: A Catalyst for Global Progress and Development",
     author: "Sarita Pippal",
     publishDate: "June 30, 2025", // Please provide the actual publish date
-    page: "/vie/Volume 3 Issue 2 Article 53", // Please provide the actual page number
+    page: "/vie/Volume 3 Issue 4 Article 53",
     volume: "Volume 3",
     issue: "Issue 2",
     readArticle:""},
