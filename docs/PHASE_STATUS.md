@@ -1,9 +1,10 @@
 # V2 Phase Status
 
 **Last updated:** 2026-07-10  
-**Current version:** v1.0.2  
-**Certification:** **LEVEL 3 — Production Ready** (76/100) — see [PRODUCTION_READINESS_CERTIFICATE.md](./PRODUCTION_READINESS_CERTIFICATE.md)  
-**Execution mode:** **Operational pilot** (Phase 1) — no V2 feature code until pilot complete
+**Current version:** v1.0.2 — **Production Verified, Closed**  
+**Dashboard:** [PROJECT_STATUS.md](./PROJECT_STATUS.md)  
+**Certification:** **LEVEL 3 — Production Ready** (76/100)  
+**Execution mode:** **Operational pilot** (Phase 1) — engineering frozen; see [GOVERNANCE.md](./GOVERNANCE.md) *(v1.0.3 PR)*
 
 Use [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md) when beginning implementation phases.
 
@@ -34,12 +35,13 @@ Use [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md) when beginning implementa
 
 **Objective:** Validate workflows with real users before building integrations.
 
-**Code policy:** No new V2 features. Production monitoring and bug fixes only (v1.0.x).
+**Code policy:** No new V2 features. **Engineering freeze** during pilot. Weekly updates: [PROJECT_STATUS.md](./PROJECT_STATUS.md), [PILOT_FEEDBACK_REPORT.md](./PILOT_FEEDBACK_REPORT.md).
 
 | Task | Status | Notes |
 |------|--------|-------|
 | Production platform audit | ✅ Complete | [FINAL_CERTIFICATION_AUDIT.md](./FINAL_CERTIFICATION_AUDIT.md) — LEVEL 3 (Jul 2026) |
-| Independent certification | ✅ Complete | v1.0.2 — [RELEASE_NOTES_v1.0.2.md](./RELEASE_NOTES_v1.0.2.md) |
+| Independent certification | ✅ Complete | v1.0.2 closed — [RELEASE_NOTES_v1.0.2.md](./RELEASE_NOTES_v1.0.2.md) |
+| Production deploy verified | ✅ Complete | `c152991`, smoke **67/67** (2026-07-10) |
 | Editor workflow observations | ⬜ Pending | Use [PILOT_FEEDBACK_REPORT.md](./PILOT_FEEDBACK_REPORT.md) |
 | Author workflow observations | ⬜ Pending | |
 | Reviewer workflow observations | ⬜ Pending | |

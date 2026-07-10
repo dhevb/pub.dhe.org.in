@@ -24,6 +24,13 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 - **LEVEL 3 — Production Ready** (76/100)
 - Not certified: international publishing ecosystem (Crossref, OAI-PMH, editorial engine)
 
+### Production verified (2026-07-10)
+- Vercel deploy: commit `c152991` live
+- `/api/health`: `status: ok`, `version: c152991`
+- Smoke test: **67/67 PASS**
+- Scholar meta: 7/7 required PASS
+- **Status: Production Verified — Closed**
+
 ---
 
 ## [1.1.0] — 2026-07-09 — Engineering Excellence

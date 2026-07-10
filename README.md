@@ -1,7 +1,7 @@
 # Viksit Bharat Journal
 
 **A Bharatiya Knowledge Journal** — indigenous academic publishing for the Department of Holistic Education.  
-Live at **[pub.dhe.org.in](https://pub.dhe.org.in)** · **Version:** [v1.0.2](docs/RELEASE_NOTES_v1.0.2.md) (LEVEL 3 Production Ready)
+Live at **[pub.dhe.org.in](https://pub.dhe.org.in)** · **Version:** [v1.0.2](docs/RELEASE_NOTES_v1.0.2.md) · [Project Status](docs/PROJECT_STATUS.md)
 
 ## Journals
 
@@ -50,6 +50,7 @@ See [docs/LAUNCH_READINESS.md](docs/LAUNCH_READINESS.md) for the full Phase 6 ch
 | Guide | Description |
 |-------|-------------|
 | [docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md) | **Master engineering constitution** — include in new Cursor chats |
+| [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md) | **Executive status dashboard** — update weekly during pilot |
 | [docs/V2_ROADMAP.md](docs/V2_ROADMAP.md) | **V2 enterprise roadmap** — publishing ecosystem & integrations |
 | [docs/V2_EXECUTION_PROMPT.md](docs/V2_EXECUTION_PROMPT.md) | V2 Cursor prompt (use **after** operational pilot) |
 | [docs/FINAL_CERTIFICATION_AUDIT.md](docs/FINAL_CERTIFICATION_AUDIT.md) | **Independent certification audit** (LEVEL 3) |
