@@ -78,8 +78,6 @@ v1.0.2 — Production Verified — Closed
 | Week | Dates | Report | Status |
 |------|-------|--------|--------|
 | 1 | 2026-07-10 | [week-01.md](./pilot/week-01.md) | ✅ v1.0.4 deploy + archive audit |
-| 0 | 2026-07-10 | Setup | ✅ v1.0.2 closed; begin [PILOT_FEEDBACK_REPORT.md](./PILOT_FEEDBACK_REPORT.md) |
-| 1 | | | ⬜ |
 | 2 | | | ⬜ |
 | 3 | | | ⬜ |
 | 4 | | | ⬜ |
