@@ -10,21 +10,38 @@
 
 | Section | Current Value |
 |---------|---------------|
-| **Production Version** | **v1.0.2** — Production Verified, **Closed** |
-| **Production Commit** | `c152991` |
+| **Production Version** | **v1.0.4** — VIE archive hotfix deployed |
+| **Production Commit** | `ec7702e` |
 | **Production Health** | **Healthy** (`/api/health` → `status: ok`) |
-| **Smoke Test** | **67/67 PASS** (2026-07-10) |
+| **Smoke Test** | **67/67 PASS** (baseline v1.0.2; re-run after major changes) |
 | **Certification** | LEVEL 3 — Production Ready (76/100) |
-| **Active Docs Release** | v1.0.3 (PR: `docs/v1.0.3-operations`) — not merged |
-| **Pilot Week** | Not started — Week 0 / 8 |
+| **Active Docs Release** | v1.0.3 (branch `docs/v1.0.3-operations`) — not merged |
+| **Pilot Week** | Week 1 started — [week-01.md](./pilot/week-01.md) |
 | **Current Phase** | **Operational Pilot** (Phase 1) |
-| **Engineering Status** | **Frozen** (bug fixes / security / docs only) |
+| **Engineering Status** | **Maintenance mode** (hotfix v1.0.4 complete) |
 | **Open P0 Issues** | 0 |
 | **Open P1 Issues** | 4 (see [OPEN_ITEMS.md](./OPEN_ITEMS.md)) |
+| **VIE Archive PDFs** | **54/64** — 10 operational uploads pending |
 | **Last Security Review** | 2026-07-09 ([SECURITY_AUDIT_V1_1.md](./SECURITY_AUDIT_V1_1.md)) |
 | **Last Dependency Review** | 2026-07-10 (8 npm vulns — safe fix only) |
 | **Last Lighthouse Audit** | 2026-07-09 (P92 A96 BP100 SEO100) |
 | **Next Milestone** | Editorial pilot → [PILOT_SUMMARY.md](./PILOT_SUMMARY.md) → v1.1.0 |
+
+---
+
+## Production Verification (v1.0.4)
+
+| Check | Date | Result |
+|-------|------|--------|
+| Vercel deploy | 2026-07-10 | ✅ `ec7702e` live |
+| `/api/health` | 2026-07-10 | ✅ `version: ec7702e`, backend ok |
+| `/vie.rase/issues` | 2026-07-10 | ✅ **308** → `/vie.rase/table` |
+| VIE archive catalog | 2026-07-10 | ✅ 4 vol · 12 issues · 64 papers |
+| PDF audit | 2026-07-10 | ✅ 54/64 (10 operational uploads pending) |
+
+```
+v1.0.4 — VIE Legacy Archive Hotfix — Deployed
+```
 
 ---
 
@@ -49,7 +66,8 @@ v1.0.2 — Production Verified — Closed
 | Version | Status | Notes |
 |---------|--------|-------|
 | v1.0.2 | **Closed** | Certification + production verified |
-| v1.0.3 | In review | Operations, governance, support matrix — docs only |
+| v1.0.3 | Pending | Operations, governance — docs only |
+| v1.0.4 | **Deployed** | VIE legacy archive hotfix |
 | v1.1.0 | Planned | After pilot + `PILOT_SUMMARY.md` |
 | v2.x | Blocked | ADR-017 pilot gate |
 
@@ -59,6 +77,7 @@ v1.0.2 — Production Verified — Closed
 
 | Week | Dates | Report | Status |
 |------|-------|--------|--------|
+| 1 | 2026-07-10 | [week-01.md](./pilot/week-01.md) | ✅ v1.0.4 deploy + archive audit |
 | 0 | 2026-07-10 | Setup | ✅ v1.0.2 closed; begin [PILOT_FEEDBACK_REPORT.md](./PILOT_FEEDBACK_REPORT.md) |
 | 1 | | | ⬜ |
 | 2 | | | ⬜ |

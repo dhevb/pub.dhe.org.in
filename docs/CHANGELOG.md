@@ -5,6 +5,28 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [1.0.4] — 2026-07-10 — VIE Legacy Archive Hotfix
+
+### Fixed
+- Legacy English Journal archive at `/vie.rase/table` — auto-select first issue, PDF links in new tab, content headers
+- Catalog data corrections (`v1i3p8`, duplicate paths, author fields)
+- Archive navigation link (VIE only)
+- Permanent redirect `/vie.rase/issues` → `/vie.rase/table` (config + page)
+
+### Added
+- `src/lib/journals/vie-archive-utils.ts` — archive helpers
+- `scripts/audit-vie-archive-paths.mjs` — catalog + PDF audit
+- `docs/RELEASE_NOTES_v1.0.4.md`
+
+### Production verified (2026-07-10)
+- Deploy: commit `ec7702e` live
+- `/api/health`: `status: ok`, `version: ec7702e`
+- `/vie.rase/issues`: **308** → `/vie.rase/table`
+- Archive catalog: 4 volumes · 12 issues · 64 papers
+- PDF audit: **54/64** on production (10 operational uploads pending)
+
+---
+
 ## [1.0.2] — 2026-07-10 — Independent Certification
 
 ### Added
