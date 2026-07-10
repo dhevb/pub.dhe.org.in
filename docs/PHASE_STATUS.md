@@ -1,9 +1,11 @@
 # V2 Phase Status
 
 **Last updated:** 2026-07-10  
-**Current version:** v1.0.3 (docs) · certified **v1.0.2** LEVEL 3  
-**Certification:** [PRODUCTION_READINESS_CERTIFICATE.md](./PRODUCTION_READINESS_CERTIFICATE.md) (76/100)  
-**Execution mode:** **Operational pilot** (Phase 1) — engineering freeze; see [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md), [GOVERNANCE.md](./GOVERNANCE.md)
+**Production version:** v1.0.2 — **Production Verified, Closed**  
+**Docs release:** v1.0.3 (PR pending)  
+**Dashboard:** [PROJECT_STATUS.md](./PROJECT_STATUS.md)  
+**Certification:** **LEVEL 3 — Production Ready** (76/100)  
+**Execution mode:** **Operational pilot** (Phase 1) — engineering frozen; [GOVERNANCE.md](./GOVERNANCE.md), [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md)
 
 Use [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md) when beginning implementation phases.
 
@@ -34,12 +36,13 @@ Use [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md) when beginning implementa
 
 **Objective:** Validate workflows with real users before building integrations.
 
-**Code policy:** No new V2 features. **Engineering freeze** during pilot — allowed: bug fixes, security patches, perf, docs. Deferred: features, redesign, V2. [GOVERNANCE.md](./GOVERNANCE.md) §3, [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md).
+**Code policy:** No new V2 features. **Engineering freeze** during pilot. Weekly: [PROJECT_STATUS.md](./PROJECT_STATUS.md), [PILOT_FEEDBACK_REPORT.md](./PILOT_FEEDBACK_REPORT.md). See [GOVERNANCE.md](./GOVERNANCE.md) §3, [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md).
 
 | Task | Status | Notes |
 |------|--------|-------|
 | Production platform audit | ✅ Complete | [FINAL_CERTIFICATION_AUDIT.md](./FINAL_CERTIFICATION_AUDIT.md) — LEVEL 3 (Jul 2026) |
-| Independent certification | ✅ Complete | v1.0.2 — [RELEASE_NOTES_v1.0.2.md](./RELEASE_NOTES_v1.0.2.md) |
+| Independent certification | ✅ Complete | v1.0.2 closed — [RELEASE_NOTES_v1.0.2.md](./RELEASE_NOTES_v1.0.2.md) |
+| Production deploy verified | ✅ Complete | `c152991`, smoke **67/67** (2026-07-10) |
 | Editor workflow observations | ⬜ Pending | Use [PILOT_FEEDBACK_REPORT.md](./PILOT_FEEDBACK_REPORT.md) |
 | Author workflow observations | ⬜ Pending | |
 | Reviewer workflow observations | ⬜ Pending | |
@@ -84,6 +87,7 @@ Detailed acceptance criteria live in phase-specific docs. Implementation order i
 
 ## Related
 
+- [PROJECT_STATUS.md](./PROJECT_STATUS.md)
 - [V2_EXECUTION_REPORT.md](./V2_EXECUTION_REPORT.md)
 - [INTEGRATION_STATUS.md](./INTEGRATION_STATUS.md)
 - [RISK_REGISTER.md](./RISK_REGISTER.md)
