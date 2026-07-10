@@ -1,21 +1,9 @@
-// pages/index.tsx
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import ArticleList from './ArticleList';
-
-// Define the Article type to improve type safety
-type Article = {
-  title: string;
-  author: string;
-  publishDate: string;
-  page: string;
-  volume: string;
-  issue: string;
-  readArticle: string;
-};
+import type { VieArchiveArticle } from '@/lib/journals/vie-archive-utils';
 
 const Filter: React.FC = () => {
-  // Define the allArticles array directly in this component (remove the duplicate code)
-  const allArticles: Article[] = [ 
+  const allArticles: VieArchiveArticle[] = useMemo(() => [
     {
       title:
         "Content",
@@ -230,7 +218,7 @@ const Filter: React.FC = () => {
     title: "Augmenting Techno-Pedagogical Competencies of Pre-Service Trainees for Designing E-Content through Collaborative Training Model",
     author: "Ms. Seema Rani Thappa    ",
     publishDate: "2023-12-31", // Please provide the actual publish date
-    page: "/vie/v1i3p8W", // Please provide the actual page number
+    page: "/vie/v1i3p8",
     volume: "Volume 1",
     issue: "Issue 3",
     readArticle:""},
@@ -331,12 +319,12 @@ const Filter: React.FC = () => {
     readArticle:""},
   {
     title: "Investigating the Role of Law as an Instrument of Social Order",
-    author: "",
+    author: "Arunika Paul Nandi",
     publishDate: "June 30,2024", // Please provide the actual publish date
     page: "/vie/Volume 2 Issue 2 Article 36", // Please provide the actual page number
     volume: "Volume 2",
     issue: "Issue 2",
-    readArticle:"Arunika Paul Nandi"},
+    readArticle:""},
   
   {
     title: "Content",
@@ -358,7 +346,7 @@ const Filter: React.FC = () => {
     title: "Laws on Social Media Challenges in their implementation and way forward",
     author: "Alisha Arora",
     publishDate: "September 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 3 Article 37", // Please provide the actual page number
+    page: "/vie/Volume 2 Issue 3 Article 38", // Please provide the actual page number
     volume: "Volume 2",
     issue: "Issue 3",
     readArticle:""},
@@ -366,7 +354,7 @@ const Filter: React.FC = () => {
     title: "Secularism is the Essence of Constitution of India: An Analysis in the Light of Basic Structure Doctrine",
     author: "Ayesha Nezami",
     publishDate: "September 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 3 Article 37", // Please provide the actual page number
+    page: "/vie/Volume 2 Issue 3 Article 39", // Please provide the actual page number
     volume: "Volume 2",
     issue: "Issue 3",
     readArticle:""},
@@ -595,18 +583,17 @@ const Filter: React.FC = () => {
     {
     title: "Conent",
     author: "",
-    publishDate: "2026-03-31", // Please provide the actual publish date
-    page: "/vie/cv2i1", // Please provide the actual page number
+    publishDate: "2026-03-31",
+    page: "/vie/cv4i1",
     volume: "Volume 4",
     issue: "Issue 1",
     readArticle:""},
 
-
     {
     title: "Machine Translation of English News to Indian Sign Language (ISL) for Indian Deaf Community",
     author: "Annu Rani",
-    publishDate: "2026-03-31", // Please provide the actual publish date
-    page: "/vie/Volume 4 Issue 1 Article 61", // Please provide the actual page number
+    publishDate: "2026-03-31",
+    page: "/vie/Volume 4 Issue 1 Article 61",
     volume: "Volume 4",
     issue: "Issue 1",
     readArticle:""},
@@ -697,9 +684,12 @@ const Filter: React.FC = () => {
   //   issue: "Issue 4",
   //   readArticle:""
   // },
-];
+], []);
 
-  const volumes: string[] = Array.from(new Set(allArticles.map((article) => article.volume)));
+  const volumes: string[] = useMemo(
+    () => Array.from(new Set(allArticles.map((article) => article.volume))),
+    [allArticles]
+  );
 
   const [selectedVolume, setSelectedVolume] = useState<string>(volumes[0]);
   const [selectedIssue, setSelectedIssue] = useState<string>('');
@@ -739,6 +729,14 @@ const Filter: React.FC = () => {
   const handleIssueChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedIssue(e.target.value);
   };
+
+  useEffect(() => {
+    if (issuesWithDates.length > 0) {
+      setSelectedIssue(issuesWithDates[0][0]);
+    } else {
+      setSelectedIssue("");
+    }
+  }, [selectedVolume, issuesWithDates]);
 
   return (
     <div>
@@ -783,7 +781,13 @@ const Filter: React.FC = () => {
         </div>
       </div>
 
-      {filteredArticles.length > 0 && <ArticleList articles={filteredArticles} />}
+        {filteredArticles.length > 0 ? (
+          <ArticleList articles={filteredArticles} />
+        ) : (
+          selectedIssue === "" && (
+            <p className="px-4 text-center text-gray-600">Select an issue to view its papers.</p>
+          )
+        )}
     </div>
   );
 };

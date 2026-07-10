@@ -10,15 +10,24 @@ import { cn } from "@/lib/utils/cn";
 import { Button } from "@/components/ui/Button";
 
 export function getJournalNavItems(journal: JournalConfig) {
-  return [
+  const items = [
     { label: "Home", href: journal.entryRoute },
     { label: "Articles", href: `${journal.routePrefix}/ReadArticlePage` },
+  ];
+
+  if (journal.id === "vie") {
+    items.push({ label: "Archive", href: `${journal.routePrefix}/table` });
+  }
+
+  items.push(
     { label: "Submit", href: `${journal.routePrefix}/SubmitManuscript` },
     { label: "Editorial Board", href: `${journal.routePrefix}/EditorialBoard` },
     { label: "Indexing", href: `${journal.routePrefix}/Indexing` },
     { label: "Contact", href: `${journal.routePrefix}/ContactUs` },
-    { label: "Dashboard", href: "/dashboard" },
-  ];
+    { label: "Dashboard", href: "/dashboard" }
+  );
+
+  return items;
 }
 
 interface JournalNavProps {
