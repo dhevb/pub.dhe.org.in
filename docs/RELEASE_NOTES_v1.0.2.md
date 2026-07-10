@@ -131,15 +131,49 @@ Health does not read `package.json` in v1.0.2 — semver is documented in this f
 
 ## Deployment Checklist
 
-- [ ] Merge `release/v1.0.2-certification` after approval
-- [ ] Push tag `v1.0.2` to origin
-- [ ] Vercel deploy from approved branch (region `bom1`)
-- [ ] Verify `GET /api/health` — `version` = deployed commit (`db32af1` expected); semver **1.0.2** in `package.json`
-- [ ] Run production smoke: `BASE_URL=https://pub.dhe.org.in npm run qa:smoke`
-- [ ] Confirm Scholar meta on sample paper URL
-- [ ] Update [PHASE_STATUS.md](./PHASE_STATUS.md) deploy status
+- [x] Merge `release/v1.0.2-certification` → `main` (2026-07-10, fast-forward to `574eb05`)
+- [x] Push `main` to origin (2026-07-10)
+- [x] Push tag `v1.0.2` to origin
+- [ ] Vercel production deploy from `main` (region `bom1`) — **pending** at validation time
+- [ ] Verify `GET /api/health` — `version` = `574eb05` after deploy (was `0c7f48d` pre-deploy)
+- [x] Run production smoke: `BASE_URL=https://pub.dhe.org.in npm run qa:smoke`
+- [x] Confirm Scholar meta on sample paper URL
+- [ ] Update [PHASE_STATUS.md](./PHASE_STATUS.md) deploy status after Vercel deploy
 
-**Environment:** No new env vars required for this release (documentation only).
+**Environment:** No new env vars required for this release.
+
+---
+
+## Post-Deploy Production Validation
+
+*Recorded 2026-07-10 after merge to `main`. Re-run after Vercel deploy completes.*
+
+| Check | Date | Result | Notes |
+|-------|------|--------|-------|
+| Merge to `main` | 2026-07-10 | ✅ | `574eb05` |
+| Push `main` | 2026-07-10 | ✅ | |
+| Vercel deploy Ready | 2026-07-10 | ⬜ | Production still on `0c7f48d` — await auto-deploy |
+| `/api/health` | 2026-07-10 | ⚠️ | `status: ok`, `version: 0c7f48d` (pre-deploy) |
+| `qa:smoke` (67 checks) | 2026-07-10 | ⚠️ | **63/67 passed**, 4 failed (transient fetch) |
+| `verify-scholar.mjs` Paper1 | 2026-07-10 | ✅ | 7/7 required PASS |
+| Homepage / paper / sitemap | 2026-07-10 | ⬜ | Re-verify post-deploy |
+
+### Smoke failures (investigate / re-run)
+
+| Route | Error |
+|-------|-------|
+| `/vbh.rase/Paper4` | fetch failed |
+| `/vbh.rase/Paper5` | fetch failed |
+| `/vie.rase/ReadArticlePage` | fetch failed |
+| `/vie` | fetch failed |
+
+```bash
+BASE_URL=https://pub.dhe.org.in npm run qa:smoke
+node scripts/qa/verify-scholar.mjs https://pub.dhe.org.in/vbe.rase/Paper1
+curl -s https://pub.dhe.org.in/api/health
+```
+
+**v1.0.2 closure:** Re-run smoke after Vercel deploy; target **67/67**. Then mark v1.0.2 closed.
 
 ---
 
