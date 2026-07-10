@@ -1,7 +1,7 @@
 # Viksit Bharat Journal
 
 **A Bharatiya Knowledge Journal** — indigenous academic publishing for the Department of Holistic Education.  
-Live at **[pub.dhe.org.in](https://pub.dhe.org.in)**.
+Live at **[pub.dhe.org.in](https://pub.dhe.org.in)** · **Version:** [v1.0.2](docs/RELEASE_NOTES_v1.0.2.md) (LEVEL 3 Production Ready)
 
 ## Journals
 

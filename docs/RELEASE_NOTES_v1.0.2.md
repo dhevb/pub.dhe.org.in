@@ -110,6 +110,15 @@ Recorded at `package.json` version **1.0.2** (pre-tag).
 | `npm run build` | **PASS** | 123 static pages; shared JS 87.4 kB |
 | `npm run qa:smoke` | **NOT RUN** | Requires running server or production URL |
 
+### Version fields (`GET /api/health`)
+
+| Field | Source | v1.0.2 behavior |
+|-------|--------|-----------------|
+| `version` | `VERCEL_GIT_COMMIT_SHA` (7-char) on Vercel; `"local"` in dev | After deploy: expect `db32af1` |
+| Semver | `package.json` | **1.0.2** (not returned by health endpoint today) |
+
+Health does not read `package.json` in v1.0.2 — semver is documented in this file, [CHANGELOG.md](./CHANGELOG.md), and [README.md](../README.md). Post-deploy verification: confirm `version` matches the deployed commit.
+
 ### External Checks (audit session)
 
 | Check | Result |
@@ -125,7 +134,7 @@ Recorded at `package.json` version **1.0.2** (pre-tag).
 - [ ] Merge `release/v1.0.2-certification` after approval
 - [ ] Push tag `v1.0.2` to origin
 - [ ] Vercel deploy from approved branch (region `bom1`)
-- [ ] Verify `GET /api/health` returns expected version/commit
+- [ ] Verify `GET /api/health` — `version` = deployed commit (`db32af1` expected); semver **1.0.2** in `package.json`
 - [ ] Run production smoke: `BASE_URL=https://pub.dhe.org.in npm run qa:smoke`
 - [ ] Confirm Scholar meta on sample paper URL
 - [ ] Update [PHASE_STATUS.md](./PHASE_STATUS.md) deploy status
