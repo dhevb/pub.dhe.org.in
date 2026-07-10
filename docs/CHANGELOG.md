@@ -5,6 +5,22 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [1.0.3] — 2026-07-10 — Operations & Governance
+
+### Added
+- `docs/OPERATIONS_MANUAL.md` — production operations handbook
+- `docs/GOVERNANCE.md` — editorial and technical governance model
+- `docs/RELEASE_NOTES_v1.0.3.md` — operations release notes
+
+### Changed
+- Package version `1.0.2` → `1.0.3` (documentation only)
+- README, ROADMAP, PHASE_STATUS — operations and governance references
+
+### Note
+- Separated from v1.0.2 certification release for narrow audit scope
+
+---
+
 ## [1.0.2] — 2026-07-10 — Independent Certification
 
 ### Added

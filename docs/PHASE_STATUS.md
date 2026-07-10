@@ -1,9 +1,9 @@
 # V2 Phase Status
 
 **Last updated:** 2026-07-10  
-**Current version:** v1.0.2  
-**Certification:** **LEVEL 3 — Production Ready** (76/100) — see [PRODUCTION_READINESS_CERTIFICATE.md](./PRODUCTION_READINESS_CERTIFICATE.md)  
-**Execution mode:** **Operational pilot** (Phase 1) — no V2 feature code until pilot complete
+**Current version:** v1.0.3 (docs) · certified **v1.0.2** LEVEL 3  
+**Certification:** [PRODUCTION_READINESS_CERTIFICATE.md](./PRODUCTION_READINESS_CERTIFICATE.md) (76/100)  
+**Execution mode:** **Operational pilot** (Phase 1) — engineering freeze; see [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md), [GOVERNANCE.md](./GOVERNANCE.md)
 
 Use [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md) when beginning implementation phases.
 
@@ -34,7 +34,7 @@ Use [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md) when beginning implementa
 
 **Objective:** Validate workflows with real users before building integrations.
 
-**Code policy:** No new V2 features. Production monitoring and bug fixes only (v1.0.x).
+**Code policy:** No new V2 features. **Engineering freeze** during pilot — allowed: bug fixes, security patches, perf, docs. Deferred: features, redesign, V2. [GOVERNANCE.md](./GOVERNANCE.md) §3, [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md).
 
 | Task | Status | Notes |
 |------|--------|-------|

@@ -345,6 +345,24 @@ During pilot: v1.0.x maintenance only (bug fixes, security patches). No new V2 f
 
 ---
 
+## ADR-019: Governance and operations documentation (v1.0.3)
+
+| Field | Value |
+|-------|-------|
+| **Status** | Accepted |
+| **Date** | 2026-07-10 |
+
+**Context:** Platform certified LEVEL 3 (v1.0.2). Long-term operation requires documented governance beyond the engineering charter.
+
+**Decision:** Publish [GOVERNANCE.md](./GOVERNANCE.md) and [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md) as v1.0.3 documentation-only release, separate from v1.0.2 certification for audit clarity.
+
+**Consequences:**
+- (+) Clear editorial vs technical decision boundaries
+- (+) Engineering freeze formalized during pilot
+- (+) Release cadence: v1.0.2 cert → v1.0.3 ops → pilot → v1.1.0 evidence-driven
+
+---
+
 ## Template for new ADRs
 
 ```markdown

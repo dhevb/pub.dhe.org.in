@@ -8,6 +8,8 @@ Future development priorities for Viksit Bharat Journal.
 
 > **Current focus:** **Phase 1 Operational Pilot** — run the platform with real editors and authors for 4–8 weeks before V2 implementation. Track progress in [PHASE_STATUS.md](./PHASE_STATUS.md). Use [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md) only after pilot sign-off.
 
+> **Operations (2–3 months):** Editorial pilot, policies, Crossref, Search Console — [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md) · [GOVERNANCE.md](./GOVERNANCE.md)
+
 Architecture placeholders already exist in `src/lib/` — this document tracks near-term delivery.
 
 ---
