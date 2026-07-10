@@ -20,6 +20,8 @@ v1.0.3 adds the **production operations handbook** and **governance model** for 
 |----------|---------|
 | [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md) | Single source of truth for deploy, rollback, checklists, backup, incident response |
 | [GOVERNANCE.md](./GOVERNANCE.md) | Editorial + technical governance, release approval, ADR process, deprecation policy |
+| [SUPPORT_MATRIX.md](./SUPPORT_MATRIX.md) | Version, runtime, browser support, and EOL policy |
+| [PILOT_SUMMARY.md](./PILOT_SUMMARY.md) | Post-pilot evidence template for v1.1.0 planning |
 | This file | v1.0.3 release notes |
 
 ### Updated references

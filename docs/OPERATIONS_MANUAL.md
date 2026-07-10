@@ -159,6 +159,22 @@ Use for every production release (patch, minor, or certification).
 - [ ] Update weekly section in `PILOT_FEEDBACK_REPORT.md`
 - [ ] Log bugs in OPEN_ITEMS or pilot report
 
+### Friday pilot cadence (recommended)
+
+Every **Friday** during the pilot, review and record:
+
+- [ ] New submissions and screening status
+- [ ] Reviewer performance (invites, completions, turnaround)
+- [ ] Editor workload (sustainable / overloaded)
+- [ ] Production uptime (`/api/health`)
+- [ ] Lighthouse spot-check (if material change deployed)
+- [ ] Google Search Console (coverage, crawl errors)
+- [ ] Google Scholar meta sample (`verify-scholar.mjs`)
+- [ ] Security / dependency alerts (`npm audit`)
+- [ ] Update [PILOT_FEEDBACK_REPORT.md](./PILOT_FEEDBACK_REPORT.md)
+
+At pilot end, compile [PILOT_SUMMARY.md](./PILOT_SUMMARY.md) for v1.1.0 planning.
+
 ---
 
 ## 5. Monthly Maintenance Checklist

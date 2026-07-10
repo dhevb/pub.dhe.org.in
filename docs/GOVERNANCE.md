@@ -319,6 +319,8 @@ Re-assess commitments annually with Editorial Board + Technical Lead.
 |----------|--------------|
 | [PROJECT_CHARTER.md](./PROJECT_CHARTER.md) | Engineering constitution |
 | [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md) | Day-to-day operations |
+| [SUPPORT_MATRIX.md](./SUPPORT_MATRIX.md) | Version and runtime support policy |
+| [PILOT_SUMMARY.md](./PILOT_SUMMARY.md) | Post-pilot summary template (v1.1.0 input) |
 | [ARCHITECTURE_DECISIONS.md](./ARCHITECTURE_DECISIONS.md) | ADR log |
 | [PHASE_STATUS.md](./PHASE_STATUS.md) | V2 execution tracker |
 | [RISK_REGISTER.md](./RISK_REGISTER.md) | Risk matrix |

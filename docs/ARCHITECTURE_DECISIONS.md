@@ -360,6 +360,7 @@ During pilot: v1.0.x maintenance only (bug fixes, security patches). No new V2 f
 - (+) Clear editorial vs technical decision boundaries
 - (+) Engineering freeze formalized during pilot
 - (+) Release cadence: v1.0.2 cert → v1.0.3 ops → pilot → v1.1.0 evidence-driven
+- (+) [SUPPORT_MATRIX.md](./SUPPORT_MATRIX.md) defines official version support
 
 ---
 
