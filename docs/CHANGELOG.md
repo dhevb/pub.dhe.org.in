@@ -10,6 +10,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 ### Fixed
 - Legacy English Journal archive at `/vie.rase/table` — auto-select first issue, PDF links in new tab, content headers
 - Catalog data corrections (`v1i3p8`, duplicate paths, author fields)
+- **Catalog PDF path alignment** — articles 35–36, 38–39, 53 mapped to actual `public/vie` filenames (2026-07-10)
 - Archive navigation link (VIE only)
 - Permanent redirect `/vie.rase/issues` → `/vie.rase/table` (config + page)
 
