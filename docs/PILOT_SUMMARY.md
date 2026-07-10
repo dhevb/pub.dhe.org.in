@@ -130,13 +130,19 @@ _Short narrative: sustainable / overloaded / underutilized._
 
 ## Recommended v1.1.0 Backlog
 
-_Prioritized from pilot evidence — not assumptions._
+> **Governance rule:** No feature enters the roadmap because it is technically possible. Every feature must solve a demonstrated operational problem.
 
-| Rank | Item | Type | Effort | Rationale |
-|------|------|------|--------|-----------|
-| 1 | | Bug / UX / Email / Workflow | S / M / L | |
-| 2 | | | | |
-| 3 | | | | |
+Each proposal **must** include all columns below. If evidence is missing, the item stays out of v1.1.
+
+| Rank | Problem (pilot evidence) | Evidence | Expected benefit | Complexity | Ops impact | Priority |
+|------|--------------------------|----------|------------------|------------|------------|----------|
+| 1 | | | | S / M / L | | P0–P3 |
+| 2 | | | | | | |
+| 3 | | | | | | |
+
+**Example (good):** "Editors spent ~18% of time on manual citations" → evidence: pilot week 3 editor logs → benefit: reduce manual work → Crossref adapter scoped for v1.3, not assumed.
+
+**Example (reject):** "Let's implement Crossref" with no pilot data.
 
 ### Explicitly deferred to V2
 

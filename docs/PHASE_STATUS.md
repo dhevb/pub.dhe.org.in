@@ -50,10 +50,20 @@ Use [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md) when beginning implementa
 | Pilot feedback report finalized | ⬜ Pending | Target: 4–8 weeks of operations |
 | Phase 1 sign-off | ⬜ Pending | Editorial board + engineering |
 
-**Exit criteria:**
-- Completed `PILOT_FEEDBACK_REPORT.md` with prioritized pain points
-- No P0 production incidents open
-- Operational prerequisites checklist reviewed ([V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md))
+**Exit criteria** — all must be satisfied before Phase 1 sign-off and v1.1 planning:
+
+| Area | Exit criteria | Status |
+|------|---------------|--------|
+| **Stability** | No unresolved P0 issues for 2 consecutive weeks | ⬜ |
+| **Editorial operations** | Workflow completed successfully for multiple real submissions | ⬜ |
+| **Authors** | Feedback collected and categorized | ⬜ |
+| **Reviewers** | Feedback collected and categorized | ⬜ |
+| **Editors** | Workflow pain points documented | ⬜ |
+| **Operations** | Weekly reports completed throughout pilot | ⬜ |
+| **Reliability** | Smoke tests consistently passing (67/67) | ⬜ |
+| **Publishing** | Search indexing verified; external registration progress documented | ⬜ |
+
+Also: completed [PILOT_SUMMARY.md](./PILOT_SUMMARY.md) with evidence-backed v1.1 proposals. Engineering unfreezes only after editorial + technical sign-off.
 
 ---
 

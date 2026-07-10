@@ -191,10 +191,16 @@ All documentation lives in `docs/` and is version-controlled in Git.
 
 ### Change request sources
 
-1. Pilot feedback (preferred during freeze)
+1. Pilot feedback (preferred during freeze) — must meet [PILOT_SUMMARY.md](./PILOT_SUMMARY.md) evidence requirements for v1.1+
 2. OPEN_ITEMS / RISK_REGISTER
 3. Security advisories
 4. Editorial board requests
+
+### Permanent principle
+
+> **No feature enters the roadmap because it is technically possible. Every feature must solve a demonstrated operational problem.**
+
+Applies to v1.1.0, V2 phases, and all future releases.
 
 ### V2 changes
 
