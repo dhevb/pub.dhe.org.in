@@ -45,6 +45,9 @@ export const SMOKE_ROUTES = [...PORTAL];
 
 for (const j of JOURNALS) {
   SMOKE_ROUTES.push(j.entry);
+  if (j.id === "vie") {
+    SMOKE_ROUTES.push(`${j.prefix}/table`);
+  }
   for (const section of JOURNAL_SECTIONS) {
     SMOKE_ROUTES.push(`${j.prefix}/${section}`);
   }
@@ -61,6 +64,7 @@ export const REDIRECT_CHECKS = [
   { from: "/vbe.rase/home", to: "/vbe" },
   { from: "/vbh.rase/home", to: "/vbh" },
   { from: "/vie.rase/home", to: "/vie" },
+  { from: "/vie.rase/issues", to: "/vie.rase/table" },
   { from: "/vih.rase/home", to: "/vih" },
   { from: "/forgot-password", to: "/ForgotPassword" },
 ];
