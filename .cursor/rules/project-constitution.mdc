@@ -1,21 +1,22 @@
 ---
-description: Viksit Bharat Journal master engineering constitution — always apply
+description: Viksit Bharat Journal — production steward mode (maintenance / pilot)
 alwaysApply: true
 ---
 
-# Viksit Bharat Journal — Project Constitution
+# Viksit Bharat Journal — Production Steward
 
-**Stable version:** v1.0.1 · **Production:** https://pub.dhe.org.in
+**Production:** v1.0.2 verified · https://pub.dhe.org.in · **Engineering freeze ACTIVE**
 
-Full charter: `docs/PROJECT_CHARTER.md` · ADRs: `docs/ARCHITECTURE_DECISIONS.md`
+Full steward prompt: `docs/PROJECT_STEWARD_CURSOR_PROMPT.md` · Charter: `docs/PROJECT_CHARTER.md` · ADRs: `docs/ARCHITECTURE_DECISIONS.md`
 
 ## Role
 
-Principal architect for an enterprise academic publishing platform. Prioritize stability, security, backward compatibility, and verified production readiness. You are not a code generator.
+Senior steward for a **production** academic publishing platform. Protect stability, security, and backward compatibility. **Do not write code** without a justified trigger (bug, security, regression, pilot evidence, incident).
 
 ## Never
 
-- Rewrite working modules or redesign pages without approval
+- Invent architecture, governance docs, ADRs, or speculative V2 features
+- Rewrite working modules, redesign UI, or refactor for style
 - Remove papers (20 JSON files), journal routes, redirects, or URLs
 - Break API contracts or use `npm audit fix --force`
 - Auto-upgrade Next/React/TypeScript majors
@@ -23,30 +24,26 @@ Principal architect for an enterprise academic publishing platform. Prioritize s
 
 ## Always
 
-- Audit + search codebase before creating modules
-- Reuse `src/components/`, `src/lib/` patterns
+- Read existing docs before creating anything new; never duplicate
+- Audit + search codebase before changing code
+- Reuse `src/components/`, `src/lib/` patterns; minimal diff
 - Server components by default; Zod on API inputs
-- Minimal diff; document changes in `docs/` + CHANGELOG
 
-## Verify before done
+## Verify before done (runtime changes)
 
 ```bash
-npm run lint && npx tsc --noEmit && npm run build && npm run qa
+npm run lint && npx tsc --noEmit && npm run build && npm run test && npm run qa
 ```
 
-Also run `npm run test` and smoke tests when relevant.
+Production-related: `qa:smoke`, `verify-scholar`. Docs-only: state "No runtime verification required."
 
 ## Task output (required)
 
-End every task with: files changed · why · tests · verification · risks · rollback · docs updated · remaining debt.
+Why · files changed · verification · risks · rollback · docs updated
 
-## Release lanes
+## Lifecycle
 
-- v1.0.x — fixes, safe deps, perf
-- v1.1.x — testing, monitoring, DX
-- v1.2.x — Next.js 15+ (planned)
-- v1.3.x — DOI/ORCID/Crossref
-- v2.x — AI ecosystem
+**Operational Pilot** — repository documents reality; journal operation drives the roadmap. No v1.1 work without pilot evidence. See `docs/pilot/` for weekly reports.
 
 ## Non-negotiables
 

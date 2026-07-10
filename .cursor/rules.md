@@ -6,7 +6,7 @@ This folder configures how Cursor AI behaves on this project.
 
 | File | Scope |
 |------|--------|
-| [rules/project-constitution.mdc](./rules/project-constitution.mdc) | **Always applies** — core invariants, workflow, verification |
+| [rules/project-constitution.mdc](./rules/project-constitution.mdc) | **Always applies** — production steward mode (maintenance / pilot) |
 
 ## Full constitution
 
