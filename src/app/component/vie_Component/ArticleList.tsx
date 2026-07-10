@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   isVieArchiveContentEntry,
   isVieArchivePaper,
-  vieArchiveContentPdfUrl,
   vieArchivePdfUrl,
   type VieArchiveArticle,
 } from "@/lib/journals/vie-archive-utils";
@@ -21,7 +20,6 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
     <div className="p-4">
       {articles.map((article, index) => {
         if (isVieArchiveContentEntry(article)) {
-          const contentPdf = vieArchiveContentPdfUrl(article.page);
           return (
             <div
               key={`content-${article.volume}-${article.issue}-${index}`}
@@ -33,16 +31,6 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
               <p className="text-sm text-gray-600">
                 Published: {article.publishDate}
               </p>
-              <div className="mt-2 flex flex-wrap gap-2">
-                <a
-                  className="rounded bg-primary px-3 py-1 text-sm text-white hover:bg-primary/90"
-                  href={contentPdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View issue contents (PDF)
-                </a>
-              </div>
             </div>
           );
         }
