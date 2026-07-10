@@ -91,6 +91,8 @@ All technical work follows [PROJECT_CHARTER.md](./PROJECT_CHARTER.md) and `.curs
 **Allowed:** Bug fixes (P0/P1), security patches, performance fixes, documentation  
 **Deferred:** New features, UI redesign, framework upgrades, DB migration, Crossref/OAI/ORCID automation, AI features
 
+**Cursor AI sessions:** [PILOT_MODE_CURSOR_PROMPT.md](./PILOT_MODE_CURSOR_PROMPT.md)
+
 Documented in [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md) and ADR-017.
 
 ---

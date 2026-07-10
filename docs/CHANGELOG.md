@@ -11,7 +11,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 - `docs/OPERATIONS_MANUAL.md` — production operations handbook
 - `docs/GOVERNANCE.md` — editorial and technical governance model
 - `docs/SUPPORT_MATRIX.md` — version, runtime, and browser support policy
-- `docs/PILOT_SUMMARY.md` — post-pilot summary template
+- `docs/PILOT_MODE_CURSOR_PROMPT.md` — master Cursor prompt for pilot / feature freeze
 - `docs/RELEASE_NOTES_v1.0.3.md` — operations release notes
 
 ### Changed

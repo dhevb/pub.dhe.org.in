@@ -18,7 +18,7 @@
 | **Active Docs Release** | v1.0.3 (PR: `docs/v1.0.3-operations`) — not merged |
 | **Pilot Week** | Not started — Week 0 / 8 |
 | **Current Phase** | **Operational Pilot** (Phase 1) |
-| **Engineering Status** | **Frozen** (bug fixes / security / docs only) |
+| **Engineering Status** | **Frozen** — [PILOT_MODE_CURSOR_PROMPT.md](./PILOT_MODE_CURSOR_PROMPT.md) |
 | **Open P0 Issues** | 0 |
 | **Open P1 Issues** | 4 (see [OPEN_ITEMS.md](./OPEN_ITEMS.md)) |
 | **Last Security Review** | 2026-07-09 ([SECURITY_AUDIT_V1_1.md](./SECURITY_AUDIT_V1_1.md)) |

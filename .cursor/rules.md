@@ -14,6 +14,10 @@ For new Cursor chats, also attach or reference:
 
 **[docs/PROJECT_CHARTER.md](../docs/PROJECT_CHARTER.md)** — Master Engineering Constitution (vision, standards, release strategy, never/always rules)
 
+**[docs/PILOT_MODE_CURSOR_PROMPT.md](../docs/PILOT_MODE_CURSOR_PROMPT.md)** — **Active during pilot** — feature freeze, allowed work, evidence-driven changes only
+
+Post-pilot V2 work: **[docs/V2_EXECUTION_PROMPT.md](../docs/V2_EXECUTION_PROMPT.md)**
+
 ## Architecture decisions
 
 **[docs/ARCHITECTURE_DECISIONS.md](../docs/ARCHITECTURE_DECISIONS.md)** — ADR log for major design choices
