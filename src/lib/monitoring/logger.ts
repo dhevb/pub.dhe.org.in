@@ -1,3 +1,5 @@
+import { captureException } from "./sentry";
+
 export type LogLevel = "info" | "warn" | "error";
 
 export interface LogEvent {
@@ -24,11 +26,13 @@ export function logEvent(
   buffer.push(event);
   if (buffer.length > MAX) buffer.shift();
 
-  if (process.env.SENTRY_DSN && level === "error") {
-    // Sentry integration hook — enable when SENTRY_DSN is set
+  if (level === "error") {
+    captureException(new Error(message), context);
     console.error("[monitoring]", message, context);
-  } else if (level === "error") {
-    console.error("[monitoring]", message, context);
+  } else if (level === "warn") {
+    console.warn("[monitoring]", message, context);
+  } else if (process.env.NODE_ENV !== "production") {
+    console.info("[monitoring]", message, context);
   }
 }
 

@@ -1,14 +1,15 @@
 ﻿import { journalPageMetadata } from "@/components/journal/JournalPage";
 import type { Metadata } from "next";
-import LegacyContent from "./legacy-content";
+import { permanentRedirect } from "next/navigation";
 
 export const metadata: Metadata = journalPageMetadata(
   "vie",
-  "Journal Issues",
+  "Issues",
   "/issues",
-  "Browse all published volumes and issues of the journal."
+  "Browse published journal issues."
 );
 
-export default function Page() {
-  return <LegacyContent />;
+/** Legacy /issues route — full archive catalog is at /table. */
+export default function VieIssuesRedirect() {
+  permanentRedirect("/vie.rase/table");
 }

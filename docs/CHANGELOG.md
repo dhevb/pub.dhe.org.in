@@ -5,6 +5,105 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [1.0.4] — 2026-07-10 — VIE Legacy Archive Hotfix
+
+### Fixed
+- Legacy English Journal archive at `/vie.rase/table` — auto-select first issue, PDF links in new tab, content headers
+- Catalog data corrections (`v1i3p8`, duplicate paths, author fields)
+- **Catalog PDF path alignment** — articles 35–36, 38–39, 53 mapped to actual `public/vie` filenames (2026-07-10)
+- Archive navigation link (VIE only)
+- Permanent redirect `/vie.rase/issues` → `/vie.rase/table` (config + page)
+
+### Added
+- `src/lib/journals/vie-archive-utils.ts` — archive helpers
+- `scripts/audit-vie-archive-paths.mjs` — catalog + PDF audit
+- `docs/RELEASE_NOTES_v1.0.4.md`
+
+### Production verified (2026-07-10)
+- Deploy: commit `ec7702e` live
+- `/api/health`: `status: ok`, `version: ec7702e`
+- `/vie.rase/issues`: **308** → `/vie.rase/table`
+- Archive catalog: 4 volumes · 12 issues · 64 papers
+- PDF audit: **59/59 live** + 5 deferred (Vol 4 I1 articles 61–65 show pending state in UI)
+
+---
+
+## [1.0.5] — 2026-07-11 — VIE Vol 4 pending PDF UX
+
+### Fixed
+- Vol 4 Issue 1 articles **61–65** show **PDF pending upload** instead of broken links
+- Vol 4 Issue 1 content cover **`cv4i1.pdf`** placeholder (was 404)
+- Audit script classifies deferred PDFs separately from unexpected missing files
+
+### Production verified (2026-07-11)
+- Pending PDF UX + cover placeholder deployed via PR #4
+
+---
+
+## [1.0.2] — 2026-07-10 — Independent Certification
+
+### Added
+- `docs/FINAL_CERTIFICATION_AUDIT.md` — full independent certification audit
+- `docs/CERTIFICATION_SCORECARD.md` — domain scores (overall 76/100)
+- `docs/PRODUCTION_READINESS_CERTIFICATE.md` — LEVEL 3 certificate
+- `docs/OPEN_ITEMS.md` — P0–P3 tracked gaps
+- `docs/RECOMMENDED_NEXT_RELEASE.md` — release sequencing
+- `docs/RELEASE_NOTES_v1.0.2.md` — this release
+- ADR-018: Independent certification audit (LEVEL 3 — Production Ready)
+
+### Changed
+- Package version `1.0.1` → `1.0.2` (documentation release; no app logic changes)
+- README, ROADMAP, PHASE_STATUS — certification audit references
+
+### Certification
+- **LEVEL 3 — Production Ready** (76/100)
+- Not certified: international publishing ecosystem (Crossref, OAI-PMH, editorial engine)
+
+### Production verified (2026-07-10)
+- Vercel deploy: commit `c152991` live
+- `/api/health`: `status: ok`, `version: c152991`
+- Smoke test: **67/67 PASS**
+- Scholar meta: 7/7 required PASS
+- **Status: Production Verified — Closed**
+
+---
+
+## [1.1.0] — 2026-07-09 — Engineering Excellence
+
+### Added
+- Vitest test suite (58 tests, 88.7% coverage on critical `src/lib/` modules)
+- Standardized error handling (`src/lib/errors/`)
+- `not-found.tsx` and `global-error.tsx` error boundaries
+- Monitoring: feature flags, audit logging, Sentry hooks
+- Shared `requireCsrf()` API route helper
+- Module READMEs for security, errors, monitoring
+- `docs/RELEASE.md`, `docs/SECURITY_AUDIT_V1_1.md`, `docs/V1_1_ENGINEERING_REPORT.md`
+- CI test step in GitHub Actions
+- `npm run test`, `test:coverage`, `qa:all` scripts
+
+### Changed
+- `error.tsx` uses `reportClientError` for client-side tracking
+- `/api/health` returns enabled `features[]`
+- `/api/auth/login` and `/api/search` emit audit logs
+- Package version `0.1.0` → `1.1.0`
+
+### Security
+- Security re-audit documented (score 88/100)
+- `.env.example` expanded with Sentry and feature flag overrides
+
+---
+
+## [Unreleased] — V2 Planning Documentation
+
+### Added
+- `docs/V2_ROADMAP.md` — enterprise academic publishing roadmap (10 phases)
+- `docs/PUBLISHING_ARCHITECTURE.md`, `EDITORIAL_WORKFLOW.md`, `INTEGRATIONS.md`
+- `docs/INDEXING_READINESS.md`, `DATABASE_MIGRATION_PLAN.md`
+- `docs/OBSERVABILITY_PLAN.md`, `AI_READINESS.md`
+- ADR-016: V2 enterprise publishing strategy
+
+---
+
 ## [Unreleased] — Phase 9 Performance
 
 ### Removed

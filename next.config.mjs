@@ -38,6 +38,11 @@ const nextConfig = {
       { source: "/vbh.rase/Vbh", destination: "/vbh", permanent: true },
       { source: "/vie.rase/home", destination: "/vie", permanent: true },
       { source: "/vie.rase/Vie", destination: "/vie", permanent: true },
+      {
+        source: "/vie.rase/issues",
+        destination: "/vie.rase/table",
+        permanent: true,
+      },
       { source: "/vih.rase/home", destination: "/vih", permanent: true },
       { source: "/vih.rase/Vih", destination: "/vih", permanent: true },
       { source: "/contact", destination: "/ContactUs", permanent: true },

@@ -164,16 +164,22 @@ Four journals defined in `src/lib/journals/config.ts`:
 
 ## Key Design Decisions
 
+See **[ARCHITECTURE_DECISIONS.md](./ARCHITECTURE_DECISIONS.md)** for the full ADR log. Summary:
+
 1. **File-based CMS** — no database for site content; Git is the source of truth.
 2. **BFF auth** — httpOnly cookies set by Next.js routes; backend token never exposed to JS on login path.
 3. **Legacy coexistence** — `*.rase` routes and `localStorage` auth preserved for manuscript flows.
 4. **Modular architecture** — editorial, AI, publishing, repository modules are typed placeholders for future backend integration.
 5. **No API contract changes** — frontend proxies to existing Render endpoints without renaming backend paths.
 
+Governance: **[PROJECT_CHARTER.md](./PROJECT_CHARTER.md)**
+
 ---
 
 ## Related Docs
 
+- [PROJECT_CHARTER.md](./PROJECT_CHARTER.md)
+- [ARCHITECTURE_DECISIONS.md](./ARCHITECTURE_DECISIONS.md)
 - [API_REFERENCE.md](./API_REFERENCE.md)
 - [DATABASE.md](./DATABASE.md)
 - [SECURITY.md](./SECURITY.md)
