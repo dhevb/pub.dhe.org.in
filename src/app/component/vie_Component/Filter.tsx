@@ -155,7 +155,7 @@ const Filter: React.FC = () => {
     issue: "Issue 2",
     readArticle:""},
   {
-    title: "Conent",
+    title: "Content",
     author: "",
     publishDate: "2023-12-31", // Please provide the actual publish date
     page: "/vie/cv1i3", // Please provide the actual page number
@@ -227,7 +227,7 @@ const Filter: React.FC = () => {
 
     // -------Volume 2 Started Here-----
   {
-    title: "Conent",
+    title: "Content",
     author: "",
     publishDate: "2024-03-31", // Please provide the actual publish date
     page: "/vie/cv2i1", // Please provide the actual page number
@@ -581,7 +581,7 @@ const Filter: React.FC = () => {
 
  // -------Volume 4 Started Here-----
     {
-    title: "Conent",
+    title: "Content",
     author: "",
     publishDate: "2026-03-31",
     page: "/vie/cv4i1",

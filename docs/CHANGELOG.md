@@ -24,7 +24,19 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 - `/api/health`: `status: ok`, `version: ec7702e`
 - `/vie.rase/issues`: **308** → `/vie.rase/table`
 - Archive catalog: 4 volumes · 12 issues · 64 papers
-- PDF audit: **54/64** on production (10 operational uploads pending)
+- PDF audit: **59/59 live** + 5 deferred (Vol 4 I1 articles 61–65 show pending state in UI)
+
+---
+
+## [1.0.5] — 2026-07-11 — VIE Vol 4 pending PDF UX
+
+### Fixed
+- Vol 4 Issue 1 articles **61–65** show **PDF pending upload** instead of broken links
+- Vol 4 Issue 1 content cover **`cv4i1.pdf`** placeholder (was 404)
+- Audit script classifies deferred PDFs separately from unexpected missing files
+
+### Production verified (2026-07-11)
+- Pending PDF UX + cover placeholder deployed via PR #4
 
 ---
 

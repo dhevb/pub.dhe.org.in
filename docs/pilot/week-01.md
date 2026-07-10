@@ -60,21 +60,14 @@ Deep audit of `public/vie/` found PDFs existed with **wrong issue numbers in cat
 
 ---
 
-## Operational tasks (content, not code)
+## Operational tasks (content-only, optional)
 
-### Vol 4 Issue 1 (deferred)
-
-Articles **61–65** show **"PDF pending upload"** in the archive until files are provided. Placeholder `cv4i1.pdf` added for issue cover.
-
-When PDFs are ready, add to `public/vie/` as:
-- `Volume 4 Issue 1 Article 61.pdf` … `65.pdf`
-- Remove paths from `VIE_ARCHIVE_PENDING_PDF_PATHS` in `vie-archive-utils.ts`
+Vol 4 Issue 1 articles **61–65** — software shows pending state; PDF files can be added to `public/vie/` when available (no code change required until then).
 
 ---
 
 ## Actions for next week
 
 1. Begin real editorial submissions
-2. Upload Vol 4 I1 article PDFs (61–65) when ready
-3. Configure Search Console / analytics if not done
-4. Complete first full manual archive spot-check in browser
+2. Configure Search Console / analytics if not done
+3. Complete first full manual archive spot-check in browser
