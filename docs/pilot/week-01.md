@@ -15,7 +15,7 @@
 | `/api/health` | ok · `ec7702e` |
 | `/vie.rase/issues` redirect | ✅ 308 → `/vie.rase/table` |
 | Archive catalog verified | 4 vol · 12 issues · 64 papers |
-| PDF audit | 59/64 after catalog path fix (Vol 4 I1: 61–65 still missing) |
+| PDF audit | **59/59 live** on production + 5 deferred (Vol 4 I1: 61–65) |
 
 ### Catalog path fix (2026-07-10)
 
@@ -28,7 +28,7 @@ Deep audit of `public/vie/` found PDFs existed with **wrong issue numbers in cat
 | Vol 3 I2 Art 53 | Issue 2 path | Issue 4 path |
 | Content Vol 3 I2 2025 | single space | double space (matches asset) |
 
-`public/vie/` contains **86 PDFs** locally; Vol 4 Issue 1 papers not yet in repo.
+`public/vie/` contains **87 PDFs** locally (incl. placeholder `cv4i1.pdf`); Vol 4 Issue 1 article PDFs 61–65 deferred.
 
 ---
 
@@ -62,17 +62,19 @@ Deep audit of `public/vie/` found PDFs existed with **wrong issue numbers in cat
 
 ## Operational tasks (content, not code)
 
-Upload missing VIE archive PDFs:
+### Vol 4 Issue 1 (deferred)
 
-- Vol 4 Issue 1: Articles **61–65** (only remaining gap)
+Articles **61–65** show **"PDF pending upload"** in the archive until files are provided. Placeholder `cv4i1.pdf` added for issue cover.
 
-Re-run: `node scripts/audit-vie-archive-paths.mjs` → target 64/64
+When PDFs are ready, add to `public/vie/` as:
+- `Volume 4 Issue 1 Article 61.pdf` … `65.pdf`
+- Remove paths from `VIE_ARCHIVE_PENDING_PDF_PATHS` in `vie-archive-utils.ts`
 
 ---
 
 ## Actions for next week
 
 1. Begin real editorial submissions
-2. Upload missing archive PDFs
+2. Upload Vol 4 I1 article PDFs (61–65) when ready
 3. Configure Search Console / analytics if not done
 4. Complete first full manual archive spot-check in browser

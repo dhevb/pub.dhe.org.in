@@ -21,7 +21,7 @@
 | **Engineering Status** | **Maintenance mode** (hotfix v1.0.4 complete) |
 | **Open P0 Issues** | 0 |
 | **Open P1 Issues** | 4 (see [OPEN_ITEMS.md](./OPEN_ITEMS.md)) |
-| **VIE Archive PDFs** | **59/64** — Vol 4 Issue 1 (61–65) pending upload |
+| **VIE Archive PDFs** | **59/59 live** + 5 deferred (Vol 4 I1: 61–65 pending upload) |
 | **Last Security Review** | 2026-07-09 ([SECURITY_AUDIT_V1_1.md](./SECURITY_AUDIT_V1_1.md)) |
 | **Last Dependency Review** | 2026-07-10 (8 npm vulns — safe fix only) |
 | **Last Lighthouse Audit** | 2026-07-09 (P92 A96 BP100 SEO100) |
