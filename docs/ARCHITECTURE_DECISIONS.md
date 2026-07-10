@@ -282,6 +282,24 @@ Record new decisions at the bottom with the next ADR number.
 
 ---
 
+## ADR-016: V2 enterprise publishing strategy
+
+| Field | Value |
+|-------|-------|
+| **Status** | Accepted |
+| **Date** | 2026-07-10 |
+
+**Context:** Core software engineering (Phases 0–9, v1.0.1) is substantially complete. Remaining gap is academic ecosystem integration (Crossref, ORCID, editorial lifecycle, storage, indexing) — not UI rewrites.
+
+**Decision:** V2 documented in [V2_ROADMAP.md](./V2_ROADMAP.md). Adapter-based integrations only; mark **Ready for Activation** without credentials. Run 4–8 weeks real editorial operations before phase prioritization.
+
+**Consequences:**
+- (+) Eight V2 design docs guide incremental activation of existing `src/lib/` scaffolds
+- (+) No fabricated live integrations
+- (−) Full publishing infrastructure estimated 12–24 months
+
+---
+
 ## Template for new ADRs
 
 ```markdown
@@ -305,4 +323,5 @@ Record new decisions at the bottom with the next ADR number.
 
 - [ARCHITECTURE.md](./ARCHITECTURE.md)
 - [PROJECT_CHARTER.md](./PROJECT_CHARTER.md)
+- [V2_ROADMAP.md](./V2_ROADMAP.md)
 - [ROADMAP.md](./ROADMAP.md)

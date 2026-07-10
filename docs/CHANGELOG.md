@@ -5,6 +5,42 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [1.1.0] — 2026-07-09 — Engineering Excellence
+
+### Added
+- Vitest test suite (58 tests, 88.7% coverage on critical `src/lib/` modules)
+- Standardized error handling (`src/lib/errors/`)
+- `not-found.tsx` and `global-error.tsx` error boundaries
+- Monitoring: feature flags, audit logging, Sentry hooks
+- Shared `requireCsrf()` API route helper
+- Module READMEs for security, errors, monitoring
+- `docs/RELEASE.md`, `docs/SECURITY_AUDIT_V1_1.md`, `docs/V1_1_ENGINEERING_REPORT.md`
+- CI test step in GitHub Actions
+- `npm run test`, `test:coverage`, `qa:all` scripts
+
+### Changed
+- `error.tsx` uses `reportClientError` for client-side tracking
+- `/api/health` returns enabled `features[]`
+- `/api/auth/login` and `/api/search` emit audit logs
+- Package version `0.1.0` → `1.1.0`
+
+### Security
+- Security re-audit documented (score 88/100)
+- `.env.example` expanded with Sentry and feature flag overrides
+
+---
+
+## [Unreleased] — V2 Planning Documentation
+
+### Added
+- `docs/V2_ROADMAP.md` — enterprise academic publishing roadmap (10 phases)
+- `docs/PUBLISHING_ARCHITECTURE.md`, `EDITORIAL_WORKFLOW.md`, `INTEGRATIONS.md`
+- `docs/INDEXING_READINESS.md`, `DATABASE_MIGRATION_PLAN.md`
+- `docs/OBSERVABILITY_PLAN.md`, `AI_READINESS.md`
+- ADR-016: V2 enterprise publishing strategy
+
+---
+
 ## [Unreleased] — Phase 9 Performance
 
 ### Removed

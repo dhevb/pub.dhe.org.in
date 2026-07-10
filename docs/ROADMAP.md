@@ -1,7 +1,10 @@
 # Roadmap
 
-Future development priorities for Viksit Bharat Journal.  
-Architecture placeholders already exist in `src/lib/` — this roadmap tracks activation.
+Future development priorities for Viksit Bharat Journal.
+
+> **V2 Enterprise Plan:** See **[V2_ROADMAP.md](./V2_ROADMAP.md)** for the full academic publishing ecosystem roadmap (DOI, editorial workflow, storage, indexing, AI).
+
+Architecture placeholders already exist in `src/lib/` — this document tracks near-term delivery.
 
 ---
 

@@ -50,6 +50,7 @@ See [docs/LAUNCH_READINESS.md](docs/LAUNCH_READINESS.md) for the full Phase 6 ch
 | Guide | Description |
 |-------|-------------|
 | [docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md) | **Master engineering constitution** — include in new Cursor chats |
+| [docs/V2_ROADMAP.md](docs/V2_ROADMAP.md) | **V2 enterprise roadmap** — publishing ecosystem & integrations |
 | [docs/ARCHITECTURE_DECISIONS.md](docs/ARCHITECTURE_DECISIONS.md) | Architecture Decision Records (ADR) |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Folder structure, BFF pattern, middleware, auth flow |
 | [docs/API_REFERENCE.md](docs/API_REFERENCE.md) | All `/api/*` routes and backend proxies |
