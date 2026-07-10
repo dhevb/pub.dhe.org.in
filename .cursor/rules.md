@@ -16,6 +16,8 @@ For new Cursor chats, also attach or reference:
 
 **[docs/PILOT_MODE_CURSOR_PROMPT.md](../docs/PILOT_MODE_CURSOR_PROMPT.md)** — **Active during pilot** — feature freeze, allowed work, evidence-driven changes only
 
+**[docs/PROJECT_STEWARD_CURSOR_PROMPT.md](../docs/PROJECT_STEWARD_CURSOR_PROMPT.md)** — **Permanent steward prompt** — preserve production quality; do not write code without justification
+
 Post-pilot V2 work: **[docs/V2_EXECUTION_PROMPT.md](../docs/V2_EXECUTION_PROMPT.md)**
 
 ## Architecture decisions

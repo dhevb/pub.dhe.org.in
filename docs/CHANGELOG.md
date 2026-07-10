@@ -12,6 +12,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 - `docs/GOVERNANCE.md` — editorial and technical governance model
 - `docs/SUPPORT_MATRIX.md` — version, runtime, and browser support policy
 - `docs/PILOT_MODE_CURSOR_PROMPT.md` — master Cursor prompt for pilot / feature freeze
+- `docs/PROJECT_STEWARD_CURSOR_PROMPT.md` — permanent project steward prompt
 - `docs/RELEASE_NOTES_v1.0.3.md` — operations release notes
 
 ### Changed

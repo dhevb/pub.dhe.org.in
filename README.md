@@ -55,7 +55,8 @@ See [docs/LAUNCH_READINESS.md](docs/LAUNCH_READINESS.md) for the full Phase 6 ch
 | [docs/OPERATIONS_MANUAL.md](docs/OPERATIONS_MANUAL.md) | **Production operations handbook** |
 | [docs/SUPPORT_MATRIX.md](docs/SUPPORT_MATRIX.md) | Version, runtime, and browser support policy |
 | [docs/V2_ROADMAP.md](docs/V2_ROADMAP.md) | **V2 enterprise roadmap** — publishing ecosystem & integrations |
-| [docs/PILOT_MODE_CURSOR_PROMPT.md](docs/PILOT_MODE_CURSOR_PROMPT.md) | **Active Cursor prompt** — pilot mode / engineering freeze |
+| [docs/PILOT_MODE_CURSOR_PROMPT.md](docs/PILOT_MODE_CURSOR_PROMPT.md) | **Pilot mode** — engineering freeze rules |
+| [docs/PROJECT_STEWARD_CURSOR_PROMPT.md](docs/PROJECT_STEWARD_CURSOR_PROMPT.md) | **Steward prompt** — long-term production maintenance |
 | [docs/V2_EXECUTION_PROMPT.md](docs/V2_EXECUTION_PROMPT.md) | V2 Cursor prompt (use **after** operational pilot) |
 | [docs/FINAL_CERTIFICATION_AUDIT.md](docs/FINAL_CERTIFICATION_AUDIT.md) | **Independent certification audit** (LEVEL 3) |
 | [docs/PRODUCTION_READINESS_CERTIFICATE.md](docs/PRODUCTION_READINESS_CERTIFICATE.md) | LEVEL 3 production readiness certificate |

@@ -75,6 +75,8 @@ v1.0.2 — Production Verified — Closed
 | Doc | Purpose |
 |-----|---------|
 | [PROJECT_CHARTER.md](./PROJECT_CHARTER.md) | Engineering constitution |
+| [PILOT_MODE_CURSOR_PROMPT.md](./PILOT_MODE_CURSOR_PROMPT.md) | Pilot / feature freeze rules |
+| [PROJECT_STEWARD_CURSOR_PROMPT.md](./PROJECT_STEWARD_CURSOR_PROMPT.md) | Long-term steward prompt |
 | [GOVERNANCE.md](./GOVERNANCE.md) | Decision process *(v1.0.3)* |
 | [OPERATIONS_MANUAL.md](./OPERATIONS_MANUAL.md) | Runbook *(v1.0.3)* |
 | [PHASE_STATUS.md](./PHASE_STATUS.md) | V2 phase tracker |
