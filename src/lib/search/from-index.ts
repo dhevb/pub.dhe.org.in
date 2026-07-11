@@ -15,6 +15,9 @@ export function indexToSearchDocuments(items: SearchIndexItem[]): SearchDocument
     abstract: item.abstract,
     authors: item.authors,
     year: item.year ?? parseYear(item.published),
-    type: "article",
+    volume: item.volume,
+    issue: item.issue,
+    pdfHref: item.pdfHref,
+    type: item.type === "archive" ? "archive" : "article",
   }));
 }

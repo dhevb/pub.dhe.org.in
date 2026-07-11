@@ -40,6 +40,7 @@ export interface SearchDocument {
   track?: string;
   volume?: string;
   issue?: string;
+  pdfHref?: string;
   viewCount?: number;
-  type: "article" | "proceeding" | "book";
+  type: "article" | "proceeding" | "book" | "archive";
 }
