@@ -41,6 +41,7 @@ interface ActivityEntry {
 
 interface EditorialResponse {
   enabled: boolean;
+  authenticated?: boolean;
   manuscripts?: EditorManuscript[];
   stats?: EditorStats | null;
   activity?: ActivityEntry[];
@@ -141,6 +142,16 @@ export function EditorialWorkflowPanel() {
       <Card>
         <CardContent className="pt-6 text-sm text-muted-foreground">
           Editorial workflow requires Supabase. It is not enabled in this environment.
+        </CardContent>
+      </Card>
+    );
+  }
+
+  if (data.authenticated === false) {
+    return (
+      <Card>
+        <CardContent className="pt-6 text-sm text-muted-foreground">
+          Sign in with an editor account to view the review queue and manage transitions.
         </CardContent>
       </Card>
     );

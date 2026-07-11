@@ -130,7 +130,13 @@ export async function GET() {
 
   const userId = requireEditorRole();
   if (!userId) {
-    return NextResponse.json({ error: "Editor access required" }, { status: 403 });
+    return NextResponse.json({
+      enabled: true,
+      authenticated: false,
+      manuscripts: [],
+      stats: null,
+      activity: [],
+    });
   }
 
   try {
@@ -141,6 +147,7 @@ export async function GET() {
 
     return NextResponse.json({
       enabled: true,
+      authenticated: true,
       manuscripts,
       stats: buildStats(manuscripts),
       activity,
