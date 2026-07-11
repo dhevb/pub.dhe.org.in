@@ -25,15 +25,9 @@ function getBucketName(): string {
   return process.env.SUPABASE_STORAGE_BUCKET ?? "manuscripts";
 }
 
-function withSslMode(connectionString: string): string {
-  if (connectionString.includes("sslmode=")) return connectionString;
-  const sep = connectionString.includes("?") ? "&" : "?";
-  return `${connectionString}${sep}sslmode=no-verify`;
-}
-
 function createPgClient(connectionString: string): pg.Client {
   return new pg.Client({
-    connectionString: withSslMode(connectionString),
+    connectionString,
     ssl: { rejectUnauthorized: false },
   });
 }
@@ -45,10 +39,25 @@ function readMigrationSql(): string {
   );
 }
 
-async function queryTables(connectionString: string): Promise<string[]> {
+async function withPg<T>(
+  connectionString: string,
+  fn: (client: pg.Client) => Promise<T>
+): Promise<T> {
+  const prevTls = process.env.NODE_TLS_REJECT_UNAUTHORIZED;
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   const client = createPgClient(connectionString);
-  await client.connect();
   try {
+    await client.connect();
+    return await fn(client);
+  } finally {
+    await client.end();
+    if (prevTls === undefined) delete process.env.NODE_TLS_REJECT_UNAUTHORIZED;
+    else process.env.NODE_TLS_REJECT_UNAUTHORIZED = prevTls;
+  }
+}
+
+async function queryTables(connectionString: string): Promise<string[]> {
+  return withPg(connectionString, async (client) => {
     const { rows } = await client.query(`
       select table_name from information_schema.tables
       where table_schema = 'public'
@@ -59,9 +68,7 @@ async function queryTables(connectionString: string): Promise<string[]> {
       order by table_name
     `);
     return rows.map((r: { table_name: string }) => r.table_name);
-  } finally {
-    await client.end();
-  }
+  });
 }
 
 export async function getSupabaseSetupStatus(): Promise<SupabaseSetupStatus> {
@@ -116,13 +123,9 @@ export async function runSupabaseSetup(): Promise<SupabaseSetupStatus> {
   if (!serviceKey) throw new Error("SUPABASE_SERVICE_ROLE_KEY is not configured");
 
   const sql = readMigrationSql();
-  const client = createPgClient(postgresUrl);
-  await client.connect();
-  try {
+  await withPg(postgresUrl, async (client) => {
     await client.query(sql);
-  } finally {
-    await client.end();
-  }
+  });
 
   const bucket = getBucketName();
   const supabase = createClient(getSupabaseUrl(), serviceKey, {
