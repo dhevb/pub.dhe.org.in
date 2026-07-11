@@ -50,6 +50,18 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [1.0.6] — 2026-07-11 — VIE orphan PDF cleanup
+
+### Fixed
+- Vol 1 Issue 1 PDFs (`v1i1p1`–`p8`) replaced with searchable text copies (from legacy `Paper N.pdf`)
+- Removed 14 duplicate orphan files (old covers, legacy names); **Proceeding1–3.pdf untouched**
+- Audit script: **0 orphans**; proceedings listed as legacy-excluded
+
+### Changed
+- Package version `1.0.5` → `1.0.6`
+
+---
+
 ## [1.0.2] — 2026-07-10 — Independent Certification
 
 ### Added
