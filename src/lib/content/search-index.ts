@@ -1,5 +1,6 @@
 import { JOURNAL_LIST, paperRoute, type JournalConfig } from "@/lib/journals/config";
 import { loadPaper } from "@/lib/journals/papers";
+import { buildVieArchiveSearchIndex } from "@/lib/journals/vie-archive-search";
 
 export interface SearchIndexItem {
   id: string;
@@ -7,13 +8,16 @@ export interface SearchIndexItem {
   journal: JournalConfig;
   paperNum: number;
   href: string;
-  type: "article";
+  type: "article" | "archive";
   keywords?: string;
   abstract?: string;
   authors?: string[];
   published?: string;
   year?: number;
   category?: string;
+  volume?: string;
+  issue?: string;
+  pdfHref?: string;
 }
 
 export async function buildPaperSearchIndex(): Promise<SearchIndexItem[]> {
@@ -59,6 +63,8 @@ export async function buildPaperSearchIndex(): Promise<SearchIndexItem[]> {
       }
     }
   }
+
+  items.push(...buildVieArchiveSearchIndex());
 
   return items;
 }

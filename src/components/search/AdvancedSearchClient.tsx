@@ -212,32 +212,51 @@ export function AdvancedSearchClient({ documents }: AdvancedSearchClientProps) {
 
       <div className="mx-auto max-w-3xl space-y-3">
         {results.map((item) => (
-          <Link key={item.id} href={item.href}>
-            <Card className="transition-transform hover:-translate-y-0.5">
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div className="min-w-0 flex-1">
-                  <p className="font-semibold text-text">{item.title}</p>
-                  <p className="mt-1 text-sm text-text-muted">{item.journalName}</p>
-                  {item.authors && item.authors.length > 0 && (
-                    <p className="mt-1 text-xs text-text-muted">
-                      {item.authors.join(", ")}
-                    </p>
-                  )}
-                  {item.keywords && (
-                    <p className="mt-2 text-xs text-text-muted">
-                      Keywords: {item.keywords}
-                    </p>
-                  )}
+          <div key={item.id} className="space-y-1">
+            <Link href={item.href}>
+              <Card className="transition-transform hover:-translate-y-0.5">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <p className="font-semibold text-text">{item.title}</p>
+                    <p className="mt-1 text-sm text-text-muted">{item.journalName}</p>
+                    {item.volume && item.issue && (
+                      <p className="mt-1 text-xs text-text-muted">
+                        {item.volume} · {item.issue}
+                      </p>
+                    )}
+                    {item.authors && item.authors.length > 0 && (
+                      <p className="mt-1 text-xs text-text-muted">
+                        {item.authors.join(", ")}
+                      </p>
+                    )}
+                    {item.keywords && (
+                      <p className="mt-2 text-xs text-text-muted">
+                        Keywords: {item.keywords}
+                      </p>
+                    )}
+                  </div>
+                  <div className="flex flex-col items-end gap-1">
+                    <Badge variant={item.type === "archive" ? "secondary" : "primary"}>
+                      {item.type === "archive" ? "Archive" : "Article"}
+                    </Badge>
+                    {item.year && (
+                      <span className="text-xs text-text-muted">{item.year}</span>
+                    )}
+                  </div>
                 </div>
-                <div className="flex flex-col items-end gap-1">
-                  <Badge variant="primary">Article</Badge>
-                  {item.year && (
-                    <span className="text-xs text-text-muted">{item.year}</span>
-                  )}
-                </div>
-              </div>
-            </Card>
-          </Link>
+              </Card>
+            </Link>
+            {item.type === "archive" && item.pdfHref && (
+              <a
+                href={item.pdfHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-sm text-primary hover:underline"
+              >
+                Open PDF
+              </a>
+            )}
+          </div>
         ))}
 
         {bookResults.map((book) => (
