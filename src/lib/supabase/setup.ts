@@ -25,6 +25,19 @@ function getBucketName(): string {
   return process.env.SUPABASE_STORAGE_BUCKET ?? "manuscripts";
 }
 
+function withSslMode(connectionString: string): string {
+  if (connectionString.includes("sslmode=")) return connectionString;
+  const sep = connectionString.includes("?") ? "&" : "?";
+  return `${connectionString}${sep}sslmode=no-verify`;
+}
+
+function createPgClient(connectionString: string): pg.Client {
+  return new pg.Client({
+    connectionString: withSslMode(connectionString),
+    ssl: { rejectUnauthorized: false },
+  });
+}
+
 function readMigrationSql(): string {
   return readFileSync(
     join(process.cwd(), "supabase/migrations/001_initial_schema.sql"),
@@ -33,10 +46,7 @@ function readMigrationSql(): string {
 }
 
 async function queryTables(connectionString: string): Promise<string[]> {
-  const client = new pg.Client({
-    connectionString,
-    ssl: { rejectUnauthorized: false },
-  });
+  const client = createPgClient(connectionString);
   await client.connect();
   try {
     const { rows } = await client.query(`
@@ -106,10 +116,7 @@ export async function runSupabaseSetup(): Promise<SupabaseSetupStatus> {
   if (!serviceKey) throw new Error("SUPABASE_SERVICE_ROLE_KEY is not configured");
 
   const sql = readMigrationSql();
-  const client = new pg.Client({
-    connectionString: postgresUrl,
-    ssl: { rejectUnauthorized: false },
-  });
+  const client = createPgClient(postgresUrl);
   await client.connect();
   try {
     await client.query(sql);
