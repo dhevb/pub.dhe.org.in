@@ -30,6 +30,7 @@ export const CSRF_EXEMPT_PATHS = new Set([
   "/api/metrics",
   "/api/oai",
   "/api/citations",
+  "/api/setup/supabase",
 ]);
 
 export function requiresCsrfValidation(pathname: string, method: string): boolean {
