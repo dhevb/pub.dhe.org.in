@@ -4,8 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 
 const BOOKS = [
   {
-    href: "/Role of academic driven startups in economy.pdf",
-    title: "Role of Academic Driven Startups in Economics",
+    href: "/b/rase20232.pdf",
+    title: "Role of Academic-Driven Startups in Developing Economy",
     image: "/Role.jpeg",
   },
   {
@@ -14,13 +14,13 @@ const BOOKS = [
     image: "/Role1.jpeg",
   },
   {
-    href: "/Shiksha_Mahakumbh.pdf",
-    title: "Shiksha Mahakumbh",
+    href: "/b/Shiksha Mahakumbh 2.0 Abstract booklet final.pdf",
+    title: "Indian Education for Global Welfare",
     image: "/shiksha.jpeg",
   },
   {
-    href: "/SchoolEducation.pdf",
-    title: "Recent Advances in School education",
+    href: "/b/rase20231.pdf",
+    title: "Recent Advances in School Education",
     image: "/recent_advances.jpeg",
   },
 ] as const;

@@ -23,7 +23,7 @@ const loginSchema = z.object({
   password: z.string().min(1, "Password is required").max(256),
 });
 
-function setAuthCookies(token: string, userId: string) {
+function setAuthCookies(token: string, userId: string, role?: string) {
   const store = cookies();
   const options = {
     httpOnly: AUTH_COOKIE_OPTIONS.httpOnly,
@@ -35,6 +35,7 @@ function setAuthCookies(token: string, userId: string) {
   store.set(AUTH_COOKIE_NAMES.token, token, options);
   store.set(AUTH_COOKIE_NAMES.authToken, token, options);
   store.set(AUTH_COOKIE_NAMES.userId, userId, options);
+  if (role) store.set(AUTH_COOKIE_NAMES.role, role, options);
 }
 
 function rotateCsrf(): string {
@@ -82,7 +83,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    setAuthCookies(data.token, data.userId);
+    setAuthCookies(data.token, data.userId, data.role);
     const newCsrf = rotateCsrf();
     auditLog("auth.login", data.userId, { email: data.email });
 

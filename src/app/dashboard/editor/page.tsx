@@ -14,6 +14,7 @@ export default function EditorDashboardPage() {
     <DashboardShell
       title="Editor Dashboard"
       description="Editorial workflow, journal tools, and decision management."
+      allowedRoles={["editor"]}
     >
       <EditorDashboardView />
     </DashboardShell>

@@ -14,6 +14,7 @@ export default function ReviewerDashboardPage() {
     <DashboardShell
       title="Reviewer Dashboard"
       description="Peer review assignments, guidelines, and editorial notices."
+      allowedRoles={["reviewer"]}
     >
       <ReviewerDashboardView />
     </DashboardShell>

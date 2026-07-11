@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/Card";
+import { getSessionViaAppRoute } from "@/lib/api/auth";
 
 interface LegacyManuscriptGateProps {
   ManuscriptDetails: React.ComponentType;
@@ -16,17 +17,26 @@ export function LegacyManuscriptGate({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoggedIn(Boolean(localStorage.getItem("authToken")));
-    setLoading(false);
+    let active = true;
+
+    getSessionViaAppRoute()
+      .then((session) => {
+        if (active) setIsLoggedIn(session.authenticated);
+      })
+      .catch(() => {
+        if (active) setIsLoggedIn(false);
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
   }, []);
 
-  const handleLogin = (email: string, password: string) => {
-    if (email && password) {
-      localStorage.setItem("authToken", "mock-auth-token");
-      setIsLoggedIn(true);
-    } else {
-      alert("Invalid credentials");
-    }
+  const handleLogin = (_email: string, _password: string) => {
+    setIsLoggedIn(true);
   };
 
   if (loading) {

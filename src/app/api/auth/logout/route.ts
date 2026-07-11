@@ -18,6 +18,7 @@ export async function POST(request: NextRequest) {
   store.delete(AUTH_COOKIE_NAMES.token);
   store.delete(AUTH_COOKIE_NAMES.authToken);
   store.delete(AUTH_COOKIE_NAMES.userId);
+  store.delete(AUTH_COOKIE_NAMES.role);
 
   const newCsrf = generateCsrfToken();
   store.set(CSRF_COOKIE_NAME, newCsrf, {

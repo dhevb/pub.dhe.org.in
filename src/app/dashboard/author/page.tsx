@@ -14,6 +14,7 @@ export default function AuthorDashboardPage() {
     <DashboardShell
       title="Author Dashboard"
       description="Track manuscript submissions and start new papers across all journals."
+      allowedRoles={["student", "author", "teacher", "researcher", "other"]}
     >
       <AuthorDashboardView />
     </DashboardShell>

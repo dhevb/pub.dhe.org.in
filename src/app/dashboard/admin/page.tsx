@@ -14,6 +14,7 @@ export default function AdminDashboardPage() {
     <DashboardShell
       title="Admin Dashboard"
       description="File-based CMS overview, site settings, and platform content."
+      allowedRoles={["admin"]}
     >
       <AdminDashboardView />
     </DashboardShell>

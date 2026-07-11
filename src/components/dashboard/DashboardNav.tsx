@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import {
   BookOpen,
   ClipboardList,
@@ -9,25 +10,45 @@ import {
   Settings,
   Users,
 } from "lucide-react";
+import { LEGACY_STORAGE_KEYS } from "@/lib/auth/constants";
 import { cn } from "@/lib/utils/cn";
 
 const NAV_ITEMS = [
-  { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
-  { href: "/dashboard/author", label: "Author", icon: BookOpen },
-  { href: "/dashboard/reviewer", label: "Reviewer", icon: ClipboardList },
-  { href: "/dashboard/editor", label: "Editor", icon: Users },
-  { href: "/dashboard/admin", label: "Admin / CMS", icon: Settings },
+  { href: "/dashboard", label: "Overview", icon: LayoutDashboard, roles: [] },
+  {
+    href: "/dashboard/author",
+    label: "Author",
+    icon: BookOpen,
+    roles: ["student", "author", "teacher", "researcher", "other"],
+  },
+  {
+    href: "/dashboard/reviewer",
+    label: "Reviewer",
+    icon: ClipboardList,
+    roles: ["reviewer"],
+  },
+  { href: "/dashboard/editor", label: "Editor", icon: Users, roles: ["editor"] },
+  { href: "/dashboard/admin", label: "Admin / CMS", icon: Settings, roles: ["admin"] },
 ];
 
 export function DashboardNav() {
   const pathname = usePathname();
+  const [role, setRole] = useState<string | undefined>();
+
+  useEffect(() => {
+    setRole(localStorage.getItem(LEGACY_STORAGE_KEYS.role)?.toLowerCase() || undefined);
+  }, []);
+
+  const visibleItems = NAV_ITEMS.filter(
+    (item) => item.roles.length === 0 || (role && item.roles.includes(role))
+  );
 
   return (
     <nav
       aria-label="Dashboard navigation"
       className="flex flex-col gap-1"
     >
-      {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
+      {visibleItems.map(({ href, label, icon: Icon }) => {
         const active =
           href === "/dashboard"
             ? pathname === href

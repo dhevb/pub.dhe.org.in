@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../../vie.rase/output/Paper1.json"; // Adjust the path as needed
+import data from "../../vie.rase/output/Paper2.json"; // Adjust the path as needed
 
 const renderContent = (data: any): JSX.Element[] => {
   const elements: JSX.Element[] = [];

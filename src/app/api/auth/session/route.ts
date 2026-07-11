@@ -1,15 +1,19 @@
 import { NextResponse } from "next/server";
-import { getAuthTokenFromCookies } from "@/lib/auth/session";
+import { getAuthSessionFromCookies } from "@/lib/auth/session";
 
 export async function GET() {
-  const token = getAuthTokenFromCookies();
+  const session = getAuthSessionFromCookies();
 
-  if (!token) {
+  if (!session) {
     return NextResponse.json({ authenticated: false });
   }
 
   return NextResponse.json({
     authenticated: true,
-    user: { hasToken: true },
+    user: {
+      hasToken: true,
+      userId: session.userId,
+      role: session.role,
+    },
   });
 }

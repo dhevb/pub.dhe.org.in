@@ -2,6 +2,7 @@ export const AUTH_COOKIE_NAMES = {
   token: "token",
   authToken: "auth-token",
   userId: "userId",
+  role: "role",
 } as const;
 
 export const AUTH_COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7 days

@@ -16,6 +16,7 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
@@ -48,6 +49,21 @@ const nextConfig = {
       { source: "/contact", destination: "/ContactUs", permanent: true },
       { source: "/contact-support", destination: "/ContactUs", permanent: true },
       { source: "/help", destination: "/ContactUs", permanent: true },
+      {
+        source: "/Role%20of%20academic%20driven%20startups%20in%20economy.pdf",
+        destination: "/b/rase20232.pdf",
+        permanent: true,
+      },
+      {
+        source: "/Shiksha_Mahakumbh.pdf",
+        destination: "/b/Shiksha%20Mahakumbh%202.0%20Abstract%20booklet%20final.pdf",
+        permanent: true,
+      },
+      {
+        source: "/SchoolEducation.pdf",
+        destination: "/b/rase20231.pdf",
+        permanent: true,
+      },
       {
         source: "/forgot-password",
         destination: "/ForgotPassword",
