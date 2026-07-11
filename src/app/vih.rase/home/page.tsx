@@ -1,13 +1,6 @@
-'use client';
-import { useState, useEffect } from 'react';
-import Footer from '../../component/vih_Component/Footer'
-import HomePage from '../../component/vih_Component/HomePage'
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-   <div className = "min-h-screen">
-<HomePage/>
-<Footer/>
-   </div>
-  );
+/** Legacy route — permanent redirect to /vih */
+export default function VihHomeLegacyPage() {
+  redirect("/vih");
 }

@@ -1,35 +1,25 @@
-// components/Footer.tsx
 "use client";
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faXTwitter,
-  faFacebook,
-  faLinkedin,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+
+import Link from "next/link";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-orange-500 text-white py-6 text-center">
-      <div className="container mx-auto">
-        <p className="text-sm md:text-base">
-          &copy; 2024 Department of Holistic Education. All rights reserved.
+    <footer className="border-t border-border bg-navy py-6 text-center text-white">
+      <div className="container-wide px-4">
+        <p className="text-sm text-white/80">
+          &copy; {year} Department of Holistic Education. All rights reserved.
         </p>
-        <div className="mt-4 flex justify-center space-x-4">
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200">
-            <FontAwesomeIcon icon={faXTwitter} size="lg" />
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200">
-            <FontAwesomeIcon icon={faFacebook} size="lg" />
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200">
-            <FontAwesomeIcon icon={faLinkedin} size="lg" />
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200">
-            <FontAwesomeIcon icon={faInstagram} size="lg" />
-          </a>
-        </div>
+        <p className="mt-3 text-sm">
+          <Link href="/" className="text-saffron hover:underline">
+            Main Site
+          </Link>
+          {" · "}
+          <Link href="/ContactUs" className="text-saffron hover:underline">
+            Contact
+          </Link>
+        </p>
       </div>
     </footer>
   );

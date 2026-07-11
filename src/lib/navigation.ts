@@ -22,11 +22,21 @@ export const primaryNav: NavLink[] = [
 
 export const journalNav: NavSection = {
   title: "Journals",
-  links: JOURNAL_LIST.map((j) => ({
-    label: j.name,
-    href: j.entryRoute,
-    description: j.language === "hi" ? "हिंदी" : "English",
-  })),
+  links: [
+    { label: "All Journals", href: "/Journal", description: "Browse all editions" },
+    ...JOURNAL_LIST.map((j) => ({
+      label: j.name,
+      href: j.entryRoute,
+      description:
+        j.brand === "viksit-india"
+          ? j.language === "hi"
+            ? "Viksit India Archive · Hindi"
+            : "Viksit India Archive · English"
+          : j.language === "hi"
+            ? "Viksit Bharat · Hindi"
+            : "Viksit Bharat · English",
+    })),
+  ],
 };
 
 export const authorNav: NavSection = {
@@ -44,6 +54,8 @@ export const researchNav: NavSection = {
   title: "Research",
   links: [
     { label: "All Articles", href: "/AllArticle" },
+    { label: "VIE Legacy Archive", href: "/vie.rase/table", description: "63 papers · 4 volumes" },
+    { label: "Books & Publications", href: "/Books", description: "Featured books & reports" },
     { label: "Conferences", href: "/conferences" },
     { label: "Bal Shodh Patrika", href: "/bal-shodh-patrika" },
     { label: "Search", href: "/search" },
@@ -62,7 +74,9 @@ export const footerSections: NavSection[] = [
   {
     title: "Platform",
     links: [
+      { label: "Main Site", href: "/" },
       { label: "About Journal", href: "/about" },
+      { label: "Books & Publications", href: "/Books" },
       { label: "Contact", href: "/ContactUs" },
       { label: "Conferences", href: "/conferences" },
       { label: "Bal Shodh Patrika", href: "/bal-shodh-patrika" },

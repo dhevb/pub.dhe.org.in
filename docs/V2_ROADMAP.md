@@ -14,6 +14,8 @@ V2 transforms the platform from a **technically strong journal portal** into a *
 
 **Strategic recommendation:** Operate with real editors, reviewers, and authors for 4–8 weeks before activating V2 phases. Collect workflow feedback; prioritize integrations based on evidence.
 
+**Execution framework:** [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md) · Live tracker: [PHASE_STATUS.md](./PHASE_STATUS.md) · **Current mode: Phase 1 Operational Pilot** — no V2 feature code until [PILOT_FEEDBACK_REPORT.md](./PILOT_FEEDBACK_REPORT.md) is signed off.
+
 ---
 
 ## What V2 Is / Is Not
@@ -208,6 +210,14 @@ Plus: security review · performance check · a11y spot-check · rollback plan �
 
 | Doc | Purpose |
 |-----|---------|
+| [V2_EXECUTION_PROMPT.md](./V2_EXECUTION_PROMPT.md) | Canonical Cursor prompt (post-pilot) |
+| [PHASE_STATUS.md](./PHASE_STATUS.md) | Live phase tracker |
+| [PILOT_FEEDBACK_REPORT.md](./PILOT_FEEDBACK_REPORT.md) | Operational pilot template |
+| [V2_EXECUTION_REPORT.md](./V2_EXECUTION_REPORT.md) | Execution baseline report |
+| [INTEGRATION_STATUS.md](./INTEGRATION_STATUS.md) | Integration activation tracker |
+| [TECHNICAL_DEBT.md](./TECHNICAL_DEBT.md) | Debt register |
+| [RISK_REGISTER.md](./RISK_REGISTER.md) | Risk matrix |
+| [RELEASE_NOTES_V2.md](./RELEASE_NOTES_V2.md) | V2 release notes (draft) |
 | [PUBLISHING_ARCHITECTURE.md](./PUBLISHING_ARCHITECTURE.md) | DOI, metadata, storage, search |
 | [EDITORIAL_WORKFLOW.md](./EDITORIAL_WORKFLOW.md) | Lifecycle engine |
 | [INTEGRATIONS.md](./INTEGRATIONS.md) | External service adapters |

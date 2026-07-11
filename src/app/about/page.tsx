@@ -1,3 +1,4 @@
+import { HindiText } from "@/components/ui/HindiText";
 import Link from "next/link";
 import { PortalShell } from "@/components/layout/PortalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -33,7 +34,9 @@ export default function AboutPage() {
             About Viksit Bharat Journal
           </Badge>
           <h1 className="heading-display mb-4">A Bharatiya Knowledge Journal</h1>
-          <p className="font-devanagari text-xl text-green">{siteConfig.nameHindi}</p>
+          <HindiText as="p" className="text-xl text-green">
+            {siteConfig.nameHindi}
+          </HindiText>
           <p className="mt-6 text-lg text-text-muted">
             {siteConfig.description}
           </p>

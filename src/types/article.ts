@@ -24,6 +24,7 @@ export interface ArticleReference {
 
 export interface PaperData {
   DOI?: string;
+  LicenseNotice?: string;
   ArticleInfo?: {
     Received: string;
     Revised: string;

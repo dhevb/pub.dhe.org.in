@@ -173,8 +173,38 @@ Contact: mailto:pub.dhe4@gmail.com
 1. **Legacy components** — some manuscript flows call Render API directly without CSRF proxy
 2. **localStorage auth** — legacy `persistLegacyAuth()` duplicates token client-side
 3. **In-memory rate limits** — not shared across Vercel instances
-4. **CSP `unsafe-inline`/`unsafe-eval`** — required by Next.js; tighten when possible
+4. **CSP `unsafe-inline`/`unsafe-eval`** — required by Next.js 14; tighten in v1.1.x (OI-021)
 5. **No refresh token rotation** — 7-day cookie expiry only
+
+---
+
+## Dependency Audit (2026-07-11)
+
+**Policy:** Safe patches only during pilot — no `npm audit fix --force` (ADR-015).
+
+### Applied mitigations
+
+| Action | Purpose |
+|--------|---------|
+| `npm audit fix` (non-force) | Dev dependency cleanup |
+| `overrides` for `glob`, `minimatch`, `postcss` | Transitive patch without major bumps |
+| Pin `next@14.2.35`, `eslint-config-next@14.2.35` | Latest 14.x patch line |
+| `postcss@^8.5.10` devDependency | GHSA-qx2v-qp2m-jg93 |
+
+### Next.js 14 advisories — applicability (production)
+
+| Advisory class | Applicable? | Mitigation |
+|----------------|-------------|------------|
+| Image Optimizer DoS (`remotePatterns`) | **Low** | Single trusted host in `next.config.mjs` |
+| Middleware i18n bypass | **No** | App Router only; no Pages i18n |
+| CSP nonce XSS | **No** | CSP uses `unsafe-inline`, not nonces |
+| RSC cache poisoning | **Monitor** | Vercel edge; upgrade planned v1.2.x |
+| WebSocket SSRF | **Low** | No WebSocket upgrades in app code |
+| `glob` CLI injection | **No** | Dev-only eslint toolchain; not in prod bundle |
+
+**Remaining framework advisories** require Next.js 15+ — tracked in [NEXTJS_UPGRADE_PLAN.md](./NEXTJS_UPGRADE_PLAN.md) for v1.2.x.
+
+Run: `npm run audit:deps`
 
 ---
 

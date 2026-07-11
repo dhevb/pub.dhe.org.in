@@ -1,6 +1,10 @@
 "use client";
 
 import type { JournalConfig } from "@/lib/journals/config";
+import {
+  getJournalNavLabels,
+  journalUiLanguage,
+} from "@/lib/i18n/journal-labels";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,26 +12,27 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { Button } from "@/components/ui/Button";
+import { HindiText } from "@/components/ui/HindiText";
 
 export function getJournalNavItems(journal: JournalConfig) {
-  const items = [
-    { label: "Home", href: journal.entryRoute },
-    { label: "Articles", href: `${journal.routePrefix}/ReadArticlePage` },
+  const labels = getJournalNavLabels(journalUiLanguage(journal));
+  const tableLabel =
+    journal.id === "vie" ? labels.archive : labels.tableOfContents;
+
+  return [
+    { label: labels.mainSite, href: "/" },
+    { label: labels.journalHome, href: journal.entryRoute },
+    { label: labels.articles, href: `${journal.routePrefix}/ReadArticlePage` },
+    { label: tableLabel, href: `${journal.routePrefix}/table` },
+    { label: labels.submit, href: `${journal.routePrefix}/SubmitManuscript` },
+    {
+      label: labels.editorialBoard,
+      href: `${journal.routePrefix}/EditorialBoard`,
+    },
+    { label: labels.indexing, href: `${journal.routePrefix}/Indexing` },
+    { label: labels.contact, href: `${journal.routePrefix}/ContactUs` },
+    { label: labels.dashboard, href: "/dashboard" },
   ];
-
-  if (journal.id === "vie") {
-    items.push({ label: "Archive", href: `${journal.routePrefix}/table` });
-  }
-
-  items.push(
-    { label: "Submit", href: `${journal.routePrefix}/SubmitManuscript` },
-    { label: "Editorial Board", href: `${journal.routePrefix}/EditorialBoard` },
-    { label: "Indexing", href: `${journal.routePrefix}/Indexing` },
-    { label: "Contact", href: `${journal.routePrefix}/ContactUs` },
-    { label: "Dashboard", href: "/dashboard" }
-  );
-
-  return items;
 }
 
 interface JournalNavProps {
@@ -38,6 +43,7 @@ export function JournalNav({ journal }: JournalNavProps) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const labels = getJournalNavLabels(journalUiLanguage(journal));
   const navItems = getJournalNavItems(journal);
 
   useEffect(() => {
@@ -71,13 +77,13 @@ export function JournalNav({ journal }: JournalNavProps) {
             <p className="truncate font-display text-sm font-bold text-navy md:text-base">
               {journal.name}
             </p>
-            <p className="truncate font-devanagari text-xs text-text-muted">
+            <HindiText as="p" className="truncate text-xs text-text-muted">
               {journal.nameHindi}
-            </p>
+            </HindiText>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Journal navigation">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label={labels.navAria}>
           {navItems.map((item) => {
             const active = pathname === item.href || pathname?.startsWith(`${item.href}/`);
             return (
@@ -100,14 +106,14 @@ export function JournalNav({ journal }: JournalNavProps) {
 
         <div className="flex items-center gap-2">
           <Link href={`${journal.routePrefix}/SubmitManuscript`} className="hidden md:block">
-            <Button size="sm">Submit</Button>
+            <Button size="sm">{labels.submit}</Button>
           </Link>
           <button
             type="button"
             className="rounded-lg p-2 text-text-muted hover:bg-background lg:hidden"
             onClick={() => setMobileOpen((v) => !v)}
             aria-expanded={mobileOpen}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-label={mobileOpen ? labels.closeMenu : labels.openMenu}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -117,7 +123,7 @@ export function JournalNav({ journal }: JournalNavProps) {
       {mobileOpen && (
         <nav
           className="border-t border-border bg-surface px-4 py-4 lg:hidden"
-          aria-label="Mobile journal navigation"
+          aria-label={labels.mobileNavAria}
         >
           <div className="flex flex-col gap-1">
             {navItems.map((item) => (

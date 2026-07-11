@@ -1,34 +1,25 @@
-// components/Footer.tsx
 "use client";
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faXTwitter,
-  faFacebook,
-  faLinkedin,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+
+import Link from "next/link";
+
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-orange-500 text-white p-4 text-center">
-      <div className="container mx-auto">
-        <p>
-          &copy; 2024 डिपार्टमेंट ऑफ होलिस्टिक एजुकेशन। सर्वाधिकार सुरक्षित।
+    <footer className="border-t border-border bg-navy py-6 text-center text-white">
+      <div className="container-wide px-4">
+        <p className="text-sm text-white/80">
+          &copy; {year} Department of Holistic Education. All rights reserved.
         </p>
-        <div className="mt-4 space-x-4 sm:order-1">
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faXTwitter} size="sm" />
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faFacebook} size="sm" />
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faLinkedin} size="sm" />
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faInstagram} size="sm" />
-          </a>
-        </div>
+        <p className="mt-3 text-sm">
+          <Link href="/" className="text-saffron hover:underline">
+            Main Site
+          </Link>
+          {" · "}
+          <Link href="/ContactUs" className="text-saffron hover:underline">
+            Contact
+          </Link>
+        </p>
       </div>
     </footer>
   );

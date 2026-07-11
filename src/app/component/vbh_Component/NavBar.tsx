@@ -10,6 +10,7 @@ type Menu = {
 
 const NavBar: React.FC = () => {
   const menus: Menu[] = [
+    { path: "/", title: "मुख्य साइट" },
     {
       path: "/",
       title: "जर्नल ओवरव्यू",
@@ -27,14 +28,10 @@ const NavBar: React.FC = () => {
       path: "/",
       title: "लेखकों के लिए",
       subMenu: [
-        { path: "/Guidelines for Viksit India-Revised.docx", title: "पेपर गाइडलाइंस डाउनलोड करें", isButton: true },
+        // Guidelines download re-enable when public/Guidelines for Viksit India-Revised.docx is uploaded
         { path: "/vbh.rase/SubmitManuscript", title: "मैन्यूस्क्रिप्ट जमा करें" },
         { path: "/vbh.rase/ManuscriptDetails", title: "पिछला मैन्यूस्क्रिप्ट " }
       ],
-    },
-    {
-      path: "/",
-      title: "समीक्षकों के लिए",
     },
     {
       path: "/",

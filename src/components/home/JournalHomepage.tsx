@@ -1,5 +1,6 @@
 "use client";
 
+import { HindiText } from "@/components/ui/HindiText";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
@@ -36,9 +37,9 @@ export function JournalHomepage({ journal }: JournalHomepageProps) {
             <h1 className="heading-display mb-6 text-white animate-fade-in">
               {journal.name}
             </h1>
-            <p className="font-devanagari mb-4 text-xl text-white/80">
+            <HindiText as="p" className="mb-4 text-xl text-white/80">
               {journal.nameHindi}
-            </p>
+            </HindiText>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-white/70">
               Democratizing research publication across every dimension of education.
               From school students to senior scholars — publish genuine research at
@@ -130,9 +131,9 @@ export function JournalHomepage({ journal }: JournalHomepageProps) {
             <div>
               <Badge variant="accent" className="mb-4">New Initiative</Badge>
               <h2 className="heading-section mb-4">Bal Shodh Patrika</h2>
-              <p className="font-devanagari mb-4 text-lg text-accent">
+              <HindiText as="p" className="mb-4 text-lg text-accent">
                 बाल शोध पत्रिका
-              </p>
+              </HindiText>
               <p className="mb-6 text-text-muted">
                 A dedicated ecosystem for school students to publish projects,
                 innovations, experiments, creative research, and teacher-guided
@@ -168,9 +169,9 @@ export function JournalHomepage({ journal }: JournalHomepageProps) {
             {CONFERENCE_TRACKS.map((track) => (
               <Card key={track.id} className="p-4 text-center">
                 <p className="text-sm font-semibold text-text">{track.name}</p>
-                <p className="font-devanagari mt-1 text-xs text-text-muted">
+                <HindiText className="mt-1 text-xs text-text-muted">
                   {track.nameHi}
-                </p>
+                </HindiText>
               </Card>
             ))}
           </div>

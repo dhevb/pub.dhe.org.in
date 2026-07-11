@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSiteSettings } from "@/lib/cms";
+import { getEnabledFeatures } from "@/lib/monitoring";
 import { PAPER_PATHS } from "@/lib/qa/paths";
 
 export const dynamic = "force-dynamic";
@@ -39,6 +40,7 @@ export async function GET() {
       rateLimit: "middleware",
       authCookies: "httpOnly",
     },
+    features: getEnabledFeatures(),
   };
 
   const status = body.status === "ok" ? 200 : 503;

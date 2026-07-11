@@ -10,6 +10,7 @@ type Menu = {
 
 const NavBar: React.FC = () => {
   const menus: Menu[] = [
+    { path: "/", title: "Main Site" },
     {
       path: "/",
       title: "Journal Overview",
@@ -27,7 +28,7 @@ const NavBar: React.FC = () => {
       path: "/",
       title: "For Authors",
       subMenu: [
-        { path: "/Guidelines for Viksit India-Revised.docx", title: "Paper Guidelines", isButton: true },
+        // Guidelines download re-enable when public/Guidelines for Viksit India-Revised.docx is uploaded
         { path: "/vbe.rase/SubmitManuscript", title: "Submit Manuscript" },
         { path: "/vbe.rase/ManuscriptDetails", title: "Previous Manuscript" },
       ],

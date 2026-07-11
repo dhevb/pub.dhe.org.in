@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HindiText } from "@/components/ui/HindiText";
 import { PortalShell } from "@/components/layout/PortalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
@@ -61,7 +62,9 @@ export default function BalShodhPatrikaPage() {
             Student Research Initiative
           </Badge>
           <h1 className="heading-display mb-4">Bal Shodh Patrika</h1>
-          <p className="font-devanagari text-2xl text-green">बाल शोध पत्रिका</p>
+          <HindiText as="p" className="text-2xl text-green">
+            बाल शोध पत्रिका
+          </HindiText>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-text-muted">
             Because brilliant minds start young. A dedicated platform for school
             students to publish genuine research, guided by teachers and supported

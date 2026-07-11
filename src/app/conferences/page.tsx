@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HindiText } from "@/components/ui/HindiText";
 import { PortalShell } from "@/components/layout/PortalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { conferenceEventsSchema } from "@/lib/seo/schemas";
@@ -41,7 +42,7 @@ export default function ConferencesPage() {
                   <CardTitle className="text-base">{track.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="font-devanagari text-accent">{track.nameHi}</p>
+                  <HindiText className="text-accent">{track.nameHi}</HindiText>
                 </CardContent>
               </Card>
             ))}

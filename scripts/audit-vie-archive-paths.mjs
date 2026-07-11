@@ -19,14 +19,17 @@ const PENDING_PDF_PATHS = new Set([
   "/vie/Volume 4 Issue 1 Article 64",
   "/vie/Volume 4 Issue 1 Article 65",
 ]);
-const filterPath = path.join(__dirname, "../src/app/component/vie_Component/Filter.tsx");
-const rawText = fs.readFileSync(filterPath, "utf8");
+const catalogPath = path.join(
+  __dirname,
+  "../src/lib/journals/vie-archive-catalog.ts"
+);
+const rawText = fs.readFileSync(catalogPath, "utf8");
 /** Strip line comments so commented-out catalog rows are not counted */
 const text = rawText.replace(/^\s*\/\/.*$/gm, "");
 
 const base = process.env.BASE_URL || "https://pub.dhe.org.in";
 
-/** Parse catalog entries from Filter.tsx */
+/** Parse catalog entries from vie-archive-catalog.ts */
 function parseCatalog() {
   const entries = [];
   const blocks = [...text.matchAll(/\{\s*title:\s*"([^"]*)"\s*,[\s\S]*?volume:\s*"(Volume \d)"\s*,\s*issue:\s*"(Issue \d)"[\s\S]*?page:\s*"([^"]*)"/g)];
