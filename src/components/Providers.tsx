@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { AnalyticsBootstrap } from "@/components/analytics/AnalyticsBootstrap";
 import { CsrfBootstrap } from "@/components/security/CsrfBootstrap";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 import NextTopLoader from "nextjs-toploader";
@@ -13,6 +14,7 @@ const Toaster = dynamic(
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <AnalyticsBootstrap />
       <CsrfBootstrap />
       <ServiceWorkerRegister />
       <NextTopLoader

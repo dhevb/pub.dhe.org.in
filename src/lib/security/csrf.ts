@@ -27,6 +27,9 @@ export const CSRF_EXEMPT_PATHS = new Set([
   "/api/health",
   "/api/cms",
   "/api/csrf",
+  "/api/metrics",
+  "/api/oai",
+  "/api/citations",
 ]);
 
 export function requiresCsrfValidation(pathname: string, method: string): boolean {

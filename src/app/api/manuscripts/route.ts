@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { getManuscriptsByUser } from "@/lib/api/manuscripts";
 import { AUTH_COOKIE_NAMES } from "@/lib/auth/constants";
+import {
+  getManuscriptsFromSupabase,
+  supabaseManuscriptsEnabled,
+} from "@/lib/supabase/manuscripts";
 
 export async function GET(request: NextRequest) {
   const store = cookies();
@@ -19,8 +23,13 @@ export async function GET(request: NextRequest) {
   const token = store.get(AUTH_COOKIE_NAMES.token)?.value;
 
   try {
-    const manuscripts = await getManuscriptsByUser(userId, token);
-    return NextResponse.json({ manuscripts });
+    let manuscripts;
+    if (supabaseManuscriptsEnabled()) {
+      manuscripts = await getManuscriptsFromSupabase(userId);
+    } else {
+      manuscripts = await getManuscriptsByUser(userId, token);
+    }
+    return NextResponse.json({ manuscripts, source: supabaseManuscriptsEnabled() ? "supabase" : "render" });
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Failed to load manuscripts";

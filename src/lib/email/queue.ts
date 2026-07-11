@@ -81,7 +81,7 @@ export function renderTemplate(
   return { subject, html };
 }
 
-export function enqueueEmail(message: EmailMessage): EmailQueueItem {
+export async function enqueueEmail(message: EmailMessage): Promise<EmailQueueItem> {
   const item: EmailQueueItem = {
     ...message,
     id: crypto.randomUUID(),
@@ -90,6 +90,24 @@ export function enqueueEmail(message: EmailMessage): EmailQueueItem {
     attempts: 0,
   };
   queue.push(item);
+
+  try {
+    const { sendEmailViaResend } = await import("./send");
+    const result = await sendEmailViaResend({
+      to: message.to,
+      subject: message.subject,
+      html: message.html,
+      text: message.text,
+    });
+    if (result.sent) {
+      item.status = "sent";
+    } else {
+      item.attempts += 1;
+    }
+  } catch {
+    item.attempts += 1;
+  }
+
   return item;
 }
 

@@ -38,6 +38,10 @@ const INFRA = [
   "/manifest.webmanifest",
   "/api/health",
   "/api/cms",
+  "/api/oai?verb=Identify",
+  "/api/citations?journal=vbe&paper=1&style=apa",
+  "/api/editorial",
+  "/api/setup/supabase",
 ];
 
 /** @type {string[]} */

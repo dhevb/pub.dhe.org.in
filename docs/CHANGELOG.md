@@ -5,6 +5,29 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [1.1.0] — 2026-07-11 — Supabase platform layer
+
+### Added
+- Hybrid Supabase backend (`src/lib/supabase/*`) — manuscripts, metrics, storage when configured; Render fallback preserved
+- API routes: `/api/oai`, `/api/metrics`, `/api/citations`, `/api/editorial`, `/api/auth/orcid`, `/api/setup/supabase`
+- Supabase schema migration (`supabase/migrations/001_initial_schema.sql`)
+- Post-deploy setup scripts: `npm run setup:supabase`, `npm run setup:supabase:remote`
+- Publishing adapters: OAI-PMH, Crossref metadata, citation export (APA/MLA/Chicago/IEEE/BibTeX/RIS)
+- Resend email integration, GA4/Clarity/Plausible analytics bootstrap
+- ORCID OAuth scaffold, plagiarism adapter stub
+- Docs: `docs/SUPABASE_MIGRATION_PLAN.md`, `docs/PRODUCTION_AUDIT_REPORT.md`
+
+### Changed
+- `/api/manuscripts` returns `source: "supabase" | "render"` based on configuration
+- Dashboard nav reads role from `/api/auth/session`
+- ArticleDetail and issues card links scoped to journal routes (audit fix)
+
+### Security
+- Editorial workflow requires Supabase + editor/admin role + CSRF
+- Supabase setup POST protected by `SUPABASE_SETUP_TOKEN` or `CRON_SECRET`
+
+---
+
 ## [1.0.4] — 2026-07-10 — VIE Legacy Archive Hotfix
 
 ### Fixed

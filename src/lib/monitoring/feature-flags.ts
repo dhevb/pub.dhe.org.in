@@ -5,7 +5,7 @@
 export const FEATURE_FLAGS = {
   pwaOffline: true,
   advancedSearch: true,
-  editorialWorkflow: false,
+  editorialWorkflow: Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY),
   semanticSearch: false,
   analyticsGa4: Boolean(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID),
   analyticsClarity: Boolean(process.env.NEXT_PUBLIC_CLARITY_ID),
