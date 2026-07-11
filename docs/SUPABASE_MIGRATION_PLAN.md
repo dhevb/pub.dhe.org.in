@@ -29,5 +29,5 @@
 
 1. Migrate Render users to Supabase Auth
 2. Enable RLS policies for production roles
-3. Wire editor dashboard to `/api/editorial`
+3. ~~Wire editor dashboard to `/api/editorial`~~ ✅ Done (v1.1.1)
 4. Upload new manuscripts to Supabase Storage

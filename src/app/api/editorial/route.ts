@@ -7,6 +7,9 @@ import {
   type ManuscriptStatus,
 } from "@/lib/editorial/workflow";
 import {
+  getAllManuscriptsForEditor,
+  getManuscriptStatusInSupabase,
+  getRecentEditorialActivity,
   supabaseManuscriptsEnabled,
   updateManuscriptStatusInSupabase,
 } from "@/lib/supabase/manuscripts";
@@ -28,6 +31,44 @@ const transitionSchema = z.object({
   note: z.string().max(2000).optional(),
 });
 
+function requireEditorRole() {
+  const store = cookies();
+  const userId = store.get(AUTH_COOKIE_NAMES.userId)?.value;
+  const role = store.get(AUTH_COOKIE_NAMES.role)?.value?.toLowerCase();
+  if (!userId || !["editor", "admin"].includes(role ?? "")) {
+    return null;
+  }
+  return userId;
+}
+
+function buildStats(manuscripts: { status: ManuscriptStatus }[]) {
+  const counts: Record<ManuscriptStatus, number> = {
+    submitted: 0,
+    screening: 0,
+    under_review: 0,
+    revision_requested: 0,
+    accepted: 0,
+    rejected: 0,
+    scheduled: 0,
+    published: 0,
+    withdrawn: 0,
+  };
+
+  for (const m of manuscripts) {
+    counts[m.status] += 1;
+  }
+
+  return {
+    pending: counts.submitted + counts.screening,
+    under_review: counts.under_review,
+    revision_requested: counts.revision_requested,
+    accepted: counts.accepted,
+    rejected: counts.rejected,
+    published: counts.published,
+    total: manuscripts.length,
+  };
+}
+
 export async function POST(request: NextRequest) {
   if (!supabaseManuscriptsEnabled()) {
     return NextResponse.json(
@@ -42,21 +83,20 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid CSRF token" }, { status: 403 });
   }
 
-  const store = cookies();
-  const userId = store.get(AUTH_COOKIE_NAMES.userId)?.value;
-  const role = store.get(AUTH_COOKIE_NAMES.role)?.value?.toLowerCase();
-
-  if (!userId || !["editor", "admin"].includes(role ?? "")) {
+  const userId = requireEditorRole();
+  if (!userId) {
     return NextResponse.json({ error: "Editor access required" }, { status: 403 });
   }
 
   try {
     const body = transitionSchema.parse(await request.json());
-    const currentStatus = request.nextUrl.searchParams.get(
-      "from"
-    ) as ManuscriptStatus | null;
+    const currentStatus = await getManuscriptStatusInSupabase(body.manuscriptId);
 
-    if (currentStatus && !canTransition(currentStatus, body.status)) {
+    if (!currentStatus) {
+      return NextResponse.json({ error: "Manuscript not found" }, { status: 404 });
+    }
+
+    if (!canTransition(currentStatus, body.status)) {
       return NextResponse.json(
         { error: `Invalid transition from ${currentStatus} to ${body.status}` },
         { status: 400 }
@@ -78,8 +118,35 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
-  return NextResponse.json({
-    enabled: supabaseManuscriptsEnabled(),
-    transitions: "POST with manuscriptId, status, optional note",
-  });
+  const enabled = supabaseManuscriptsEnabled();
+  if (!enabled) {
+    return NextResponse.json({
+      enabled: false,
+      manuscripts: [],
+      stats: null,
+      activity: [],
+    });
+  }
+
+  const userId = requireEditorRole();
+  if (!userId) {
+    return NextResponse.json({ error: "Editor access required" }, { status: 403 });
+  }
+
+  try {
+    const [manuscripts, activity] = await Promise.all([
+      getAllManuscriptsForEditor(),
+      getRecentEditorialActivity(),
+    ]);
+
+    return NextResponse.json({
+      enabled: true,
+      manuscripts,
+      stats: buildStats(manuscripts),
+      activity,
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to load queue";
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }

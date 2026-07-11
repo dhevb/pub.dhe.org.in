@@ -4,7 +4,11 @@ export {
   getManuscriptsFromSupabase,
   createManuscriptInSupabase,
   updateManuscriptStatusInSupabase,
+  getAllManuscriptsForEditor,
+  getManuscriptStatusInSupabase,
+  getRecentEditorialActivity,
   supabaseManuscriptsEnabled,
+  type EditorialActivityEntry,
 } from "./manuscripts";
 export { uploadToSupabaseStorage, deleteFromSupabaseStorage } from "./storage";
 export {

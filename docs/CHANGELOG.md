@@ -5,6 +5,18 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [1.1.1] — 2026-07-11 — Editor dashboard live workflow
+
+### Added
+- Editor dashboard wired to `/api/editorial` — live queue, stats, status transitions
+- Supabase helpers: `getAllManuscriptsForEditor`, `getRecentEditorialActivity`
+
+### Changed
+- `GET /api/editorial` returns manuscripts, stats, and activity for editor/admin roles
+- `POST /api/editorial` validates transitions from database status (not client `from` param)
+
+---
+
 ## [1.1.0] — 2026-07-11 — Supabase platform layer
 
 ### Added

@@ -48,7 +48,7 @@ export function AuthorExperiencePanel() {
         <CardContent>
           <SubmissionTimeline currentStep="submitted" />
           <p className="mt-4 text-xs text-muted-foreground">
-            Live status updates connect when editorial workflow API is available.
+            Status updates sync from the editorial workflow when Supabase is enabled.
           </p>
         </CardContent>
       </Card>
