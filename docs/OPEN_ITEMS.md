@@ -28,7 +28,7 @@ Priority: **P0** Critical · **P1** High · **P2** Medium · **P3** Low
 | OI-013 | Role-based authorization on dashboards | NOT IMPLEMENTED | Any authenticated user can access `/dashboard/*` |
 | OI-014 | Commit and release v1.1 engineering work | OPEN | Tests, error boundaries, monitoring uncommitted locally |
 | OI-015 | Fix paper JSON `DOI` field data quality | OPEN | Field contains CC license text, not DOI identifier |
-| OI-016 | Re-run production smoke tests (67 routes) | NOT RE-VERIFIED | Required before next release claim |
+| OI-016 | Re-run production smoke tests (67 routes) | VERIFIED 2026-07-11 | 69/69 after archive routes added |
 
 ---
 

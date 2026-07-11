@@ -304,24 +304,24 @@ const Filter: React.FC = () => {
   {
     title: "The Maneka Metamorphosis: Bridging Text and Time in Constitutional Interpretation",
     author: "Kritika Joshi",
-    publishDate: "June 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 2 Article 34", // Please provide the actual page number
+    publishDate: "June 30, 2024",
+    page: "/vie/Volume 2 Issue 2 Article 32",
     volume: "Volume 2",
     issue: "Issue 2",
     readArticle:""},
   {
     title: "A Comparative Analysis of Social Security Legislation for the Unorganized Labor Sector in India and the USA",
     author: "Bhavika",
-    publishDate: "June 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 3 Article 35",
+    publishDate: "June 30, 2024",
+    page: "/vie/Volume 2 Issue 2 Article 33",
     volume: "Volume 2",
     issue: "Issue 2",
     readArticle:""},
   {
     title: "Investigating the Role of Law as an Instrument of Social Order",
     author: "Arunika Paul Nandi",
-    publishDate: "June 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 3 Article 36",
+    publishDate: "June 30, 2024",
+    page: "/vie/Volume 2 Issue 2 Article 34",
     volume: "Volume 2",
     issue: "Issue 2",
     readArticle:""},
@@ -329,32 +329,32 @@ const Filter: React.FC = () => {
   {
     title: "Content",
     author: "",
-    publishDate: "September 30,2024", // Please provide the actual publish date
-    page: "/vie/Content Volume 2 Issue 3", // Please provide the actual page number
+    publishDate: "September 30, 2024",
+    page: "/vie/Content Volume 2 Issue 3",
     volume: "Volume 2",
     issue: "Issue 3",
     readArticle:""},
   {
     title: "Arms, Ancestry, and Autonomy: The Legal and Cultural Saga of Kodava Gun Rights",
     author: "Srivatsa Naik",
-    publishDate: "September 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 3 Article 37", // Please provide the actual page number
+    publishDate: "September 30, 2024",
+    page: "/vie/Volume 2 Issue 3 Article 35",
     volume: "Volume 2",
     issue: "Issue 3",
     readArticle:""},
   {
     title: "Laws on Social Media Challenges in their implementation and way forward",
     author: "Alisha Arora",
-    publishDate: "September 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 4 Article 38",
+    publishDate: "September 30, 2024",
+    page: "/vie/Volume 2 Issue 3 Article 36",
     volume: "Volume 2",
     issue: "Issue 3",
     readArticle:""},
   {
     title: "Secularism is the Essence of Constitution of India: An Analysis in the Light of Basic Structure Doctrine",
     author: "Ayesha Nezami",
-    publishDate: "September 30,2024", // Please provide the actual publish date
-    page: "/vie/Volume 2 Issue 4 Article 39",
+    publishDate: "September 30, 2024",
+    page: "/vie/Volume 2 Issue 3 Article 37",
     volume: "Volume 2",
     issue: "Issue 3",
     readArticle:""},
@@ -499,42 +499,34 @@ const Filter: React.FC = () => {
     readArticle:""},
  
 {
-    title: "Fabrication of Carbon Dots-Based Hydrogen Sulfide Gas Sensor",
-    author: "Srijan Pushkarna",
-    publishDate: "June 30, 2025", // Please provide the actual publish date
-    page: "/vie/Volume 3 Issue 2 Article 52", // Please provide the actual page number
-    volume: "Volume 3",
-    issue: "Issue 2",
-    readArticle:""}, 
-    {
     title: "Mathematics Education: A Catalyst for Global Progress and Development",
     author: "Sarita Pippal",
-    publishDate: "June 30, 2025", // Please provide the actual publish date
-    page: "/vie/Volume 3 Issue 4 Article 53",
+    publishDate: "June 30, 2025",
+    page: "/vie/Volume 3 Issue 2 Article 52",
     volume: "Volume 3",
     issue: "Issue 2",
     readArticle:""},
 {
     title: "Content",
     author: "",
-    publishDate: "September 30, 2025", // Please provide the actual publish date
-    page: "/vie/Content Volume 3 Issue 3 2025", // Please provide the actual page number
+    publishDate: "September 30, 2025",
+    page: "/vie/Content Volume 3 Issue 3 2025",
     volume: "Volume 3",
     issue: "Issue 3",
     readArticle:""},
   {
     title: "The Digital Promise, The Family Barrier: How Technology is Changing (and Not Changing) the Lives of Women in Indian Family Businesses",
     author: "Sanjeev Kumar Garg",
-    publishDate: "September 30, 2025", // Please provide the actual publish date
-    page: "/vie/Volume 3 Issue 4 Article 53", // Please provide the actual page number
+    publishDate: "September 30, 2025",
+    page: "/vie/Volume 3 Issue 4 Article 53",
     volume: "Volume 3",
     issue: "Issue 3",
-    readArticle:""}, 
-    {
+    readArticle:""},
+  {
     title: "Machine Translation of English News to Indian Sign Language (ISL) for Indian Deaf Community",
     author: "Annu Rani",
-    publishDate: "September 30, 2025", // Please provide the actual publish date
-    page: "/vie/Volume 3 Issue 4 Article 54", // Please provide the actual page number
+    publishDate: "September 30, 2025",
+    page: "/vie/Volume 3 Issue 4 Article 54",
     volume: "Volume 3",
     issue: "Issue 3",
     readArticle:""}, 
@@ -608,7 +600,7 @@ const Filter: React.FC = () => {
     readArticle:""},
 
   {
-    title: "Design of Bus Stands Machine Translation System to Indian Sign Laungage for Deaf",
+    title: "Design of Bus Stands Machine Translation System to Indian Sign Language for Deaf",
     author: "Rakesh K. Attar",
     publishDate: "2026-03-31", // Please provide the actual publish date
     page: "/vie/Volume 4 Issue 1 Article 63", // Please provide the actual page number
@@ -763,7 +755,7 @@ const Filter: React.FC = () => {
 
         <div className="mb-4 text-black">
           <label htmlFor="issue" className="mr-2">
-            
+            Select Issue:
           </label>
           <select
             id="issue"

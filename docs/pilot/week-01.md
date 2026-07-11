@@ -14,8 +14,8 @@
 | PR #1 + PR #2 (redirect) deployed | ✅ |
 | `/api/health` | ok · `ec7702e` |
 | `/vie.rase/issues` redirect | ✅ 308 → `/vie.rase/table` |
-| Archive catalog verified | 4 vol · 12 issues · 64 papers |
-| PDF audit | **59/59 live** on production + 5 deferred (Vol 4 I1: 61–65) |
+| Archive catalog verified | 4 vol · 12 issues · 63 papers |
+| PDF audit | **58/58 live** + 5 deferred · 0 duplicate paths |
 
 ### Catalog path fix (2026-07-10)
 

@@ -28,15 +28,25 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
-## [1.0.5] — 2026-07-11 — VIE Vol 4 pending PDF UX
+## [1.0.5] — 2026-07-11 — VIE archive complete remediation
 
 ### Fixed
 - Vol 4 Issue 1 articles **61–65** show **PDF pending upload** instead of broken links
 - Vol 4 Issue 1 content cover **`cv4i1.pdf`** placeholder (was 404)
-- Audit script classifies deferred PDFs separately from unexpected missing files
+- **Vol 2 Issue 2** — articles 32–34 mapped to correct PDFs (was misnumbered 34–36)
+- **Vol 2 Issue 3** — articles 35–37 use Issue 3 paths (eliminates duplicate paths with Issue 4)
+- **Vol 3 Issue 2** — article 52 corrected to Mathematics Education (was wrong paper)
+- **Vol 3 Issue 3** — removed duplicate Article 53 entry
+- Content header rows link to issue TOC PDFs in archive UI
+- Issue selector label, “Laungage” typo, smoke tests for `/vie.rase/table` and issues redirect
+- Audit script classifies deferred PDFs and reports orphan files on disk
+
+### Changed
+- Package version `1.0.4` → `1.0.5`
 
 ### Production verified (2026-07-11)
-- Pending PDF UX + cover placeholder deployed via PR #4
+- **58/58 live** paper PDFs + 5 deferred · **0 duplicate paths** · **12/12** content headers
+- Smoke: 69/69 (archive routes added)
 
 ---
 
