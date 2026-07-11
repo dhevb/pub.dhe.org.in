@@ -4,6 +4,13 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+/** Legacy conference proceedings — kept on disk, excluded from orphan warnings. */
+const LEGACY_EXCLUDED_ORPHANS = new Set([
+  "Proceeding1.pdf",
+  "Proceeding2.pdf",
+  "Proceeding3.pdf",
+]);
+
 /** Deferred uploads — user-provided later; excluded from failure count. */
 const PENDING_PDF_PATHS = new Set([
   "/vie/Volume 4 Issue 1 Article 61",
@@ -147,12 +154,19 @@ if (fs.existsSync(publicVieDir)) {
     ...paperPages.map((p) => `${p.replace(/^\/vie\//, "")}.pdf`),
     ...contentPages.map((p) => `${p.replace(/^\/vie\//, "")}.pdf`),
   ]);
-  const orphanPdfs = localPdfNames.filter((f) => !catalogPdfNames.has(f));
+  const orphanPdfs = localPdfNames.filter(
+    (f) => !catalogPdfNames.has(f) && !LEGACY_EXCLUDED_ORPHANS.has(f)
+  );
+  const legacyExcluded = localPdfNames.filter((f) => LEGACY_EXCLUDED_ORPHANS.has(f));
   if (orphanPdfs.length) {
     console.log(`\nOrphan PDFs (on disk, not in catalog): ${orphanPdfs.length}`);
     orphanPdfs.forEach((f) => console.log(`  · ${f}`));
   } else {
     console.log("\nOrphan PDFs: none");
+  }
+  if (legacyExcluded.length) {
+    console.log(`\nLegacy excluded from orphan count (proceedings): ${legacyExcluded.length}`);
+    legacyExcluded.forEach((f) => console.log(`  · ${f}`));
   }
 } else {
   console.log("public/vie not found");
