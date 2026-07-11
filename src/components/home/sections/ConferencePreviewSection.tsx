@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HindiText } from "@/components/ui/HindiText";
 import { CONFERENCE_TRACKS, PAST_CONFERENCES } from "@/lib/content/homepage";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -24,9 +25,9 @@ export function ConferencePreviewSection() {
           {CONFERENCE_TRACKS.slice(0, 10).map((track) => (
             <Card key={track.id} className="p-4 text-center">
               <p className="text-sm font-semibold text-text">{track.name}</p>
-              <p className="font-devanagari mt-1 text-xs text-text-muted">
+              <HindiText className="mt-1 text-xs text-text-muted">
                 {track.nameHi}
-              </p>
+              </HindiText>
             </Card>
           ))}
         </div>

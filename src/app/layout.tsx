@@ -1,5 +1,7 @@
 import { Providers } from "@/components/Providers";
+import { DocumentLang } from "@/components/layout/DocumentLang";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { DOCUMENT_LANG_BOOTSTRAP } from "@/lib/i18n/language";
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Noto_Sans_Devanagari } from "next/font/google";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -46,19 +48,21 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${inter.variable} ${playfair.variable} ${notoDevanagari.variable}`}
       suppressHydrationWarning
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: DOCUMENT_LANG_BOOTSTRAP }} />
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
       </head>
       <body className="min-h-screen bg-background font-body antialiased">
         <Providers>
+          <DocumentLang />
           <a href="#main-content" className="skip-link">
             Skip to main content
           </a>
-          <div id="main-content">{children}</div>
+          <div id="app-root">{children}</div>
         </Providers>
       </body>
     </html>

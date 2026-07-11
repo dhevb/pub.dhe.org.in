@@ -6,7 +6,7 @@ import JournalCard from "./JournalCard";
 import Navigation from "./Navigation";
 import NavBar from "./NavBar";
 const HomePage: React.FC = () => {
-  const recentArticles = [{ title: "Comming Soon", slug: "article-1" }];
+  const recentArticles = [{ title: "Coming Soon", slug: "article-1" }];
 
   const journalDataList = [
     {

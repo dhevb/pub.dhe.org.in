@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HindiText } from "@/components/ui/HindiText";
 import { footerSections } from "@/lib/navigation";
 import { siteConfig } from "@/lib/seo/metadata";
 
@@ -11,9 +12,9 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <p className="font-display text-lg font-bold">Viksit Bharat Journal</p>
-            <p className="mt-2 text-sm text-white/70 font-devanagari">
+            <HindiText as="p" className="mt-2 text-sm text-white/70">
               {siteConfig.nameHindi}
-            </p>
+            </HindiText>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
               Knowledge for Society. Research for Nation Building. Open, ethical,
               and affordable publishing for every knowledge creator.

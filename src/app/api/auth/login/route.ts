@@ -13,8 +13,9 @@ import {
   CSRF_COOKIE_NAME,
   CSRF_MAX_AGE,
   generateCsrfToken,
-  validateCsrfToken,
 } from "@/lib/security/csrf";
+import { requireCsrf } from "@/lib/api/route-helpers";
+import { auditLog } from "@/lib/monitoring";
 import { sanitizeEmail, sanitizeString } from "@/lib/security/sanitize";
 
 const loginSchema = z.object({
@@ -49,11 +50,8 @@ function rotateCsrf(): string {
 }
 
 export async function POST(request: NextRequest) {
-  const cookieToken = request.cookies.get(CSRF_COOKIE_NAME)?.value;
-  const headerToken = request.headers.get("x-csrf-token");
-  if (!validateCsrfToken(cookieToken, headerToken)) {
-    return NextResponse.json({ error: "Invalid CSRF token" }, { status: 403 });
-  }
+  const csrfFailure = requireCsrf(request);
+  if (csrfFailure) return csrfFailure;
 
   try {
     const body = await request.json();
@@ -86,6 +84,7 @@ export async function POST(request: NextRequest) {
 
     setAuthCookies(data.token, data.userId);
     const newCsrf = rotateCsrf();
+    auditLog("auth.login", data.userId, { email: data.email });
 
     return NextResponse.json({
       user: {

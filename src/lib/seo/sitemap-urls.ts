@@ -55,6 +55,52 @@ export function getAllPublicPaths(): string[] {
   return paths;
 }
 
+function findJournalForPath(
+  path: string
+): { journal: JournalConfig; suffix: string; isEntry: boolean } | undefined {
+  for (const journal of JOURNAL_LIST) {
+    if (path === journal.entryRoute) {
+      return { journal, suffix: "", isEntry: true };
+    }
+    if (path.startsWith(`${journal.routePrefix}/`) || path === journal.routePrefix) {
+      return {
+        journal,
+        suffix: path.slice(journal.routePrefix.length),
+        isEntry: false,
+      };
+    }
+  }
+  return undefined;
+}
+
+export function getSitemapLanguageAlternates(
+  path: string
+): Record<string, string> | undefined {
+  const found = findJournalForPath(path);
+  if (!found) return undefined;
+
+  const { journal, suffix, isEntry } = found;
+  const pair = JOURNAL_LIST.find((j) => j.id === HREFLANG_PAIRS[journal.id]);
+  if (!pair) return undefined;
+
+  const base = siteConfig.url;
+
+  if (isEntry) {
+    const enJournal = journal.language === "en" ? journal : pair;
+    const hiJournal = journal.language === "hi" ? journal : pair;
+    return {
+      "en-IN": `${base}${enJournal.entryRoute}`,
+      "hi-IN": `${base}${hiJournal.entryRoute}`,
+    };
+  }
+
+  const langs = getJournalHreflangPaths(journal, suffix);
+  const languages: Record<string, string> = {};
+  if (langs.en) languages["en-IN"] = langs.en;
+  if (langs.hi) languages["hi-IN"] = langs.hi;
+  return Object.keys(languages).length > 0 ? languages : undefined;
+}
+
 export function buildSitemapEntries(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
   const now = new Date();
@@ -83,11 +129,14 @@ export function buildSitemapEntries(): MetadataRoute.Sitemap {
     if (path === "/search") changeFrequency = "daily";
     if (isPaper) changeFrequency = "yearly";
 
+    const languages = getSitemapLanguageAlternates(path);
+
     return {
       url: `${base}${path}`,
       lastModified: now,
       changeFrequency,
       priority,
+      ...(languages ? { alternates: { languages } } : {}),
     };
   });
 }

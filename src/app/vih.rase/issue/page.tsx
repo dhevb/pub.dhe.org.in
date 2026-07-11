@@ -1,4 +1,4 @@
-﻿import { journalPageMetadata } from "@/components/journal/JournalPage";
+﻿import { JournalPage, journalPageMetadata } from "@/components/journal/JournalPage";
 import type { Metadata } from "next";
 import LegacyContent from "./legacy-content";
 
@@ -10,5 +10,9 @@ export const metadata: Metadata = journalPageMetadata(
 );
 
 export default function Page() {
-  return <LegacyContent />;
+  return (
+    <JournalPage journalId="vih">
+      <LegacyContent />
+    </JournalPage>
+  );
 }

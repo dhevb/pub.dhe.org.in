@@ -2,6 +2,7 @@
 
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
+import { getPaperDoi, getPaperLicenseNotice } from "@/lib/i18n/paper-fields";
 import type { PaperData } from "@/types/article";
 import { useEffect, useMemo, useState } from "react";
 
@@ -56,6 +57,8 @@ export function ArticleRenderer({ data, nightMode = false }: ArticleRendererProp
   };
 
   const bg = nightMode ? "bg-gray-900 text-gray-100" : "bg-surface text-text";
+  const licenseNotice = getPaperLicenseNotice(data);
+  const doi = getPaperDoi(data);
 
   return (
     <article className={`${bg} rounded-xl`}>
@@ -142,8 +145,14 @@ export function ArticleRenderer({ data, nightMode = false }: ArticleRendererProp
             </header>
           )}
 
-          {data.DOI && (
-            <p className="mb-6 text-sm text-text-muted">{data.DOI}</p>
+          {licenseNotice && (
+            <p className="mb-6 text-sm text-text-muted">{licenseNotice}</p>
+          )}
+
+          {doi && (
+            <p className="mb-6 text-sm text-text-muted">
+              <span className="font-medium">DOI:</span> {doi}
+            </p>
           )}
 
           {data.Abstract && (

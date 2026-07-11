@@ -37,6 +37,8 @@ Open http://localhost:3000
 ## Before Submitting
 
 ```bash
+npm run test           # Unit + regression tests
+npm run test:coverage  # 80%+ on critical lib modules
 npm run lint
 npm run qa:papers      # Must pass 20/20
 npx tsc --noEmit       # Run after npm run build
@@ -128,6 +130,7 @@ npm run qa:smoke       # Terminal 2
 
 ## Pull Request Checklist
 
+- [ ] `npm run test` passes
 - [ ] `npm run lint` passes
 - [ ] `npm run qa:papers` — 20/20
 - [ ] `npm run build` succeeds

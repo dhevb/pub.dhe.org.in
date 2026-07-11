@@ -10,11 +10,6 @@ interface Document {
 
 const documents: Document[] = [
   {
-    title: "Guidelines",
-    filePath: "/Guidelines for Viksit India-Revised.docx",
-    fileType: "docx",
-  },
-  {
     title: "New Special Issue",
     filePath: "/files/new_special_issue.docx",
     fileType: "docx",

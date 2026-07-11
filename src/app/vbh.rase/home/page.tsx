@@ -1,13 +1,6 @@
-'use client';
-import { useState, useEffect } from 'react';
-import Footer from '../../component/vbh_Component/Footer'
-import HomePage from '../../component/vbh_Component/HomePage'
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-   <div className = "min-h-screen">
-<HomePage/>
-<Footer/>
-   </div>
-  );
+/** Legacy route — permanent redirect to /vbh */
+export default function VbhHomeLegacyPage() {
+  redirect("/vbh");
 }

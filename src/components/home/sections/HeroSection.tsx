@@ -1,3 +1,4 @@
+import { HindiText } from "@/components/ui/HindiText";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { siteConfig } from "@/lib/seo/metadata";
@@ -22,9 +23,9 @@ export function HeroSection() {
           <h1 id="hero-heading" className="heading-display mb-4 text-white">
             {siteConfig.name}
           </h1>
-          <p className="font-devanagari mb-4 text-xl text-white/90 sm:text-2xl">
+          <HindiText as="p" className="mb-4 text-xl text-white/90 sm:text-2xl">
             {siteConfig.nameHindi}
-          </p>
+          </HindiText>
           <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/85">
             {siteConfig.description}
           </p>

@@ -74,7 +74,7 @@ export const VIE_ARCHIVE_CATALOG: VieArchiveArticle[] = [
   {
     title:
       "Open Educational Resources: An insight into various initiatives at National Level",
-    author: "Dr. Madhu Midha ",
+    author: "Dr. Madhu Midha",
     publishDate: "2023-06-30",
     page: "/vie/v1i1p8",
     volume: "Volume 1",
@@ -163,7 +163,7 @@ export const VIE_ARCHIVE_CATALOG: VieArchiveArticle[] = [
     readArticle:""},
   {
     title: "Moral Values and Ethics in School Education - A Practical Approach",
-    author: "Piyush Punj ",
+    author: "Piyush Punj",
     publishDate: "2023-12-31", // Please provide the actual publish date
     page: "/vie/v1i3p1", // Please provide the actual page number
     volume: "Volume 1",
@@ -177,14 +177,14 @@ export const VIE_ARCHIVE_CATALOG: VieArchiveArticle[] = [
     volume: "Volume 1",
     issue: "Issue 3",
     readArticle:""},  {
-    title: "Induction of Startup Culture on School Level ",
+    title: "Induction of Startup Culture on School Level",
     author: "Divyanshu",
     publishDate: "2023-12-31", // Please provide the actual publish date
     page: "/vie/v1i3p3", // Please provide the actual page number
     volume: "Volume 1",
     issue: "Issue 3",
     readArticle:""},  {
-    title: "Exploring the Potential of IoST for Smart City Development  ",
+    title: "Exploring the Potential of IoST for Smart City Development",
     author: "Shreya",
     publishDate: "2023-12-31", // Please provide the actual publish date
     page: "/vie/v1i3p4", // Please provide the actual page number
@@ -206,7 +206,7 @@ export const VIE_ARCHIVE_CATALOG: VieArchiveArticle[] = [
     issue: "Issue 3",
     readArticle:""},
   {
-    title: "A study on Indian Mathematicians and their Contributions in the Development of Mathematics ",
+    title: "A study on Indian Mathematicians and their Contributions in the Development of Mathematics",
     author: "Gaurav Varshney",
     publishDate: "2023-12-31", // Please provide the actual publish date
     page: "/vie/v1i3p7", // Please provide the actual page number
@@ -215,7 +215,7 @@ export const VIE_ARCHIVE_CATALOG: VieArchiveArticle[] = [
     readArticle:""},
   {
     title: "Augmenting Techno-Pedagogical Competencies of Pre-Service Trainees for Designing E-Content through Collaborative Training Model",
-    author: "Ms. Seema Rani Thappa    ",
+    author: "Ms. Seema Rani Thappa",
     publishDate: "2023-12-31", // Please provide the actual publish date
     page: "/vie/v1i3p8",
     volume: "Volume 1",

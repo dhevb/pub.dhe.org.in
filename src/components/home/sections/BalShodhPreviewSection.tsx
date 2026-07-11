@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HindiText } from "@/components/ui/HindiText";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
@@ -26,7 +27,9 @@ export function BalShodhPreviewSection() {
           <h2 id="bal-shodh-heading" className="heading-section mb-2">
             Bal Shodh Patrika
           </h2>
-          <p className="font-devanagari mb-4 text-xl text-green">बाल शोध पत्रिका</p>
+          <HindiText as="p" className="mb-4 text-xl text-green">
+            बाल शोध पत्रिका
+          </HindiText>
           <p className="mb-6 text-text-muted">
             Because brilliant minds start young. A dedicated platform for school
             students to publish genuine research — guided by teachers and

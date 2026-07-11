@@ -1,6 +1,7 @@
-import { Suspense } from "react";
+import { PortalShell } from "@/components/layout/PortalShell";
 import { LoginForm } from "@/components/auth/LoginForm";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { Suspense } from "react";
 
 export const metadata = buildMetadata({
   title: "Sign In",
@@ -12,8 +13,14 @@ export const metadata = buildMetadata({
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-background" />}>
-      <LoginForm />
-    </Suspense>
+    <PortalShell className="flex-1">
+      <div className="section-padding">
+        <div className="container-narrow">
+          <Suspense fallback={<div className="skeleton h-96 rounded-xl" aria-hidden />}>
+            <LoginForm />
+          </Suspense>
+        </div>
+      </div>
+    </PortalShell>
   );
 }

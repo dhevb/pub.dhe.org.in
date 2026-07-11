@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { buildPaperSearchIndex } from "@/lib/content/search-index";
+import { auditLog } from "@/lib/monitoring";
 import { sanitizeString } from "@/lib/security/sanitize";
 
 const querySchema = z.object({
@@ -32,6 +33,8 @@ export async function GET(request: NextRequest) {
         })
         .slice(0, limit)
     : index.slice(0, limit);
+
+  if (q) auditLog("search.query", undefined, { q, count: results.length });
 
   return NextResponse.json(
     { count: results.length, results },

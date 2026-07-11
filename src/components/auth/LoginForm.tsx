@@ -61,8 +61,7 @@ export function LoginForm({ redirectTo }: LoginFormProps) {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-background px-4 py-12">
-      <Card className="relative w-full max-w-md">
+    <Card className="relative w-full max-w-md">
         <Link
           href="/"
           className="absolute -left-2 -top-2 flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white shadow-md hover:brightness-110"
@@ -132,6 +131,5 @@ export function LoginForm({ redirectTo }: LoginFormProps) {
           </Link>
         </p>
       </Card>
-    </div>
   );
 }
