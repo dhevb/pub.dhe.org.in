@@ -10,6 +10,7 @@ import {
   Settings,
   Users,
 } from "lucide-react";
+import { getSessionViaAppRoute } from "@/lib/api/auth";
 import { LEGACY_STORAGE_KEYS } from "@/lib/auth/constants";
 import { cn } from "@/lib/utils/cn";
 
@@ -36,7 +37,31 @@ export function DashboardNav() {
   const [role, setRole] = useState<string | undefined>();
 
   useEffect(() => {
-    setRole(localStorage.getItem(LEGACY_STORAGE_KEYS.role)?.toLowerCase() || undefined);
+    let active = true;
+
+    getSessionViaAppRoute()
+      .then((session) => {
+        if (!active) return;
+        const sessionRole = session.user?.role?.toLowerCase();
+        if (sessionRole) {
+          setRole(sessionRole);
+          return;
+        }
+        setRole(
+          localStorage.getItem(LEGACY_STORAGE_KEYS.role)?.toLowerCase() || undefined
+        );
+      })
+      .catch(() => {
+        if (active) {
+          setRole(
+            localStorage.getItem(LEGACY_STORAGE_KEYS.role)?.toLowerCase() || undefined
+          );
+        }
+      });
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   const visibleItems = NAV_ITEMS.filter(

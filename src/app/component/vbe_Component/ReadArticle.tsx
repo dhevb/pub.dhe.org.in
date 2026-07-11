@@ -43,7 +43,7 @@ const ReadArticle: React.FC = () => {
           <li key={article.id} className="flex justify-between items-center p-4 bg-gray-100 rounded-lg shadow-sm hover:bg-gray-200 transition duration-200 ease-in-out">
             <span className="text-base font-semibold text-gray-700 flex-1">{article.title}</span>
             <a 
-              href={`/ArticleDetail/${article.id}`} 
+              href={`/vbe.rase/ArticleDetail/${article.id}`} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="ml-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-150 ease-in-out w-40 text-center"
