@@ -21,6 +21,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
     <div className="p-4">
       {articles.map((article, index) => {
         if (isVieArchiveContentEntry(article)) {
+          const pdfUrl = vieArchivePdfUrl(article.page);
           return (
             <div
               key={`content-${article.volume}-${article.issue}-${index}`}
@@ -32,6 +33,14 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
               <p className="text-sm text-gray-600">
                 Published: {article.publishDate}
               </p>
+              <a
+                className="mt-2 inline-block text-sm text-indigo-700 underline hover:text-indigo-900"
+                href={pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View issue contents (PDF)
+              </a>
             </div>
           );
         }

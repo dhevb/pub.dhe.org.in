@@ -142,6 +142,18 @@ if (fs.existsSync(publicVieDir)) {
     .filter((f) => f.endsWith(".pdf"))
     .sort();
   console.log(`Files in public/vie: ${localPdfNames.length}`);
+
+  const catalogPdfNames = new Set([
+    ...paperPages.map((p) => `${p.replace(/^\/vie\//, "")}.pdf`),
+    ...contentPages.map((p) => `${p.replace(/^\/vie\//, "")}.pdf`),
+  ]);
+  const orphanPdfs = localPdfNames.filter((f) => !catalogPdfNames.has(f));
+  if (orphanPdfs.length) {
+    console.log(`\nOrphan PDFs (on disk, not in catalog): ${orphanPdfs.length}`);
+    orphanPdfs.forEach((f) => console.log(`  · ${f}`));
+  } else {
+    console.log("\nOrphan PDFs: none");
+  }
 } else {
   console.log("public/vie not found");
 }
