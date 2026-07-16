@@ -5,6 +5,17 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [1.1.2] — 2026-07-16 — VIE Vol 4 Issue 1 Article 65 PDF
+
+### Added
+- `public/vie/Volume 4 Issue 1 Article 65.pdf` — live article PDF for VIE Vol 4 Issue 1
+
+### Changed
+- Removed Article 65 from deferred/pending PDF list (archive UI now shows View/Download)
+- Restored Devanagari title and author for Article 65 in `vie-archive-catalog.ts`
+
+---
+
 ## [1.1.1] — 2026-07-11 — Editor dashboard live workflow
 
 ### Added

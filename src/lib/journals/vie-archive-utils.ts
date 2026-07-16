@@ -33,7 +33,6 @@ export const VIE_ARCHIVE_PENDING_PDF_PATHS = new Set([
   "/vie/Volume 4 Issue 1 Article 62",
   "/vie/Volume 4 Issue 1 Article 63",
   "/vie/Volume 4 Issue 1 Article 64",
-  "/vie/Volume 4 Issue 1 Article 65",
 ]);
 
 export function isVieArchivePdfPending(page: string): boolean {

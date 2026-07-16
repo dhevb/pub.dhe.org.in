@@ -617,10 +617,10 @@ export const VIE_ARCHIVE_CATALOG: VieArchiveArticle[] = [
     readArticle:""}, 
 
     {
-    title: "à¤¶à¥à¤°à¤µà¤£ à¤¬à¤¾à¤§à¤¿à¤¤ à¤µà¤¿à¤¦à¥à¤¯à¤¾à¤°à¥à¤¥à¤¿à¤¯à¥‹à¤‚ à¤•à¥€ à¤‰à¤ªà¤²à¤¬à¥à¤§à¤¿ à¤…à¤­à¤¿à¤ªà¥à¤°à¥‡à¤°à¤£à¤¾ à¤à¤µà¤‚ à¤¸à¥ƒà¤œà¤¨à¤¾à¤¤à¥à¤®à¤•à¤¤à¤¾ à¤•à¤¾ à¤¸à¤‚à¤•à¥à¤·à¤¿à¤ªà¥à¤¤ à¤¸à¤®à¥€à¤•à¥à¤·à¤¾",
-    author: "à¤¶à¥à¤µà¥‡à¤¤à¤¾ à¤¸à¤¿à¤‚à¤¹",
-    publishDate: "2026-03-31", // Please provide the actual publish date
-    page: "/vie/Volume 4 Issue 1 Article 65", // Please provide the actual page number
+    title: "श्रवण बाधित विद्यार्थियों की उपलब्धि अभिप्रेरणा एवं सृजनात्मकता का संक्षिप्त समीक्षा",
+    author: "श्वेता सिंह",
+    publishDate: "2026-03-31",
+    page: "/vie/Volume 4 Issue 1 Article 65",
     volume: "Volume 4",
     issue: "Issue 1",
     readArticle:""}, 
